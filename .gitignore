@@ -14,6 +14,7 @@ pnpm-debug.log*
 # Local only files
 *.local
 .cache/
+artifacts/
 
 # macOS-specific files
 .DS_Store

@@ -26,9 +26,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
+          lfs: true
           token: ${{ steps.get_workflow_token.outputs.token }}
 
       - name: Pull Tags
+        if: ${{ !env.ACT }}
         run: git fetch --prune --tags      
       
       - run: npm install -g yarn
