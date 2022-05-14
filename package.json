@@ -1,5 +1,5 @@
 {
-  "name": "@myhill-cycling/astro-landing_astra-web",
+  "name": "@myhill-cycling/astra-web",
   "version": "0.0.1",
   "private": true,
   "engines": {
@@ -30,7 +30,6 @@
     "@myhill-cycling/astro-favicon-intergration": "1.0.3",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
-    "@types/glob": "7.2.0",
     "@typescript-eslint/parser": "5.23.0",
     "astro": "1.0.0-beta.27",
     "astro-eslint-parser": "0.0.16",
@@ -46,11 +45,8 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.5.0",
     "flowbite": "1.4.5",
-    "glob": "8.0.1",
     "jest": "28.1.0",
-    "node-notifier": "10.0.1",
     "semantic-release": "19.0.2",
-    "semantic-release-monorepo": "7.0.5",
     "vite-imagetools": "4.0.3",
     "workbox-build": "6.5.3",
     "workbox-core": "6.5.3",
@@ -61,7 +57,6 @@
     "workbox-strategies": "6.5.3"
   },
   "release": {
-    "extends": "semantic-release-monorepo",
     "branches": [
       "main"
     ],
