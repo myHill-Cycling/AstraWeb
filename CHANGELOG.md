@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.0.1](https://github.com/myHill-Cycling/AstraWeb/compare/v1.0.0...v1.0.1) (2022-05-14)
+
+
+### Bug Fixes
+
+* fix deployment mis-configuration ([deadbfd](https://github.com/myHill-Cycling/AstraWeb/commit/deadbfdf3944eee251b7f81cfbe8b77f5054e31d))
+
 # 1.0.0 (2022-05-14)
 
 
