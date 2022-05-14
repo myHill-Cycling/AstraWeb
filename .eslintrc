@@ -1,0 +1,26 @@
+{
+    "extends": ["eslint:recommended", "preact"],
+    "plugins": [],
+    "rules": {
+        "quotes": ["warn", "double"],
+        "semi": ["error", "always"]
+    },
+    "ignorePatterns":[ "*.json"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
+    "overrides": [
+        {
+            "files": ["*.astro"],
+            "parser": "astro-eslint-parser",
+            // Parse the script in `.astro` as TypeScript by adding the following configuration.
+            "parserOptions": {
+                "parser": "@typescript-eslint/parser"
+            }
+        }
+    ],
+    "globals": {
+        "Astro": "readonly"
+    }
+}
