@@ -1,0 +1,16 @@
+---
+import Banner from "@pictures/index/banner.astro";
+import Layout from "@layouts/RootLayout.astro";
+//@ts-ignore
+import {SEO} from "astro-seo";
+
+---
+
+<Layout>
+    <SEO slot="head"
+        title="Welcome to myHill cycling"    
+    />
+    <main>
+        <Banner />
+    </main>
+</Layout>

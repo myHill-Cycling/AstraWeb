@@ -1,0 +1,32 @@
+---
+// import 3 different sizes of the image and create a srcset from them
+//@ts-ignore
+import srcsetAvif from "@assets/images/logo/myhill-horizontal-logo-full-colour-high-removebg-preview.png?w=100;120;200;400;600&avif&srcset";
+// do it a second time, but now as webp since safari can't display avif
+//@ts-ignore
+import srcsetWebp from "@assets/images/logo/myhill-horizontal-logo-full-colour-high-removebg-preview.png?w=100;120;200;400;600&webp&srcset";
+// do it a third time, but now as png as a fallback for all browsers
+//@ts-ignore
+import srcsetPng from "@assets/images/logo/myhill-horizontal-logo-full-colour-high-removebg-preview.png?w=100;120;200;400;600&png&srcset";
+// create a small placeholder and import its metadata
+//@ts-ignore
+import { src as placeholder } from "@assets/images/logo/myhill-horizontal-logo-full-colour-high-removebg-preview.png?w=100&metadata";
+
+export interface Props {
+    class?: string,
+    width?: number
+}
+
+const props = Astro.props as Props;
+
+---
+
+<picture >
+    <source srcset={srcsetAvif} type="image/avif" />
+    <source srcset={srcsetWebp} type="image/webp" />
+    <source srcset={srcsetPng} type="image/png" />
+    <img class={props.class}
+        src={placeholder}
+        width={props.width ?? 100}
+        alt="myHill Cycling" />
+</picture>
