@@ -13,7 +13,7 @@ jobs:
       - name: Download Release
         uses: actions/download-artifact@v3
         with:
-          name: website-${{ github.sha }}
+          name: website-${{ github.ref_name }}
           path: ./dist/
 
       - name: Deploy to Azure
