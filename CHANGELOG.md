@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.0.3](https://github.com/myHill-Cycling/AstraWeb/compare/v1.0.2...v1.0.3) (2022-05-15)
+
+
+### Bug Fixes
+
+* azure can now download release assets ([3123d74](https://github.com/myHill-Cycling/AstraWeb/commit/3123d74ccc33abaa3bbcf8fdea07a1924701683b))
+
 ## [1.0.2](https://github.com/myHill-Cycling/AstraWeb/compare/v1.0.1...v1.0.2) (2022-05-15)
 
 
