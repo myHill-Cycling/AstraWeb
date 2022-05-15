@@ -7,6 +7,12 @@ jobs:
   deploy_to_azure:
     name: "Deploy to Azure"
     runs-on: ubuntu-latest
+    permissions:
+      checks: write
+      contents: read
+      deployments: write
+      issues: write
+      pull-requests: write
     environment:
       name: production
     steps:
@@ -17,6 +23,16 @@ jobs:
           tag: ${{ github.ref_name }}
           fileName: "static_site.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: altinukshini/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: production
+          pr: false
+          initial_status: in_progress
+          ref: ${{ github.ref }}
 
       - name: Unzip release
         run: unzip static_site.zip -d ./dist
@@ -36,3 +52,21 @@ jobs:
           output_location: "" # Built app content directory - optional
           skip_app_build: true
           ###### End of Repository/Build Configurations ######
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: altinukshini/deployment-status@releases/v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target_url: ${{ steps.deploy.outputs.static_web_app_url }}
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: altinukshini/deployment-status@releases/v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target_url: ${{ steps.deploy.outputs.static_web_app_url }}
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
