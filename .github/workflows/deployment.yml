@@ -10,11 +10,16 @@ jobs:
     environment:
       name: production
     steps:
-      - name: Download Release
-        uses: actions/download-artifact@v3
+      - uses: robinraju/release-downloader@v1.3
+        name: Download release
         with:
-          name: website-${{ github.ref_name }}
-          path: ./dist/
+          repository: "myHill-Cycling/AstraWeb"
+          tag: ${{ github.ref_name }}
+          fileName: "static_site.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Unzip release
+        run: unzip static_site.zip - ./dist
 
       - name: Deploy to Azure
         id: deploy
