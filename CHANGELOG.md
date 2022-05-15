@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.1.1](https://github.com/myHill-Cycling/AstraWeb/compare/v1.1.0...v1.1.1) (2022-05-15)
+
+
+### Reverts
+
+* workflows update deployment status ([de06c0c](https://github.com/myHill-Cycling/AstraWeb/commit/de06c0c25ac22cea97c7f9242e5065b024648af8))
+
 # [1.1.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.0.4...v1.1.0) (2022-05-15)
 
 ## [1.0.4](https://github.com/myHill-Cycling/AstraWeb/compare/v1.0.3...v1.0.4) (2022-05-15)
