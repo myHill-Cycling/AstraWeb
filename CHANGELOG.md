@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+## [1.0.4](https://github.com/myHill-Cycling/AstraWeb/compare/v1.0.3...v1.0.4) (2022-05-15)
+
+
+### Bug Fixes
+
+* fix typo preventing asset de-compressing ([2cc911a](https://github.com/myHill-Cycling/AstraWeb/commit/2cc911a226b536f19a6cc41861875ffe939be052))
+
 ## [1.0.3](https://github.com/myHill-Cycling/AstraWeb/compare/v1.0.2...v1.0.3) (2022-05-15)
 
 
