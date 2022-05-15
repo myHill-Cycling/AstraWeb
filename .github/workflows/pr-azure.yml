@@ -9,6 +9,12 @@ on:
 
 jobs:
   deploy_preview:
+    permissions:
+      checks: write
+      contents: read
+      deployments: write
+      issues: write
+      pull-requests: write
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     runs-on: ubuntu-latest
     name: Deploy preview app
@@ -24,7 +30,7 @@ jobs:
           cache: "yarn"
 
       - name: "Dependency Module Cache"
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: "**/node_modules"
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
@@ -36,6 +42,17 @@ jobs:
         run: yarn build
         env:
           RFG_API_KEY: ${{ secrets.RFG_API_KEY }}
+
+      - uses: altinukshini/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: staging
+          pr: true
+          pr_id: ${{ github.event.number }}
+          initial_status: in_progress
+          ref: ${{ github.ref }}
 
       - name: Deploy Release
         id: deploy
@@ -53,7 +70,31 @@ jobs:
           skip_app_build: true
           ###### End of Repository/Build Configurations ######
 
+      - name: Update deployment status (success)
+        if: success()
+        uses: altinukshini/deployment-status@releases/v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target_url: ${{ steps.deploy.outputs.static_web_app_url }}
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: altinukshini/deployment-status@releases/v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target_url: ${{ steps.deploy.outputs.static_web_app_url }}
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
   close_pull_request_preview:
+    permissions:
+      checks: write
+      contents: read
+      deployments: write
+      issues: write
+      pull-requests: write
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request Preview
