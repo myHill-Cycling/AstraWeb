@@ -64,10 +64,16 @@ jobs:
         env:
           RFG_API_KEY: ${{ secrets.RFG_API_KEY }}
 
+      - name: Generate version
+        id: fetch_version
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+        run: echo ::set-output name=version::v$(yarn semantic-release --dry-run | grep -oP 'Published release \K(?:.?\d)*')
+
       - name: Upload website artifact
         uses: actions/upload-artifact@v3
         with:
-          name: website-${{ github.sha }}
+          name: website-${{ steps.fetch_version.outputs.version }}
           path: ./dist/
 
       - name: Archive distribution
