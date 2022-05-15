@@ -19,7 +19,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Unzip release
-        run: unzip static_site.zip - ./dist
+        run: unzip static_site.zip -d ./dist
 
       - name: Deploy to Azure
         id: deploy
