@@ -1,0 +1,29 @@
+---
+//@ts-ignore
+import srcsetAvif from "@assets/images/index/partners/Pillar_logo Dark_half.webp?w=50;100;118;160&avif&srcset";
+// do it a second time, but now as webp since safari can't display avif
+//@ts-ignore
+import srcsetWebp from "@assets/images/index/partners/Pillar_logo Dark_half.webp?w=50;100;118;160&webp&srcset";
+// do it a third time, but now as png as a fallback for all browsers
+//@ts-ignore
+import srcsetPng from "@assets/images/index/partners/Pillar_logo Dark_half.webp?w=50;100;118;160&png&srcset";
+// create a small placeholder and import its metadata
+//@ts-ignore
+import { src as placeholder } from "@assets/images/index/partners/Pillar_logo Dark_half.webp?w=50&metadata";
+
+export interface Props {
+    class?: string
+}
+
+const props = Astro.props as Props;
+
+---
+
+<picture>
+    <source srcset={srcsetAvif} type="image/avif" />
+    <source srcset={srcsetWebp} type="image/webp" />
+    <source srcset={srcsetPng} type="image/png" />
+    <img class={props.class}
+        src={placeholder}
+        alt="PILLAR" />
+</picture>
