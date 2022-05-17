@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "skipDefaultLibCheck": true,
     "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
@@ -13,12 +14,13 @@
       "@assets/*": ["./assets/*"],
       "@pictures/*": ["./src/components/pictureHelpers/*"],
       "@worker/*": ["./src/worker/*"]
-    }
+    },
+    "jsx": "preserve"
   },
   "exclude": [
-    "node_modules",
-    "dist",
-    ".cache",
-    ".yarn"
+    "node_modules/*",
+    "dist/*",
+    ".cache/*",
+    ".yarn/*"
   ]
 }
