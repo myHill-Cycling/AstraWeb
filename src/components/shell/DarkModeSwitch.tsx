@@ -5,18 +5,23 @@ type DarkModeSwitchProps = {
 };
 
 const DarkModeSwitch = (props: DarkModeSwitchProps) => {
-  const [value, setValue] = useState(
-    localStorage.getItem("color-theme") === "dark"
+  const [value, setValue] = useState(() => {
+    const val = localStorage.getItem("color-theme") === "dark"
             || (!("color-theme" in localStorage)
-                && window.matchMedia("(prefers-color-scheme: dark)").matches)
+                && window.matchMedia("(prefers-color-scheme: dark)").matches);
+                console.debug(`Inital dark mode state: ${val}`);
+                return val;
+              }
   );
 
   useEffect(() => {
     if (value) {
       localStorage.setItem("color-theme", "dark");
+      console.debug("Dark class added to root document");
       document.documentElement.classList.add("dark");
     } else {
       localStorage.removeItem("color-theme");
+      console.debug("Dark class removed from root document");
       document.documentElement.classList.remove("dark");
     }
   }, [value]);
@@ -27,7 +32,7 @@ const DarkModeSwitch = (props: DarkModeSwitchProps) => {
                 <button
                     aria-label={`Switch to ${value ? "light" : "dark"} mode`}
                     type="button"
-                    onClick={() => setValue(!value)}
+                    onClick={() => {console.debug("Toggling dark mode value"); setValue(!value);}}
                     class="text-gray-500 dark:text-gray-400 hover:bg-gray-400 bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
                 >
                     <svg

@@ -10,7 +10,12 @@ import {SEO} from "astro-seo";
     <SEO slot="head"
         title="Welcome to myHill cycling"    
     />
-    <main>
-        <Banner />
+    <main class="relative">
+        <div class="w-full h-full top-0 left-0">
+            <Banner />
+        </div>
+        <div class="absolute w-full h-full top-10 left-0 z-10">
+            <p class="bottom-80 backdrop-blur-sm bg-white/60 text-brand p-2 pb-4 sm:p-4 sm:pb-6 text-lg sm:text-6xl">aspire:<b>enjoy</b>:inspire</p>
+        </div>
     </main>
 </Layout>
