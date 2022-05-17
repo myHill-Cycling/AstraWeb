@@ -4,7 +4,13 @@ dist/
 
 # dependencies
 node_modules/
-
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # logs
 npm-debug.log*
@@ -16,7 +22,6 @@ pnpm-debug.log*
 *.local
 .cache/
 artifacts/
-.yarn/install-state.gz
 
 # macOS-specific files
 .DS_Store
