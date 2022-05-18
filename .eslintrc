@@ -1,10 +1,22 @@
 {
-    "extends": ["eslint:recommended", "preact"],
+    "extends": ["eslint:recommended", "preact", "plugin:cypress/recommended"],
     "plugins": [],
     "rules": {
         "quotes": ["warn", "double"],
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "jest/expect-expect": "off",
+        "jest/valid-expect": "off",
+        "jest/valid-expect-in-promise": "off",
+        "jest/no-standalone-expect": "off"
     },
+    "settings": {
+        "jest": {
+          "version": "28.1.0"
+        }
+      },
+      "env": {
+        "cypress/globals": true
+      },
     "ignorePatterns":[ "*.json"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
