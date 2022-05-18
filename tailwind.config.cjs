@@ -11,7 +11,7 @@ module.exports = {
 		colors: {
 			brand: "#f70702",
 			"brand-contrast": colors.white,
-			"dark-mode-foreground": colors.white,
+			"dark-mode-foreground": colors.white
 		},
 		extend: {
 			fontFamily: {

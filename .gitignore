@@ -25,3 +25,7 @@ artifacts/
 
 # macOS-specific files
 .DS_Store
+
+# Cypress
+cypress/screenshots
+cypress/videos

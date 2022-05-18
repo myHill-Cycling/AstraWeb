@@ -12,6 +12,8 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
+const { lighthouse, prepareAudit } = require("@cypress-audit/lighthouse");
+
 /**
  * @type {Cypress.PluginConfig}
  */
@@ -19,4 +21,12 @@
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
-}
+  // eslint-disable-next-line no-unused-vars
+  on("before:browser:launch", (browser = {}, launchOptions) => {
+    prepareAudit(launchOptions);
+  });
+
+  on("task", {
+    lighthouse: lighthouse()
+  });
+};

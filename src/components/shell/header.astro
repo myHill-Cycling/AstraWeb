@@ -1,20 +1,27 @@
 ---
 import DarkModeSwitch from "@components/shell/DarkModeSwitch.tsx";
 import Logo from "@pictures/logo/HorizontalFullColour.astro";
+import navLinks from "src/helpers/NavigationLinks";
 
+const navLinkPadding = "py-2 pr-4 pl-3 md:p-0";
+const navLinkBorders = "border-b border-gray-100 dark:border-gray-700 md:border-0";
+const navLinkColours = "text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:hover:text-blue-700";
+const navLinkDarkColours = "dark:text-gray-200 dark:hover:bg-gray-700 md:dark:hover:text-white dark:hover:text-white md:dark:hover:bg-transparent";
+
+const navLinkClasses = `block ${navLinkPadding} ${navLinkBorders} ${navLinkColours} ${navLinkDarkColours}`;
 ---
 
-<header class="dark:bg-gray-500 bg-gray-200">
+<header class="dark:bg-gray-700 bg-gray-200">
     <nav class="px-2 sm:px-4 py-2.5">
-        <a href="/" class="sm:hidden">
+        <a href="/" class="sm:hidden dark:backdrop-blur-sm dark:bg-white/60 dark:rounded p-2">
             <Logo class="mx-auto mb-2 h-9" width={120} />
         </a>
         <div
             class="sm:container sm:flex sm:flex-wrap sm:justify-between sm:items-center sm:mx-auto"
         >
-            <a href="/" class="hidden sm:block">
+            <a href="/" class="hidden sm:block dark:backdrop-blur-sm dark:bg-white/60 dark:rounded p-2">
                 <Logo width={120}
-                    class="mr-3 h-6 sm:h-9"
+                    class="mr-3 h-6 sm:h-9 "
                 />
             </a>
             <div class="justify-between flex md:order-2">
@@ -62,34 +69,16 @@ import Logo from "@pictures/logo/HorizontalFullColour.astro";
                 <ul
                     class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium"
                 >
-                    <li>
+                {navLinks.map(link => (
+                     <li>
                         <a
-                            href="/about"
-                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            >About</a
+                            href={link.url}
+                            class={navLinkClasses}                        
+                                
+                            >{link.name}</a
                         >
                     </li>
-                    <li>
-                        <a
-                            href="/services"
-                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            >Services</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/contact"
-                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            >Contact</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/shop"
-                            class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                            >Shop</a
-                        >
-                    </li>
+                ))}
                 </ul>
             </div>
         </div>
