@@ -7,14 +7,11 @@ on:
       - "CHANGELOG.md"
       - "package.json"
 
-env:
-  CYPRESS_CONTAINER: "cypress/browsers:node16.14.2-slim-chrome100-ff99-edge"
-
 jobs:
   build_website:
     name: Build Website
     runs-on: ubuntu-latest
-    container: ${{ env.CYPRESS_CONTAINER }}
+    container: "cypress/browsers:node16.14.2-slim-chrome100-ff99-edge"
     outputs:
       WebsiteArtifactName: website-${{ github.sha }}
     steps:
@@ -62,7 +59,7 @@ jobs:
   test:
     name: Tests
     runs-on: ubuntu-latest
-    container: ${{ env.CYPRESS_CONTAINER }}
+    container: "cypress/browsers:node16.14.2-slim-chrome100-ff99-edge"
     needs: [build_website]
     strategy:
       fail-fast: false
