@@ -1,5 +1,6 @@
 {
     "$schema": "https://on.cypress.io/cypress.schema.json",
+    "projectId": "x3qdiq",
     "baseUrl": "http://localhost:3000",
     "nodeVersion": "system"
 }
