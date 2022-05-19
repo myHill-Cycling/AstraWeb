@@ -11,16 +11,9 @@ jobs:
   build_website:
     name: Build Website
     runs-on: ubuntu-latest
-    container: "cypress/browsers:node16.14.2-slim-chrome100-ff99-edge"
     outputs:
       WebsiteArtifactName: website-${{ github.sha }}
     steps:
-      - name: Install GIT LFS Repository
-        run: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-
-      - name: Install GIT LFS
-        run: apt-get install -y git-lfs
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -65,7 +58,6 @@ jobs:
   test:
     name: Tests
     runs-on: ubuntu-latest
-    container: "cypress/browsers:node16.14.2-slim-chrome100-ff99-edge"
     needs: [build_website]
     strategy:
       fail-fast: false

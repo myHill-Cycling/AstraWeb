@@ -11,16 +11,9 @@ jobs:
   build_website:
     name: Build Website
     runs-on: ubuntu-latest
-    container: "cypress/browsers:node16.14.2-slim-chrome100-ff99-edge"
     outputs:
       WebsiteArtifactName: website-${{ github.sha }}
     steps:
-      - name: Install GIT LFS Repository
-        run: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-
-      - name: Install GIT LFS
-        run: apt-get install -y git-lfs
-
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -40,7 +33,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: "**/node_modules"
-          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"      
 
       - name: Dependency installation
         uses: cypress-io/github-action@v2
@@ -65,13 +58,12 @@ jobs:
   test:
     name: Tests
     runs-on: ubuntu-latest
-    container: "cypress/browsers:node16.14.2-slim-chrome100-ff99-edge"
     needs: [build_website]
     strategy:
       fail-fast: false
       matrix:
         containers: [1, 2, 3]
-        browser: [edge, chrome, firefox]
+        browser: [chrome, firefox]
     steps:
       - name: Checkout
         uses: actions/checkout@v3      
@@ -88,7 +80,7 @@ jobs:
         id: module_cache
         with:
           path: "**/node_modules"
-          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"      
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
       - name: Run Cypress
         uses: cypress-io/github-action@v2
