@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@types/jquery": "^3.5.14",
+    "astro": "1.0.0-beta.27",
     "preact": "10.7.2"
   },
   "devDependencies": {
@@ -35,7 +36,6 @@
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
     "@typescript-eslint/parser": "5.23.0",
-    "astro": "1.0.0-beta.27",
     "astro-eslint-parser": "0.0.16",
     "astro-icon": "0.7.1",
     "astro-robots-txt": "0.1.15",

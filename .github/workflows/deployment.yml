@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
+      url: ${{ steps.deploy.outputs.static_web_app_url }}
     steps:
       - uses: robinraju/release-downloader@v1.3
         name: Download release
