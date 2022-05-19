@@ -15,8 +15,11 @@ jobs:
     outputs:
       WebsiteArtifactName: website-${{ github.sha }}
     steps:
+      - name: Install GIT LFS Repository
+        run: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt 
+
       - name: Install GIT LFS
-        run: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+        run: apt-get install -y git-lfs
 
       - name: Checkout
         uses: actions/checkout@v3
