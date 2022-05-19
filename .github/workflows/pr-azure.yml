@@ -16,7 +16,7 @@ jobs:
       WebsiteArtifactName: website-${{ github.sha }}
     steps:
       - name: Install GIT LFS Repository
-        run: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && apt 
+        run: curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 
       - name: Install GIT LFS
         run: apt-get install -y git-lfs
