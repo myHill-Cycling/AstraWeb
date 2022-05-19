@@ -90,7 +90,6 @@ jobs:
       - name: Run Cypress
         uses: cypress-io/github-action@v2
         with:
-          runTests: false
           start: yarn preview
           install-command: yarn install --immutable
           wait-on: 'http://localhost:3000'
