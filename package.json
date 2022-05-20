@@ -42,7 +42,7 @@
     "eslint-plugin-compat": "4.0.2",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jest": "26.2.2",
-    "eslint-plugin-react": "7.29.4",
+    "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
     "flowbite": "1.4.5",
     "jest": "28.1.0",
