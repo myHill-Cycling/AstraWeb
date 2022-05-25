@@ -1,5 +1,5 @@
 import type {Event} from "../../fixtures";
-import { RunAccessabilityAudit, RunLighthouseAudit } from "../../support/auditTests";
+import { RunAccessabilityAudit } from "../../support/auditTests";
 
 function EventListing() {
     beforeEach(() => {
@@ -81,7 +81,6 @@ context("Index Page", () => {
     context("Desktop viewport", () => {
 
         RunAccessabilityAudit("/");
-        RunLighthouseAudit("/");
 
         context("Welcome banner", () => {
             context("Dark mode", () => {
@@ -138,7 +137,6 @@ context("Index Page", () => {
         });
 
         RunAccessabilityAudit("/");
-        RunLighthouseAudit("/");
 
         context("Welcome banner", () => {
             context("Dark mode", () => {
@@ -195,7 +193,6 @@ context("Index Page", () => {
         });
 
         RunAccessabilityAudit("/");
-        RunLighthouseAudit("/");
 
         context("Welcome banner", () => {
             context("Dark mode", () => {

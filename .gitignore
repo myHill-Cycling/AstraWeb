@@ -29,3 +29,6 @@ artifacts/
 # Cypress
 cypress/screenshots
 cypress/videos
+
+
+*.tsbuildinfo

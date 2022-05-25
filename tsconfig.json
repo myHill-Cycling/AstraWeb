@@ -13,14 +13,21 @@
       "@layouts/*": ["./src/layouts/*"],
       "@assets/*": ["./assets/*"],
       "@pictures/*": ["./src/components/pictureHelpers/*"],
-      "@worker/*": ["./src/worker/*"]
+      "@worker/*": ["./src/worker/*"],
+      "@helpers/*":["./src/helpers/*"]
     },
-    "jsx": "preserve"
+    "noEmit": true,
+    "jsx": "preserve",
+    "rootDir": "."
   },
+  "include": ["./src/*"],
   "exclude": [
     "node_modules/*",
     "dist/*",
     ".cache/*",
     ".yarn/*"
+  ],
+  "references": [
+    {"path": "./cypress"}
   ]
 }
