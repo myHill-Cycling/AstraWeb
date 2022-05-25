@@ -20,10 +20,9 @@
     "lint": "eslint . --ext .js,.ts.jsx,.tsx,.cjs,.mjs --ignore-path .gitignore --cache --cache-location ./.cache/eslint/",
     "lint#fix": "yarn run lint --fix",
     "cypress#open": "cypress open",
-    "type-check": "tsc --noEmit -p ."
+    "type-check": "tsc -b"
   },
   "dependencies": {
-    "@types/jquery": "^3.5.14",
     "astro": "1.0.0-beta.27",
     "preact": "10.7.2"
   },
@@ -35,6 +34,7 @@
     "@myhill-cycling/astro-favicon-intergration": "1.0.3",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
+    "@types/jquery": "3.5.14",
     "@typescript-eslint/parser": "5.23.0",
     "astro-eslint-parser": "0.0.16",
     "astro-icon": "0.7.1",

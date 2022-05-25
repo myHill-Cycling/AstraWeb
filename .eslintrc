@@ -17,12 +17,15 @@
       "env": {
         "cypress/globals": true
       },
-    "ignorePatterns":[ "*.json"],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "project": "./tsconfig.json"
-    },
+    "ignorePatterns":[ "*.json"],    
     "overrides": [
+        {
+            "files": ["*.ts", "*.tsx"],
+            "parser": "@typescript-eslint/parser",
+            "parserOptions": {
+                "project": ["./tsconfig.json", "./**/tsconfig.json"]
+            },
+        },
         {
             "files": ["*.astro"],
             "parser": "astro-eslint-parser",
