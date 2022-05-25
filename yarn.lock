@@ -1982,7 +1982,7 @@ __metadata:
     astro: 1.0.0-beta.31
     astro-eslint-parser: 0.0.16
     astro-icon: 0.7.1
-    astro-robots-txt: 0.1.15
+    astro-robots-txt: 0.1.17
     astro-seo: 0.5.0
     dotenv: 16.0.1
     eslint: 8.16.0
@@ -3502,10 +3502,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-robots-txt@npm:0.1.15":
-  version: 0.1.15
-  resolution: "astro-robots-txt@npm:0.1.15"
-  checksum: b99cbaa93fd7f02ab05c5cba7e32ffaf603a785284a6189f2bab83d1acadbe5d8f9220debc8557067d0aa021e9edb233479a104c0e1914331d946dd42570654c
+"astro-robots-txt@npm:0.1.17":
+  version: 0.1.17
+  resolution: "astro-robots-txt@npm:0.1.17"
+  checksum: 81477eeacd06a8a04833ede711a1bf2f2b7549ce007347e9ec191e95ad71b12f49539d62ca4d2d7719f1d6b7f6131b68b3d439f56f27f0f2bfa8cc5f3009196a
   languageName: node
   linkType: hard
 
