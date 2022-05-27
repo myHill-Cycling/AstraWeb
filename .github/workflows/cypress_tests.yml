@@ -1,0 +1,72 @@
+on:
+  workflow_call:
+    inputs:
+      WebsiteArtifactName:
+        description: "The name of the artifact containing the built website"
+        type: string
+        required: true
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+      CYPRESS_RECORD_KEY:
+        required: false
+
+
+jobs:
+  cypress_installation:
+    name: Cypress Framework Setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3     
+
+      - name: Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: Install framework
+        uses: cypress-io/github-action@v2
+        with:
+          # Disable running of tests within install job
+          runTests: false
+
+  cypress_tests:
+    name: Cypress Test Execution
+    needs: [cypress_installation]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+        browser: [edge, chrome, firefox]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3      
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.WebsiteArtifactName }}
+          # download all files into "dist" folder
+          path: dist
+
+      - name: Run Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          start: npx http-server ./dist -p 3000 --cors
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120
+          browser: ${{ matrix.browser }}
+          record: ${{ !env.ACT }}
+          parallel: true
+          group: ${{ matrix.browser }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      
