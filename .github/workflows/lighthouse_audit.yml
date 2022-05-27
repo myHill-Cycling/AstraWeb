@@ -1,0 +1,34 @@
+on:
+  workflow_call:
+    inputs:
+      WebsiteArtifactName:
+        description: "The name of the artifact containing the built website"
+        type: string
+        required: true
+
+jobs:
+  lighthouse:
+    name: Lighthouse audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3      
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.WebsiteArtifactName }}
+          # download all files into "dist" folder
+          path: dist    
+      
+      - name: Install Lighthouse Modules
+        run: yarn add --no-lockfile lighthouse-plugin-field-performance
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          # no urls needed, since it uses local folder to scan .html files
+          configPath: './.github/lighthouse/.lighthouserc.js'
+          budgetPath: './.github/lighthouse/budget.json'
+          runs: 3
+          uploadArtifacts: true
