@@ -6,7 +6,7 @@ on:
         type: string
         required: true
     secrets:
-      GITHUB_TOKEN:
+      CI_TOKEN:
         required: true
       CYPRESS_RECORD_KEY:
         required: false
@@ -67,6 +67,6 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # Recommended: pass the GitHub token lets this action correctly
           # determine the unique run id necessary to re-run the checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CI_TOKEN }}
 
       
