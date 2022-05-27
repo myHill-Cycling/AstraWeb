@@ -3,7 +3,7 @@
       "target": "es5",
       "skipLibCheck": true,
       "lib": ["es5", "dom"],
-      "types": ["cypress", "jquery", "cypress-axe", "@cypress-audit/lighthouse"],
+      "types": ["cypress", "jquery", "cypress-axe"],
       "composite": true
     },
     "extends": "../tsconfig.json",
