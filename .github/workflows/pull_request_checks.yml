@@ -18,6 +18,8 @@ jobs:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     uses: ./.github/workflows/lighthouse_audit.yml
     needs: [build_website]
+    secrets:
+      LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
     with:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
 
