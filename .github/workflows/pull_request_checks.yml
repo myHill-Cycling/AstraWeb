@@ -22,11 +22,7 @@ jobs:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
 
   cypress_test:
-    permissions:
-      contents: read
-      pull-requests: write
-      checks: write
-      statuses: write
+    permissions: write-all
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     uses: ./.github/workflows/cypress_tests.yml
     needs: [build_website]
