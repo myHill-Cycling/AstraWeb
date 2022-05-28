@@ -40,7 +40,7 @@ jobs:
       fail-fast: false
       matrix:
         containers: [1, 2, 3]
-        browser: [edge, chrome, firefox]
+        browser: [chrome, firefox]
     steps:
       - name: Checkout
         uses: actions/checkout@v3      
