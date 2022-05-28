@@ -8,7 +8,7 @@ module.exports = {
         }
       },
       assert: {
-        // assert options here
+        preset: 'lighthouse:recommended',
       },
       upload: {
         // upload options here
