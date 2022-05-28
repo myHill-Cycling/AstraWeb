@@ -1,10 +1,5 @@
 export function RunAccessabilityAudit(url: string){
-    context("Accessability", {
-        retries: {
-            runMode: 2,
-            openMode: 1,
-          }
-    }, () => {
+    context("Accessability", () => {
         specify("Light mode", () => {
             cy.visit(url, {
                 onBeforeLoad (window) {
