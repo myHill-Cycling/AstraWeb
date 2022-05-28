@@ -42,3 +42,5 @@ jobs:
           budgetPath: './.github/lighthouse/budget.json'
           runs: 3
           uploadArtifacts: true
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
