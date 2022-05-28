@@ -19,10 +19,20 @@ jobs:
         with:
           name: ${{ inputs.WebsiteArtifactName }}
           # download all files into "dist" folder
-          path: dist    
+          path: dist
+
+      - run: yarn --version || npm install -g yarn
+        name: Install yarn
+
+      - name: Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
       
       - name: Install Lighthouse Modules
-        run: yarn add --no-lockfile lighthouse-plugin-field-performance
+        run: yarn add lighthouse-plugin-field-performance
 
       - name: Run Lighthouse
         uses: treosh/lighthouse-ci-action@v9
