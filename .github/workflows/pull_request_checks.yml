@@ -23,6 +23,7 @@ jobs:
 
   cypress_test:
     permissions:
+      contents: read
       pull-requests: write
       checks: write
       statuses: write
