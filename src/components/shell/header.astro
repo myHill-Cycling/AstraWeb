@@ -13,14 +13,16 @@ const navLinkClasses = `block ${navLinkPadding} ${navLinkBorders} ${navLinkColou
 
 <header class="dark:bg-gray-700 bg-gray-200">
     <nav class="px-2 sm:px-4 py-2.5">
-        <a href="/" class="sm:hidden dark:backdrop-blur-sm dark:bg-white/60 dark:rounded p-2">
-            <Logo class="mx-auto mb-2 h-9" width={120} />
+        <a href="/" class="sm:hidden">
+            <div class="dark:backdrop-blur-sm dark:bg-white/60 dark:rounded py-2 mb-2">
+                <Logo class="mx-auto h-9" width={120} />
+            </div>
         </a>
         <div
             class="sm:container sm:flex sm:flex-wrap sm:justify-between sm:items-center sm:mx-auto"
         >
             <a href="/" class="hidden sm:block dark:backdrop-blur-sm dark:bg-white/60 dark:rounded p-2">
-                <Logo width={120}
+                <Logo width={120} height={36}
                     class="mr-3 h-6 sm:h-9 "
                 />
             </a>
