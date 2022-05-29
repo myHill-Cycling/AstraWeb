@@ -42,8 +42,8 @@ jobs:
         with:
           # no urls needed, since it uses local folder to scan .html files
           configPath: './.github/lighthouse/.lighthouserc.js'
-          budgetPath: './.github/lighthouse/budget.json'
           runs: 3
           uploadArtifacts: true
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          LHCI_UPLOAD__GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

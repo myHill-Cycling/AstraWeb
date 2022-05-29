@@ -1,8 +1,6 @@
 ---
 import Header from "@components/shell/header.astro";
 import Footer from "@components/shell/footer.astro";
-import SW from "@components/shell/sw.tsx";
-
 ---
 
 <!DOCTYPE html>
@@ -11,7 +9,7 @@ import SW from "@components/shell/sw.tsx";
         <!-- <GtmHead /> -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200;1,300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200;1,300&display=swap" rel="preload" as="style">
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/png" href="/img/favi/favicon.png" />
@@ -37,6 +35,5 @@ import SW from "@components/shell/sw.tsx";
         </div>
         <Footer />
         <script> import "flowbite"; </script>
-        <SW client:only="preact" />
     </body>
 </html>

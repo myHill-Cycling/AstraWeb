@@ -4,11 +4,16 @@ module.exports = {
         // collect options here
         staticDistDir: "./dist",
         settings: {
-            plugins: ["lighthouse-plugin-field-performance"]
+            chromeFlags: "--no-sandbox --headless"
         }
       },
       assert: {
-        preset: 'lighthouse:recommended',
+        preset: 'lighthouse:no-pwa',
+        assertions: {
+          "csp-xss": "off", //CSP handled in server outside of lighthouse
+          "legacy-javascript": "off", //JavaScript is generated from Astro and can't be developer controlled
+          "image-size-responsive": "off" //We don't have any high resolution images avaliable
+        }
       },
       upload: {
         // upload options here
