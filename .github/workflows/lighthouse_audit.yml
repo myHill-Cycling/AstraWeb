@@ -26,13 +26,6 @@ jobs:
 
       - run: yarn --version || npm install -g yarn
         name: Install yarn
-
-      - name: Node Setup
-        if: ${{ !env.ACT }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: "yarn"
       
       - name: Install Lighthouse Modules
         run: yarn add lighthouse-plugin-field-performance
