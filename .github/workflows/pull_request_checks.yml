@@ -47,6 +47,8 @@ jobs:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     runs-on: ubuntu-latest
     name: Deploy preview app
+    outputs:
+      static_web_app_url: ${{ steps.deploy.outputs.static_web_app_url }}
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v3
