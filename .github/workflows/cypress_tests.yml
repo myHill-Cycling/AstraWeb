@@ -39,7 +39,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2, 3]
+        #containers: [1, 2, 3]
         browser: [chrome, firefox]
     steps:
       - name: Checkout
@@ -61,7 +61,7 @@ jobs:
           wait-on-timeout: 120
           browser: ${{ matrix.browser }}
           record: ${{ !env.ACT }}
-          parallel: true
+          parallel: false
           group: ${{ matrix.browser }}
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
