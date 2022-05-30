@@ -44,7 +44,7 @@ jobs:
           # download all files into "dist" folder
           path: dist
 
-      - run: yarn start
+      - run: yarn start &>/dev/null &
         name: Start Server
 
       - uses: cygnetdigital/wait_for_response@v2.0.0
