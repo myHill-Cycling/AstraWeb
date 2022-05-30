@@ -16,6 +16,8 @@ const options = {
     headers: siteConfig.globalHeaders
 };
 
+console.debug("Running server with configuration: ", options);
+
 const httpServer = createServer(options);
 httpServer.listen(3000, "localhost", () => {
     const address = httpServer.server.address();
