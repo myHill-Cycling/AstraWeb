@@ -14,6 +14,7 @@
     "Vespion"
   ],
   "scripts": {
+    "start": "node staging-server.cjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -21,10 +22,6 @@
     "lint#fix": "yarn run lint --fix",
     "cypress#open": "cypress open",
     "type-check": "tsc -b"
-  },
-  "dependencies": {
-    "astro": "1.0.0-beta.27",
-    "preact": "10.7.2"
   },
   "devDependencies": {
     "@astrojs/preact": "0.1.2",
@@ -53,6 +50,8 @@
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
     "flowbite": "1.4.7",
+    "http-server": "14.1.0",
+    "preact": "10.7.2",
     "semantic-release": "19.0.2",
     "typescript": "4.6.4",
     "vite-imagetools": "4.0.3"

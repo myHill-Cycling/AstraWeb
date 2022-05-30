@@ -1,0 +1,36 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 15 */2 * *"
+
+env:
+  URL_ROOT: https://calm-plant-0e1398703.1.azurestaticapps.net
+
+jobs:
+  audit_http:
+    uses: ./.github/workflows/http_audit.yml
+    with:
+      WebsiteUrl: ${{env.URL_ROOT}}/
+
+  scan_links:
+    uses: ./.github/workflows/link_scanner.yml
+    with:
+      WebsiteUrl: ${{env.URL_ROOT}}/
+
+  run_lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: | 
+            ${{env.URL_ROOT}}/
+          configPath: './.github/lighthouse/.lighthouserc.live.js'
+          runs: 3
+          uploadArtifacts: true
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          LHCI_UPLOAD__GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
