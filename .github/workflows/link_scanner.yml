@@ -1,0 +1,54 @@
+on:
+  workflow_call:
+    inputs:
+      WebsiteUrl:
+        description: "The url of the website to audit"
+        type: string
+        required: false
+      WebsiteArtifactName:
+        description: "Name of the artifact to test"
+        type: string
+        required: false
+
+jobs:
+  build_and_scan:
+    if: ${{ inputs.WebsiteArtifactName != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.WebsiteArtifactName }}
+          # download all files into "dist" folder
+          path: dist
+
+      - run: yarn start
+        name: Start Server
+
+      - uses: cygnetdigital/wait_for_response@v2.0.0
+        name: Wait for server to be ready
+        with:
+          url: http://localhost:3000/
+          timeout: 10000
+
+      - uses: ScholliYT/Broken-Links-Crawler-Action@v3
+        with:
+          website_url: http://localhost:3000/
+          # exclude_url_prefix: 'mailto:,https://www.linkedin.com,https://linkedin.com'
+          verbose: true
+          max_retry_time: 30
+          max_retries: 5
+          max_depth: -1
+
+  scan_links:
+    if: ${{ inputs.WebsiteArtifactName == '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ScholliYT/Broken-Links-Crawler-Action@v3
+        with:
+          website_url: ${{ inputs.WebsiteUrl }}
+          # exclude_url_prefix: 'mailto:,https://www.linkedin.com,https://linkedin.com'
+          verbose: true
+          max_retry_time: 30
+          max_retries: 5
+          max_depth: -1

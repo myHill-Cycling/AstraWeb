@@ -55,7 +55,7 @@ jobs:
       - name: Run Cypress
         uses: cypress-io/github-action@v2
         with:
-          start: npx http-server ./dist -p 3000 --cors
+          start: yarn start
           install-command: yarn install --immutable
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
