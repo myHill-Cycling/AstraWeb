@@ -30,12 +30,6 @@ jobs:
     secrets:
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-  scan_links:
-    uses: ./.github/workflows/link_scanner.yml
-    needs: [build_website]
-    with:
-      WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
-
   release:
     name: "Package Website"
     runs-on: ubuntu-latest
