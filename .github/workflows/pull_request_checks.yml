@@ -1,4 +1,4 @@
-name: Deploy pull request previews
+name: Pull request checks
 on: 
   pull_request:
     types: [opened, synchronize, reopened, closed]
@@ -37,7 +37,7 @@ jobs:
     environment:
       name: pr-${{github.event.number}}
       url: ${{ steps.deploy.outputs.static_web_app_url }}
-    needs: [build_website, cypress_test, lighthouse, scan_links]
+    needs: [build_website, cypress_test, lighthouse]
     permissions:
       checks: write
       contents: read
