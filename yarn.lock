@@ -1994,7 +1994,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.5.0
     flowbite: 1.4.7
     jest: 28.1.0
-    preact: 10.7.2
+    preact: 10.7.3
     semantic-release: 19.0.2
     vite-imagetools: 4.0.3
     workbox-build: 6.5.3
@@ -10751,10 +10751,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preact@npm:10.7.2":
-  version: 10.7.2
-  resolution: "preact@npm:10.7.2"
-  checksum: 2f0655e0430f1c6927b40cb4abffb2c0ee4fe63e3201d44e37d0992c0ab534346f206cf23c0405572b70908e3eba2f7f60ab8e4531f409ebcbc35af06920cd60
+"preact@npm:10.7.3":
+  version: 10.7.3
+  resolution: "preact@npm:10.7.3"
+  checksum: a0471da77528b9f9478c02bf60ae41754509655a19b65d9fea274a3c94c9583a7b1700e1329ee726ef6dd5307b73cf391d3f7f1b6a9ace43d71a70cd1be92737
   languageName: node
   linkType: hard
 
