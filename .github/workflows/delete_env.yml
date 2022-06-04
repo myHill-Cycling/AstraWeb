@@ -6,6 +6,11 @@ on:
       environment:
         type: string
         required: true
+    secrets:
+      APPLICATION_ID:
+        required: true
+      APPLICATION_PRIVATE_KEY:
+        required: true
 
 jobs:
   delete:

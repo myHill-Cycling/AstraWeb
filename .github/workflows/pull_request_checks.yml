@@ -110,3 +110,6 @@ jobs:
     uses: ./.github/workflows/delete_env.yml
     with:
       environment: pr-${{github.event.number}}
+    secrets:
+      APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+      APPLICATION_PRIVATE_KEY: ${{ secrets.APPLICATION_PRIVATE_KEY }}
