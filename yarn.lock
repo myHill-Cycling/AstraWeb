@@ -730,6 +730,7 @@ __metadata:
     "@myhill-cycling/astro-favicon-intergration": 1.0.3
     "@semantic-release/changelog": 6.0.1
     "@semantic-release/git": 10.0.1
+    "@types/jquery": 3.5.14
     "@typescript-eslint/parser": 5.27.0
     astro: 1.0.0-beta.31
     astro-critters: 0.0.7
@@ -1352,6 +1353,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jquery@npm:3.5.14":
+  version: 3.5.14
+  resolution: "@types/jquery@npm:3.5.14"
+  dependencies:
+    "@types/sizzle": "*"
+  checksum: 159d6f804ed1a204b3f79f2d591a271d82e866bd45bd49fb6ef40561a25dbe0f47ec7815681b44cc2db5598425f72811e7e80ab0e983d980470998ac56feb375
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.9":
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
@@ -1477,7 +1487,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/sizzle@npm:^2.3.2":
+"@types/sizzle@npm:*, @types/sizzle@npm:^2.3.2":
   version: 2.3.3
   resolution: "@types/sizzle@npm:2.3.3"
   checksum: 586a9fb1f6ff3e325e0f2cc1596a460615f0bc8a28f6e276ac9b509401039dd242fa8b34496d3a30c52f5b495873922d09a9e76c50c2ab2bcc70ba3fb9c4e160
