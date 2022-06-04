@@ -24,12 +24,6 @@ jobs:
           # download all files into "dist" folder
           path: dist
 
-      - run: yarn --version || npm install -g yarn
-        name: Install yarn
-      
-      - name: Install Lighthouse Modules
-        run: yarn add lighthouse-plugin-field-performance
-
       - name: Run Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
