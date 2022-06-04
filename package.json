@@ -23,6 +23,9 @@
     "cypress#open": "cypress open",
     "type-check": "tsc -b"
   },
+  "dependencies": {
+    "preact": "10.7.3"
+  },
   "devDependencies": {
     "@astrojs/preact": "0.1.2",
     "@astrojs/sitemap": "0.1.0",
