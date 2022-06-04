@@ -1,5 +1,21 @@
 # Semantic Versioning Changelog
 
+# [1.14.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.13.0...v1.14.0) (2022-06-04)
+
+
+### Bug Fixes
+
+* remove unused types from tsconfig ([74d3781](https://github.com/myHill-Cycling/AstraWeb/commit/74d3781e58df9d7f4654fd82098e20a6abd873d7))
+* site now passes lighthouse audits ([72b9ddd](https://github.com/myHill-Cycling/AstraWeb/commit/72b9ddd7bd5426365c50c3ded284748c870363ea))
+* update permission policy ([41d8630](https://github.com/myHill-Cycling/AstraWeb/commit/41d8630ea3f05cd25af5d87f4dd31b411b46a1e6))
+
+
+### Features
+
+* add index page ([8935fa9](https://github.com/myHill-Cycling/AstraWeb/commit/8935fa9dae41e5bae143c1f62203e9fc723379b4))
+* **pages/index:** add better support for narrow screens, add text overlay, fix minor linting error for dark mode switch ([eb72265](https://github.com/myHill-Cycling/AstraWeb/commit/eb7226536dca895a8ed898c9ebff876ec35c3df0))
+* **pages/index:** Migrate previous elements to page ([93d9f53](https://github.com/myHill-Cycling/AstraWeb/commit/93d9f53365a5c5f0b38813ab11c514b938939bbb))
+
 # [1.13.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.12.0...v1.13.0) (2022-06-04)
 
 # [1.12.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.11.0...v1.12.0) (2022-06-02)
