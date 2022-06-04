@@ -1,0 +1,18 @@
+on:
+  workflow_call:
+    inputs:
+      WebsiteUrl:
+        description: "The url of the website to audit"
+        type: string
+        required: true
+
+jobs:
+  security-headers-check:
+    name: Analyse HTTP response headers
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: marcuslindblom/security-headers@main
+        with:
+          url: ${{ inputs.WebsiteUrl }}
+          followRedirects: true 
+          grade: A

@@ -1,0 +1,36 @@
+on:
+  workflow_call:
+    inputs:
+      WebsiteArtifactName:
+        description: "The name of the artifact containing the built website"
+        type: string
+        required: true
+    secrets:
+      LHCI_GITHUB_APP_TOKEN:
+        required: true
+
+jobs:
+  lighthouse:
+    name: Lighthouse audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3      
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ inputs.WebsiteArtifactName }}
+          # download all files into "dist" folder
+          path: dist
+
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          # no urls needed, since it uses local folder to scan .html files
+          configPath: './.github/lighthouse/.lighthouserc.js'
+          runs: 3
+          uploadArtifacts: true
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          LHCI_UPLOAD__GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

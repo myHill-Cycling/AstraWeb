@@ -1,28 +1,25 @@
 ---
 import Header from "@components/shell/header.astro";
 import Footer from "@components/shell/footer.astro";
-import SW from "@components/shell/sw.tsx";
-
-import GtmHead from "@components/shell/gtm/gtmHead.astro";
-import GtmFoot from "@components/shell/gtm/gtmFoot.astro";
-
 ---
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <!-- <GtmHead /> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200;1,300&display=swap" rel="preload" as="style">
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/png" href="/img/favi/favicon.png" />
         <slot name="head" />
-        <script>
+        <script>            
             // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-            if (
-                localStorage.getItem("color-theme") === "dark" ||
-                (!("color-theme" in localStorage) &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ) {
+
+            const colourTheme = localStorage.getItem("color-theme");
+            const darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (colourTheme === "dark" || darkModeMedia)
+            {
                 document.documentElement.classList.add("dark");
             } else {
                 document.documentElement.classList.remove("dark");
@@ -37,6 +34,5 @@ import GtmFoot from "@components/shell/gtm/gtmFoot.astro";
         </div>
         <Footer />
         <script> import "flowbite"; </script>
-        <SW client:only="preact" />
     </body>
 </html>

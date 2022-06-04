@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "skipDefaultLibCheck": true,
     "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
@@ -12,13 +13,21 @@
       "@layouts/*": ["./src/layouts/*"],
       "@assets/*": ["./assets/*"],
       "@pictures/*": ["./src/components/pictureHelpers/*"],
-      "@worker/*": ["./src/worker/*"]
-    }
+      "@worker/*": ["./src/worker/*"],
+      "@helpers/*":["./src/helpers/*"]
+    },
+    "noEmit": true,
+    "jsx": "preserve",
+    "rootDir": "."
   },
+  "include": ["./src/*"],
   "exclude": [
-    "node_modules",
-    "dist",
-    ".cache",
-    ".yarn"
+    "node_modules/*",
+    "dist/*",
+    ".cache/*",
+    ".yarn/*"
+  ],
+  "references": [
+    {"path": "./cypress"}
   ]
 }
