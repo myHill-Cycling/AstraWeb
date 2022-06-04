@@ -746,7 +746,7 @@ __metadata:
     astro-critters: 0.0.7
     astro-eslint-parser: 0.2.2
     astro-icon: 0.7.1
-    astro-robots-txt: 0.1.17
+    astro-robots-txt: 0.2.0
     astro-seo: 0.5.0
     axe-core: 4.4.2
     cypress: 9.7.0
@@ -2122,10 +2122,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-robots-txt@npm:0.1.17":
-  version: 0.1.17
-  resolution: "astro-robots-txt@npm:0.1.17"
-  checksum: 81477eeacd06a8a04833ede711a1bf2f2b7549ce007347e9ec191e95ad71b12f49539d62ca4d2d7719f1d6b7f6131b68b3d439f56f27f0f2bfa8cc5f3009196a
+"astro-robots-txt@npm:0.2.0":
+  version: 0.2.0
+  resolution: "astro-robots-txt@npm:0.2.0"
+  checksum: b8102986ee53e3b3109adfd9bdefde00a029638a59e2c4ae1e33daae6cd37284a1d7bccb27f394cce4653085fe553829e6ace4df252a4fe04d51f9bb08c2ee95
   languageName: node
   linkType: hard
 
