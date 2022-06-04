@@ -4,6 +4,13 @@ dist/
 
 # dependencies
 node_modules/
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # logs
 npm-debug.log*
@@ -18,3 +25,10 @@ artifacts/
 
 # macOS-specific files
 .DS_Store
+
+# Cypress
+cypress/screenshots
+cypress/videos
+
+
+*.tsbuildinfo
