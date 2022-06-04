@@ -54,6 +54,25 @@ jobs:
         if: ${{ !env.ACT }}
         run: git fetch --prune --tags
 
+      - run: yarn --version || npm install -g yarn
+        name: Install yarn
+
+      - name: Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: Dependency Module Cache
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+
+      - name: Dependency installation
+        run: yarn install --immutable
+
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
