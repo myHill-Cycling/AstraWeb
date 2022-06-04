@@ -4,8 +4,7 @@ module.exports = {
         // collect options here
         staticDistDir: "./dist",
         settings: {
-            chromeFlags: "--no-sandbox --headless",
-            plugins: ["lighthouse-plugin-field-performance"]
+            chromeFlags: "--no-sandbox --headless"
         }
       },
       assert: {
