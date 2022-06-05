@@ -23,6 +23,9 @@
     "cypress#open": "cypress open",
     "type-check": "tsc -b"
   },
+  "resolutions": {
+    "sharp": "0.29.3"
+  },
   "dependencies": {
     "preact": "10.7.3"
   },
@@ -41,6 +44,7 @@
     "astro-icon": "0.7.1",
     "astro-robots-txt": "0.2.0",
     "astro-seo": "0.5.0",
+    "astro-webmanifest": "^0.2.0",
     "axe-core": "4.4.2",
     "cypress": "9.7.0",
     "cypress-axe": "0.14.0",
