@@ -1,5 +1,19 @@
 # Semantic Versioning Changelog
 
+# [1.21.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.20.0...v1.21.0) (2022-06-07)
+
+
+### Bug Fixes
+
+* refine web manifest generation ([e61538d](https://github.com/myHill-Cycling/AstraWeb/commit/e61538d4ed9a74dda39c80d76d00119a84f3e1ca))
+* remove invalid resolution override ([3855158](https://github.com/myHill-Cycling/AstraWeb/commit/38551588eaa04d84d9e8531a3109cfcfdac640e8))
+
+
+### Features
+
+* add docker support ([76a4076](https://github.com/myHill-Cycling/AstraWeb/commit/76a4076a648374e774c4de91c35b4c51642fb82f))
+* stage 1 of switch to favicon intergration over custom built package ([19e9963](https://github.com/myHill-Cycling/AstraWeb/commit/19e9963cd987c8a48dd8cb12ecc739da6d472eea))
+
 # [1.20.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.19.0...v1.20.0) (2022-06-07)
 
 # [1.19.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.18.0...v1.19.0) (2022-06-06)
