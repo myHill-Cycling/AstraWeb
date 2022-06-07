@@ -742,7 +742,7 @@ __metadata:
     astro-icon: 0.7.1
     astro-robots-txt: 0.2.0
     astro-seo: 0.5.0
-    astro-webmanifest: 0.2.0
+    astro-webmanifest: 0.3.0
     axe-core: 4.4.2
     cypress: 9.7.0
     cypress-axe: 0.14.0
@@ -2121,14 +2121,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-webmanifest@npm:0.2.0":
-  version: 0.2.0
-  resolution: "astro-webmanifest@npm:0.2.0"
+"astro-webmanifest@npm:0.3.0":
+  version: 0.3.0
+  resolution: "astro-webmanifest@npm:0.3.0"
   dependencies:
-    node-html-parser: latest
+    deepmerge: ^4.2.2
+    node-html-parser: ^5.3.3
     sharp: ^0.30.6
     valid-filename: ^4.0.0
-  checksum: c8a9ec9cb5ccb74f5df2dbeaf9b4c14673000c88186bbc1c7946ccebce441d91208d6be7cb46ec260e3464e91a1520134fc6500c1ab4e6c87c7ed380a9b854de
+    zod: ^3.17.3
+  checksum: 10ab68c3601b0516e0a296df3966d0b55b69551bb7b6ae105021bd30ab58fcf86aef563546f640f285a38c7c34f1bb97fe58e76f2c6f385d1ec3630a5de438ad
   languageName: node
   linkType: hard
 
@@ -8096,7 +8098,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:latest":
+"node-html-parser@npm:^5.3.3":
   version: 5.3.3
   resolution: "node-html-parser@npm:5.3.3"
   dependencies:
