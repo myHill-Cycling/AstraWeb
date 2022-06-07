@@ -9,7 +9,7 @@ function RootTests() {
             // "naturalWidth" and "naturalHeight" are set when the image loads
             expect($img[0].naturalWidth).to.be.greaterThan(0);
           });            
-    });   
+    });
 }
 
 function NavTest_ElementNames() {
@@ -86,9 +86,117 @@ function FullSizeNavigationTests() {
     specify("List contains correct urls", NavTest_ElementUrls);
 }
 
+function DarkModeTests(mode: "light" | "dark"){
+
+    function fetchButton() {
+        return cy.get(`[aria-label="Switch to ${mode === "light" ? "dark" : "light" } mode"]`);
+    }
+
+    specify("Button is visible", () => {
+        fetchButton().should("be.visible");
+    });
+
+    specify("Button toggles local storage", () => {
+        fetchButton()
+        .click()
+        .then(() => {
+            if(mode === "dark"){
+                expect(window.localStorage.getItem("color-theme")).to.not.eq("dark");
+            }
+            else {
+                expect(window.localStorage.getItem("color-theme")).to.eq("dark");
+            }
+        });
+    });
+}
+
 context("Root Layout", () => {    
     const url = "/";
     context("Header", () => {
+
+        context("Dark mode toggle", () => {
+            context("Desktop viewport", () => {
+                context("Dark mode", () => {
+                    beforeEach(() => {
+                        cy.visit(url, {
+                            onBeforeLoad (window) {
+                                window.localStorage.setItem("color-theme", "dark");
+                            },
+                        });
+                    });
+    
+                    DarkModeTests("dark");
+                });
+    
+                context("Light mode", () => {
+                    beforeEach(() => {
+                        cy.visit(url, {
+                            onBeforeLoad (window) {
+                                window.localStorage.setItem("color-theme", "light");
+                            },
+                        });
+                    });
+    
+                    DarkModeTests("light");
+                });
+            });
+
+            context("Tablet Viewport", () => {
+                context("Dark mode", () => {
+                    beforeEach(() => {
+                        cy.visit(url, {
+                            onBeforeLoad (window) {
+                                window.localStorage.setItem("color-theme", "dark");
+                            },
+                        });
+                        cy.viewport("ipad-2");
+                    });
+    
+                    DarkModeTests("dark");
+                });
+    
+                context("Light mode", () => {
+                    beforeEach(() => {
+                        cy.visit(url, {
+                            onBeforeLoad (window) {
+                                window.localStorage.setItem("color-theme", "light");
+                            },
+                        });
+                        cy.viewport("ipad-2");
+                    });
+    
+                    DarkModeTests("light");
+                });
+            });
+
+            context("Mobile Viewport", () => {
+                context("Dark mode", () => {
+                    beforeEach(() => {
+                        cy.visit(url, {
+                            onBeforeLoad (window) {
+                                window.localStorage.setItem("color-theme", "dark");
+                            },
+                        });
+                        cy.viewport("iphone-6");
+                    });
+    
+                    DarkModeTests("dark");
+                });
+    
+                context("Light mode", () => {
+                    beforeEach(() => {
+                        cy.visit(url, {
+                            onBeforeLoad (window) {
+                                window.localStorage.setItem("color-theme", "light");
+                            },
+                        });
+                        cy.viewport("iphone-6");
+                    });
+    
+                    DarkModeTests("light");
+                });
+            });
+        });
 
         context("Dark mode", () => {
             beforeEach(() => {
