@@ -23,9 +23,6 @@
     "cypress#open": "cypress open",
     "type-check": "tsc -b"
   },
-  "resolutions": {
-    "sharp": "0.29.3"
-  },
   "dependencies": {
     "http-server": "14.1.1"
   },

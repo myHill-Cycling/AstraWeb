@@ -25,5 +25,7 @@ COPY ["staging-server.cjs", "package.json", "./"]
 # Install runtime dependencies
 RUN npm install --only=prod
 
+EXPOSE 3000
+
 # Run server
 CMD ["npm", "start"]
