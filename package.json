@@ -24,13 +24,12 @@
     "type-check": "tsc -b"
   },
   "dependencies": {
-    "preact": "10.7.3"
+    "http-server": "14.1.1"
   },
   "devDependencies": {
     "@astrojs/preact": "0.1.2",
     "@astrojs/sitemap": "0.1.0",
     "@astrojs/tailwind": "0.2.1",
-    "@myhill-cycling/astro-favicon-intergration": "1.0.3",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/git": "10.0.1",
     "@types/jquery": "3.5.14",
@@ -41,6 +40,7 @@
     "astro-icon": "0.7.1",
     "astro-robots-txt": "0.2.0",
     "astro-seo": "0.5.0",
+    "astro-webmanifest": "^0.2.0",
     "axe-core": "4.4.2",
     "cypress": "9.7.0",
     "cypress-axe": "0.14.0",
@@ -53,7 +53,6 @@
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
     "flowbite": "1.4.7",
-    "http-server": "14.1.1",
     "preact": "10.7.3",
     "semantic-release": "19.0.2",
     "typescript": "4.7.3",
