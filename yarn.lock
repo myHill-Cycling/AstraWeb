@@ -47,9 +47,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-remark@npm:^0.10.2":
-  version: 0.10.2
-  resolution: "@astrojs/markdown-remark@npm:0.10.2"
+"@astrojs/markdown-remark@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@astrojs/markdown-remark@npm:0.11.0"
   dependencies:
     "@astrojs/prism": ^0.4.1
     assert: ^2.0.0
@@ -71,7 +71,7 @@ __metadata:
     unist-util-map: ^3.1.1
     unist-util-visit: ^4.1.0
     vfile: ^5.3.2
-  checksum: 47a0be104d25e1e1e3d40862aeadf09204b150607ffff7a0e8671973d0919716d9a9aba54eac5f593ed54b699ac38624dc366e8921e6360bb5cb53953b64700d
+  checksum: ad2ee40bff5fb54656b54aaaeb091d9308cc24d07984c7b03aacc79c35d92b643d7aac3ed6c8c598d3fff5fcf53380b7078a2e27d3d982e5f2aaaccdf7eeb257
   languageName: node
   linkType: hard
 
@@ -736,7 +736,7 @@ __metadata:
     "@semantic-release/git": 10.0.1
     "@types/jquery": 3.5.14
     "@typescript-eslint/parser": 5.27.0
-    astro: 1.0.0-beta.40
+    astro: 1.0.0-beta.42
     astro-critters: 0.0.7
     astro-eslint-parser: 0.2.2
     astro-icon: 0.7.1
@@ -2137,13 +2137,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:1.0.0-beta.40":
-  version: 1.0.0-beta.40
-  resolution: "astro@npm:1.0.0-beta.40"
+"astro@npm:1.0.0-beta.42":
+  version: 1.0.0-beta.42
+  resolution: "astro@npm:1.0.0-beta.42"
   dependencies:
     "@astrojs/compiler": ^0.15.2
     "@astrojs/language-server": ^0.13.4
-    "@astrojs/markdown-remark": ^0.10.2
+    "@astrojs/markdown-remark": ^0.11.0
     "@astrojs/prism": 0.4.1
     "@astrojs/telemetry": ^0.1.2
     "@astrojs/webapi": ^0.12.0
@@ -2194,12 +2194,12 @@ __metadata:
     strip-ansi: ^7.0.1
     supports-esm: ^1.0.0
     tsconfig-resolver: ^3.0.1
-    vite: ^2.9.9
+    vite: ^2.9.10
     yargs-parser: ^21.0.1
     zod: ^3.17.3
   bin:
     astro: astro.js
-  checksum: 17334e5fbfcd7be1f080bc04579ecb0dcd0381f3352032a753ef19afb78227e62a716b5cea96a511824af02443583270655c5fd12fde264d6d7b5deeb809e711
+  checksum: d597507dc9ba77bed63080b3c829d84bd4c08a65d3baad5d7dcd96f2590eff26ae268d8ebb2433b31cd01ffee4524eada8e9309d53bb6fde19005baf29c3d43a
   languageName: node
   linkType: hard
 
@@ -11431,9 +11431,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^2.9.9":
-  version: 2.9.9
-  resolution: "vite@npm:2.9.9"
+"vite@npm:^2.9.10":
+  version: 2.9.10
+  resolution: "vite@npm:2.9.10"
   dependencies:
     esbuild: ^0.14.27
     fsevents: ~2.3.2
@@ -11456,7 +11456,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 9292b8ba510a393d0c61c407ebfb4eaa818b2d8d106b3476cdc94cb57a0c59348a535936d698db04b35910a1cfdb16aeaf872f0f995b54cf6d7ed31bc7886deb
+  checksum: 37a4eafdb0990e496a27903b0722f1a5d13c622338a885f66d9b4da955ac40cb567e7e8bc97aac50c3f2a385f10a2e03bc9d5c14bf8a8bd0a1fbf6321c0d3562
   languageName: node
   linkType: hard
 
