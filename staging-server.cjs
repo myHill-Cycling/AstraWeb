@@ -1,5 +1,5 @@
 const createServer = require("http-server").createServer;
-const siteConfig = require("./public/staticwebapp.config.json");
+const siteConfig = require("./dist/staticwebapp.config.json");
 
 const options = {
     gzip: true,

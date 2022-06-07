@@ -20,6 +20,7 @@ pnpm-debug.log*
 
 # Local only files
 *.local
+*.env
 .cache/
 artifacts/
 
