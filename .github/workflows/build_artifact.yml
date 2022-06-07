@@ -4,9 +4,6 @@ on:
       WebsiteArtifactName:
         description: "The name of the artifact containing the built website"
         value: ${{ jobs.build_website.outputs.WebsiteArtifactName }}
-    secrets:
-      RFG_API_KEY:
-        required: true
 
 jobs:
   build_website:
@@ -50,8 +47,6 @@ jobs:
 
       - name: Build
         run: yarn build
-        env:
-          RFG_API_KEY: ${{ secrets.RFG_API_KEY }}
 
       - name: Upload website artifact
         uses: actions/upload-artifact@v3

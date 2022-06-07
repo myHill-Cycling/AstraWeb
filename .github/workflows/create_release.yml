@@ -6,12 +6,15 @@ on:
     paths-ignore:
       - "CHANGELOG.md"
       - "package.json"
+      - ".github/workflows/delete_env.yml"
+      - ".github/workflows/http_audit.yml"
+      - ".github/workflows/live_monitoring.yml"
+      - ".github/workflows/pull_request_checks.yml"
+      - ".vscode/"
 
 jobs:
   build_website:
     uses: ./.github/workflows/build_artifact.yml
-    secrets:
-      RFG_API_KEY: ${{ secrets.RFG_API_KEY }}
 
   lighthouse:
     uses: ./.github/workflows/lighthouse_audit.yml

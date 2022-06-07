@@ -734,6 +734,7 @@ __metadata:
     "@astrojs/tailwind": 0.2.1
     "@semantic-release/changelog": 6.0.1
     "@semantic-release/git": 10.0.1
+    "@semantic-release/npm": 9.0.1
     "@types/jquery": 3.5.14
     "@typescript-eslint/parser": 5.27.1
     astro: 1.0.0-beta.42
@@ -1262,7 +1263,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@semantic-release/npm@npm:^9.0.0":
+"@semantic-release/npm@npm:9.0.1, @semantic-release/npm@npm:^9.0.0":
   version: 9.0.1
   resolution: "@semantic-release/npm@npm:9.0.1"
   dependencies:

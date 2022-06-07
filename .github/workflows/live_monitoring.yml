@@ -3,21 +3,16 @@ on:
   schedule:
     - cron: "0 15 */2 * *"
 
-env:
-  URL_ROOT: https://calm-plant-0e1398703.1.azurestaticapps.net
-
 jobs:
   audit_http:
     uses: ./.github/workflows/http_audit.yml
     with:
-      WebsiteUrl: | 
-        ${{env.URL_ROOT}}/
+      WebsiteUrl: https://calm-plant-0e1398703.1.azurestaticapps.net
 
   scan_links:
     uses: ./.github/workflows/link_scanner.yml
     with:
-      WebsiteUrl: | 
-        ${{env.URL_ROOT}}/
+      WebsiteUrl: https://calm-plant-0e1398703.1.azurestaticapps.net/
 
   run_lighthouse:
     runs-on: ubuntu-latest
@@ -28,8 +23,7 @@ jobs:
       - name: Run Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
-          urls: | 
-            ${{env.URL_ROOT}}/
+          urls: https://calm-plant-0e1398703.1.azurestaticapps.net
           configPath: './.github/lighthouse/.lighthouserc.live.js'
           runs: 3
           uploadArtifacts: true
