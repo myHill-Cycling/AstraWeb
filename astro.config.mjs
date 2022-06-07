@@ -20,50 +20,72 @@ export default defineConfig({
   },
   integrations: [preact(), tailwind(), sitemap(), robotsTxt(), critters(), favicon({
       icon: "./assets/images/favicon.png",
+      icons: [
+        {
+          src: "icons/icon-48x48.png",
+          sizes: "48x48",
+          type: "image/png",
+          purpose: "maskable"
+        },
+        {
+          src: "icons/icon-72x72.png",
+          sizes: "72x72",
+          type: "image/png",
+          purpose: "maskable"
+        },
+        {
+          src: "icons/icon-96x96.png",
+          sizes: "96x96",
+          type: "image/png",
+          purpose: "maskable"
+        },
+        {
+          src: "icons/icon-144x144.png",
+          sizes: "144x144",
+          type: "image/png",
+          purpose: "any"
+        },
+        {
+          src: "icons/icon-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "maskable"
+        },
+        {
+          src: "icons/icon-256x256.png",
+          sizes: "256x256",
+          type: "image/png",
+          purpose: "maskable"
+        },
+        {
+          src: "icons/icon-384x384.png",
+          sizes: "384x384",
+          type: "image/png",
+          purpose: "maskable"
+        },
+        {
+          src: "icons/icon-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable"
+        }
+      ],
       config: {
-        iconPurpose: ["maskable", "any"],
         insertAppleTouchLinks: true
       },
       name: "myHill Cycling",
       description: "Sportives and weekend training camps set in the peak district to get more people on their bikes!",
       developerName: "Vespion Softworks",
       //developerURL: "", // prevent retrieving from the nearest package.json
-      background: "#ffffff",
+      // background: "#ffffff",
       theme_color: "#f70702",
+      background_color: "#f70702",
       display: "browser",
       start_url: "/",
       scope: "/"
   })],
   vite: {
-    plugins: [imagetools() // favicons({
-    //   inject: true,
-    //   cache: true,
-    
-    //   path: "./assets/favi",
-    //   icons: {
-    //     android: {
-    //       mask: true,
-    //       source: "./assets/images/favicon.png"
-    //     },
-    //     windows: {
-    //       mask: true,
-    //       source: "./assets/images/favicon.png"
-    //     },
-    //     appleIcon: {
-    //       mask: true,
-    //       source: "./assets/images/favicon.png"
-    //     },
-    //     appleStartup: {
-    //       mask: true,
-    //       source: "./assets/images/favicon.png"
-    //     },
-    //     favicons: {
-    //       mask: true,
-    //       source: "./assets/images/favicon.png"
-    //     }
-    //   }
-    // })
-    ],
+    plugins: [imagetools()],
     ssr: {
       external: ["svgo"]
     }
