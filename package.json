@@ -13,14 +13,13 @@
   "maintainers": [
     "Vespion"
   ],
+  "description": "This package contains the code and assets required to build myHill cycling's main web site",
   "scripts": {
     "start": "node staging-server.cjs",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
     "lint": "eslint . --ext .js,.ts.jsx,.tsx,.cjs,.mjs --ignore-path .gitignore --cache --cache-location ./.cache/eslint/",
     "lint#fix": "yarn run lint --fix",
-    "cypress#open": "cypress open",
     "type-check": "tsc -b"
   },
   "dependencies": {

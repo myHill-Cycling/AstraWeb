@@ -19,7 +19,7 @@ const options = {
 console.debug("Running server with configuration: ", options);
 
 const httpServer = createServer(options);
-httpServer.listen(3000, "localhost", () => {
+httpServer.listen(process.env.ASTRAWEB_PORT ?? 3000, process.env.ASTRAWEB_ADDRESS ?? "localhost", () => {
     const address = httpServer.server.address();
     console.info(`Server listening on: ${address.address}:${address.port}`);
 });

@@ -14,18 +14,33 @@ RUN yarn build
 
 
 FROM node:16-alpine AS runtime
-WORKDIR /srv
 
-# Copy build output
-COPY --from=build ["/src/dist", "./dist"]
+# Metadata
+WORKDIR /srv
+ENV ASTRAWEB_ADDRESS=0.0.0.0
+
+HEALTHCHECK --interval=1m --timeout=3s \
+  CMD curl -f http://localhost/ || exit 1
 
 # Copy server files
-COPY ["staging-server.cjs", "package.json", "./"]
+COPY staging-server.cjs package.json ./
+
+# Copy yarn metadata
+COPY .yarnrc.yml yarn.lock ./
+COPY .yarn ./.yarn
+
+# Install yarn workspace plugin
+RUN yarn plugin import workspace-tools
 
 # Install runtime dependencies
-RUN npm install --only=prod
+RUN yarn workspaces focus --production -A
 
-EXPOSE 3000
+# Delete unused files
+RUN rm -r .yarn .yarnrc.yml yarn.lock
+
+# Copy build output
+COPY --from=build /src/dist ./dist
+
 
 # Run server
-CMD ["npm", "start"]
+CMD ["yarn", "start"]
