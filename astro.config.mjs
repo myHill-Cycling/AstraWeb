@@ -6,6 +6,7 @@ import robotsTxt from "astro-robots-txt";
 import { imagetools } from "vite-imagetools";
 import critters from "astro-critters";
 import favicon from "astro-webmanifest";
+import pwa from "@astrojs/pwa";
 
 
 // https://astro.build/config
@@ -83,7 +84,11 @@ export default defineConfig({
       display: "browser",
       start_url: "/",
       scope: "/"
-  })],
+  }),
+  pwa({
+    registerType: "autoUpdate"
+  })
+],
   vite: {
     plugins: [imagetools()],
     ssr: {

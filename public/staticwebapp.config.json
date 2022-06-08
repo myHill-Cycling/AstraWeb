@@ -1,7 +1,9 @@
 {
   "globalHeaders": {
       "X-Frame-Options": "DENY",
-      "Content-Security-Policy": "default-src 'none'; manifest-src 'self'; img-src 'self'; script-src-elem 'self' 'unsafe-inline' data:; style-src-elem 'self' 'unsafe-inline' fonts.googleapis.com; report-uri https://vespion.report-uri.com/r/d/csp/wizard",
+      "NEL": "{'report_to':'default','max_age':31536000,'include_subdomains':true}",
+      "Report-To": "{'group':'default','max_age':31536000,'endpoints':[{'url':'https://vespion.report-uri.com/a/d/g'}],'include_subdomains':true}",
+      "Content-Security-Policy": "default-src 'self'; script-src 'self'; script-src-elem 'self' 'sha256-9ro9AwP004jEqvdvVB5SLoeJrTi+6/9KqOlkFOU0Yqo=' data:; style-src 'self' 'sha256-aW9E1AUXbqT1PGQOFsmOGmgFk8U8BeXVb41lcPX0bhU=' fonts.googleapis.com; report-uri https://vespion.report-uri.com/r/d/csp/wizard",
       "Permissions-Policy": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), cross-origin-isolated=(), display-capture=(), document-domain=(self), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), web-share=(), xr-spatial-tracking=(), clipboard-read=(), clipboard-write=(), gamepad=(), speaker-selection=(), conversion-measurement=(self), focus-without-user-activation=(), hid=(), idle-detection=(), interest-cohort=(), serial=(), sync-script=(), trust-token-redemption=(), window-placement=(), vertical-scroll=()"
   }
 }

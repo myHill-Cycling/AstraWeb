@@ -6,7 +6,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "skipDefaultLibCheck": true,
-    "types": ["vite/client"],
+    "types": ["vite/client", "vite-plugin-pwa/client"],
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./src/components/*"],
