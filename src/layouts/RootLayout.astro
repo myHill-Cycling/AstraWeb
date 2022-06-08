@@ -1,12 +1,15 @@
 ---
 import Header from "@components/shell/header.astro";
 import Footer from "@components/shell/footer.astro";
+
+import GtmFoot from "@components/shell/gtm/gtmFoot.astro";
+import GtmHead from "@components/shell/gtm/gtmHead.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!-- <GtmHead /> -->
+        <GtmHead />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200;1,300&display=swap" rel="preload" as="style">
@@ -39,7 +42,7 @@ import Footer from "@components/shell/footer.astro";
         </script>
     </head>
     <body class="dark:bg-black flex flex-col h-screen transition-colors">
-        <!-- <GtmFoot /> -->
+        <GtmFoot />
         <Header />
         <div class="flex-grow">
             <slot />
