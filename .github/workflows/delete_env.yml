@@ -21,7 +21,6 @@ jobs:
         uses: peter-murray/workflow-application-token-action@v1
         with:
           organization: "myHill-Cycling"
-          permissions: "contents:read,checks:read,deployments:write,org:write"
           application_id: ${{ secrets.APPLICATION_ID }}
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
 
