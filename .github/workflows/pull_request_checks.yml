@@ -11,8 +11,6 @@ jobs:
   build_website:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     uses: ./.github/workflows/build_artifact.yml
-    secrets:
-      RFG_API_KEY: ${{ secrets.RFG_API_KEY }}
 
   lighthouse:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
