@@ -42,11 +42,6 @@ jobs:
       - name: Type check
         run: yarn type-check
 
-      - name: Astro check
-        run: yarn run astro check
-        env:
-          DEBUG_GTM_ENV: true
-
       - name: Build
         run: yarn build
         env:
