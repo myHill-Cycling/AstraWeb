@@ -8,5 +8,5 @@ const gtmSrc = import.meta.env.DEBUG_GTM_ENV ? gtmSrcDev : gtmSrcLive;
 const frameHtml = `<iframe src="${gtmSrc}" height="0" width="0" style="display:none;visibility:hidden"/>`
 ---
 <!-- Google Tag Manager (noscript) -->
-<noscript is:inline set:html={frameHtml}></noscript>
+<noscript set:html={frameHtml}></noscript>
 <!-- End Google Tag Manager (noscript) -->
