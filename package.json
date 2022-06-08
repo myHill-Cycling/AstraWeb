@@ -21,7 +21,7 @@
     "build": "astro build",
     "lint": "eslint . --ext .js,.ts.jsx,.tsx,.cjs,.mjs --ignore-path .gitignore --cache --cache-location ./.cache/eslint/",
     "lint#fix": "yarn run lint --fix",
-    "type-check": "tsc -b"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "http-server": "14.1.1"
@@ -58,7 +58,12 @@
     "preact": "10.7.3",
     "semantic-release": "19.0.2",
     "typescript": "4.7.3",
-    "vite-imagetools": "4.0.4"
+    "vite-imagetools": "4.0.4",
+    "workbox-core": "6.5.3",
+    "workbox-precaching": "6.5.3",
+    "workbox-recipes": "6.5.3",
+    "workbox-routing": "6.5.3",
+    "workbox-strategies": "6.5.3"
   },
   "release": {
     "branches": [

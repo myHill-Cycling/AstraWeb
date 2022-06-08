@@ -86,7 +86,14 @@ export default defineConfig({
       scope: "/"
   }),
   pwa({
-    registerType: "autoUpdate"
+    registerType: "autoUpdate",
+    strategies: "injectManifest",
+    srcDir: "src",
+    filename: "sw.ts",
+    devOptions: {
+      enabled: true,
+      type: "module"
+    }
   })
 ],
   vite: {
