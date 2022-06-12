@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.25.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.24.0...v1.25.0) (2022-06-12)
+
+
+### Bug Fixes
+
+* fix dockerfile support ([9312612](https://github.com/myHill-Cycling/AstraWeb/commit/9312612367fd6e25ee9e2e436c2baa95d7225858))
+
 # [1.24.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.23.0...v1.24.0) (2022-06-07)
 
 # [1.23.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.22.0...v1.23.0) (2022-06-07)
