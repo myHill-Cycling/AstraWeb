@@ -758,7 +758,7 @@ __metadata:
     "@semantic-release/npm": 9.0.1
     "@types/jquery": 3.5.14
     "@typescript-eslint/parser": 5.28.0
-    astro: 1.0.0-beta.44
+    astro: 1.0.0-beta.47
     astro-critters: 0.0.7
     astro-eslint-parser: 0.2.2
     astro-icon: 0.7.1
@@ -2166,9 +2166,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:1.0.0-beta.44":
-  version: 1.0.0-beta.44
-  resolution: "astro@npm:1.0.0-beta.44"
+"astro@npm:1.0.0-beta.47":
+  version: 1.0.0-beta.47
+  resolution: "astro@npm:1.0.0-beta.47"
   dependencies:
     "@astrojs/compiler": ^0.15.2
     "@astrojs/language-server": ^0.13.4
@@ -2214,7 +2214,6 @@ __metadata:
     resolve: ^1.22.0
     rollup: ^2.75.5
     semver: ^7.3.7
-    serialize-javascript: ^6.0.0
     shiki: ^0.10.1
     sirv: ^2.0.2
     slash: ^4.0.0
@@ -2228,7 +2227,7 @@ __metadata:
     zod: ^3.17.3
   bin:
     astro: astro.js
-  checksum: 2ceea9c6d2cd298829c839bae10e53910c8a3dd1ab96c7f9244e59cb48521231620666fa493f0a87613c7d54855eb62eff8a2fd26ad53fd04fd5a0b7112be964
+  checksum: e8a211ec50fe59ee85c1b29a224768f37710669f4197c09eddc98583372dc85327b876ab46981585303cce7b75df3b0fba80a1c9b725fe2035dfaee94a7c8284
   languageName: node
   linkType: hard
 
@@ -9302,15 +9301,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"randombytes@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "randombytes@npm:2.1.0"
-  dependencies:
-    safe-buffer: ^5.1.0
-  checksum: d779499376bd4cbb435ef3ab9a957006c8682f343f14089ed5f27764e4645114196e75b7f6abf1cbd84fd247c0cb0651698444df8c9bf30e62120fbbc52269d6
-  languageName: node
-  linkType: hard
-
 "rc@npm:^1.2.7, rc@npm:^1.2.8":
   version: 1.2.8
   resolution: "rc@npm:1.2.8"
@@ -9826,7 +9816,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.0, safe-buffer@npm:^5.1.2, safe-buffer@npm:~5.2.0":
+"safe-buffer@npm:^5.0.1, safe-buffer@npm:^5.1.2, safe-buffer@npm:~5.2.0":
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
   checksum: b99c4b41fdd67a6aaf280fcd05e9ffb0813654894223afb78a31f14a19ad220bba8aba1cb14eddce1fcfb037155fe6de4e861784eb434f7d11ed58d1e70dd491
@@ -9955,15 +9945,6 @@ __metadata:
   bin:
     semver: bin/semver.js
   checksum: 2fa3e877568cd6ce769c75c211beaed1f9fce80b28338cadd9d0b6c40f2e2862bafd62c19a6cff42f3d54292b7c623277bcab8816a2b5521cf15210d43e75232
-  languageName: node
-  linkType: hard
-
-"serialize-javascript@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "serialize-javascript@npm:6.0.0"
-  dependencies:
-    randombytes: ^2.1.0
-  checksum: 56f90b562a1bdc92e55afb3e657c6397c01a902c588c0fe3d4c490efdcc97dcd2a3074ba12df9e94630f33a5ce5b76a74784a7041294628a6f4306e0ec84bf93
   languageName: node
   linkType: hard
 
