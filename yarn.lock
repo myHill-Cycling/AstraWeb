@@ -759,7 +759,7 @@ __metadata:
     "@types/jquery": 3.5.14
     "@typescript-eslint/parser": 5.28.0
     astro: 1.0.0-beta.47
-    astro-critters: 0.0.7
+    astro-critters: 0.0.8
     astro-eslint-parser: 0.2.2
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.1
@@ -2102,12 +2102,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-critters@npm:0.0.7":
-  version: 0.0.7
-  resolution: "astro-critters@npm:0.0.7"
+"astro-critters@npm:0.0.8":
+  version: 0.0.8
+  resolution: "astro-critters@npm:0.0.8"
   dependencies:
     critters: 0.0.16
-  checksum: e95e9480c08a7892ed1b7b15619ee021f8ab30fe0c42b9184d1f01ff0e27d7e724fc0db5bb0e31a318462a6e05ed1c53ffb79ab3a391ef880208e9d261ac3c48
+    fast-glob: 3.2.11
+  checksum: 2b2a2fed1156e617a7bca974b5475eb3d89c032789f176cff4915d1645f992c0ae5fc7372f68a637a5c4d3cd682eea96ba0196789da9a987f8ac48c491bee623
   languageName: node
   linkType: hard
 
@@ -4725,7 +4726,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.9":
+"fast-glob@npm:3.2.11, fast-glob@npm:^3.2.11, fast-glob@npm:^3.2.9":
   version: 3.2.11
   resolution: "fast-glob@npm:3.2.11"
   dependencies:
