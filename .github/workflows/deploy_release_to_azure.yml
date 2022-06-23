@@ -11,7 +11,7 @@ jobs:
       name: production
       url: ${{ steps.deploy.outputs.static_web_app_url }}
     steps:
-      - uses: robinraju/release-downloader@v1.3
+      - uses: robinraju/release-downloader@v1.4
         name: Download release
         with:
           repository: "myHill-Cycling/AstraWeb"
