@@ -764,7 +764,7 @@ __metadata:
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.1
     astro-seo: 0.5.0
-    astro-webmanifest: 0.3.0
+    astro-webmanifest: 0.3.4
     axe-core: 4.4.2
     cypress: 9.7.0
     cypress-axe: 0.14.0
@@ -2153,16 +2153,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-webmanifest@npm:0.3.0":
-  version: 0.3.0
-  resolution: "astro-webmanifest@npm:0.3.0"
+"astro-webmanifest@npm:0.3.4":
+  version: 0.3.4
+  resolution: "astro-webmanifest@npm:0.3.4"
   dependencies:
     deepmerge: ^4.2.2
     node-html-parser: ^5.3.3
-    sharp: ^0.30.6
+    sharp: ^0.30.7
     valid-filename: ^4.0.0
     zod: ^3.17.3
-  checksum: 10ab68c3601b0516e0a296df3966d0b55b69551bb7b6ae105021bd30ab58fcf86aef563546f640f285a38c7c34f1bb97fe58e76f2c6f385d1ec3630a5de438ad
+  checksum: f4b96cabd3ed7b14f030f8e1809e5616f990c2929f48cd3f322dc2c67818d69da01aa75bce8668189afad681058add34c26fb78df0105d27fcd993e61dcc8554
   languageName: node
   linkType: hard
 
@@ -9095,6 +9095,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prebuild-install@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "prebuild-install@npm:7.1.1"
+  dependencies:
+    detect-libc: ^2.0.0
+    expand-template: ^2.0.3
+    github-from-package: 0.0.0
+    minimist: ^1.2.3
+    mkdirp-classic: ^0.5.3
+    napi-build-utils: ^1.0.1
+    node-abi: ^3.3.0
+    pump: ^3.0.0
+    rc: ^1.2.7
+    simple-get: ^4.0.0
+    tar-fs: ^2.0.0
+    tunnel-agent: ^0.6.0
+  bin:
+    prebuild-install: bin.js
+  checksum: dbf96d0146b6b5827fc8f67f72074d2e19c69628b9a7a0a17d0fad1bf37e9f06922896972e074197fc00a52eae912993e6ef5a0d471652f561df5cb516f3f467
+  languageName: node
+  linkType: hard
+
 "preferred-pm@npm:^3.0.3":
   version: 3.0.3
   resolution: "preferred-pm@npm:3.0.3"
@@ -9955,7 +9977,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.30.0, sharp@npm:^0.30.6":
+"sharp@npm:^0.30.0":
   version: 0.30.6
   resolution: "sharp@npm:0.30.6"
   dependencies:
@@ -9969,6 +9991,23 @@ __metadata:
     tar-fs: ^2.1.1
     tunnel-agent: ^0.6.0
   checksum: 2560b5769d78ee660d767e59f6fa56531c448d16383f9700e4ecb8016382104c1bb42991bdd4ea741c0f4d934ea5246c5d602fc5f39062bcc1c2c8786421fd5a
+  languageName: node
+  linkType: hard
+
+"sharp@npm:^0.30.7":
+  version: 0.30.7
+  resolution: "sharp@npm:0.30.7"
+  dependencies:
+    color: ^4.2.3
+    detect-libc: ^2.0.1
+    node-addon-api: ^5.0.0
+    node-gyp: latest
+    prebuild-install: ^7.1.1
+    semver: ^7.3.7
+    simple-get: ^4.0.1
+    tar-fs: ^2.1.1
+    tunnel-agent: ^0.6.0
+  checksum: bbc63ca3c7ea8a5bff32cd77022cfea30e25a03f5bd031e935924bf6cf0e11e3388e8b0e22b3137bf8816aa73407f1e4fbeb190f3a35605c27ffca9f32b91601
   languageName: node
   linkType: hard
 
