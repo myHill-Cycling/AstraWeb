@@ -34,7 +34,7 @@ const props = Astro.props as Props;
 
         function isDarkMode(inital = false) {
             const storage = localStorage.getItem("color-theme");
-            console.debug(`Fetched ${storage} from color-theme`)
+            console.debug(`Fetched ${storage} from color-theme`);
             if(storage){
                 return storage === "dark";
             }
@@ -70,7 +70,7 @@ const props = Astro.props as Props;
                     console.debug("Updated color-theme");
                 }
                 catch (e) {
-                    console.error(e)
+                    console.error(e);
                 }
             }
             else {

@@ -33,12 +33,12 @@ import GtmHead from "@components/shell/gtm/gtmHead.astro";
 
             const updateSW = registerSW({
                 onNeedRefresh() {
-                    console.warn("Service Worker needs refresh")
+                    console.warn("Service Worker needs refresh");
                 },
                 onOfflineReady() {
-                    console.info("Service Worker ready for offline use")
-                },
-            })
+                    console.info("Service Worker ready for offline use");
+                }
+            });
         </script>
     </head>
     <body class="dark:bg-black flex flex-col h-screen transition-colors">
