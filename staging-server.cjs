@@ -4,6 +4,7 @@ const siteConfig = require("./dist/staticwebapp.config.json");
 const options = {
     gzip: true,
     brotli: true,
+    cors: true,
     root: "./dist",
     logFn: (req, res, err) => {
         if(err){
