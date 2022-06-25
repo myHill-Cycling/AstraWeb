@@ -96,15 +96,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/preact@npm:0.1.3":
-  version: 0.1.3
-  resolution: "@astrojs/preact@npm:0.1.3"
+"@astrojs/preact@npm:0.2.0":
+  version: 0.2.0
+  resolution: "@astrojs/preact@npm:0.2.0"
   dependencies:
     "@babel/plugin-transform-react-jsx": ^7.17.12
     preact-render-to-string: ^5.2.0
   peerDependencies:
     preact: ^10.6.5
-  checksum: b4dc55199b014c87de699cd598cf0cd91adeb8bdc8b48eac6a57b9c81fb6f6fa223969602a7f27c672678e08f6d659d721ceb30d4fe4164cdb1a6c2fb14488e1
+  checksum: 10c4b8b3cedfe8bee7b48b38ae6fc2b3477431a66cefc8960bea6bfbf98f594ef5d2cf030af2ebc82bb2591d66f8539257c9bb9cf9cc07ed658ef405eecfc294
   languageName: node
   linkType: hard
 
@@ -750,7 +750,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@myhill-cycling/astra-web@workspace:."
   dependencies:
-    "@astrojs/preact": 0.1.3
+    "@astrojs/preact": 0.2.0
     "@astrojs/sitemap": 0.1.0
     "@astrojs/tailwind": 0.2.1
     "@semantic-release/changelog": 6.0.1
