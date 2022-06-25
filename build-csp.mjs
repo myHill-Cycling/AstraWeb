@@ -14,6 +14,9 @@ const cookies = {
     ],
     "script-src": [
         "https://cookiehub.net/"
+    ],
+    "connect-src": [
+        "https://static.cookiehub.com/"
     ]
 }
 
