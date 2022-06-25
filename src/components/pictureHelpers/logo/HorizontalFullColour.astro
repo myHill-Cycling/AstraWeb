@@ -23,9 +23,9 @@ const props = Astro.props as Props;
 ---
 
 <picture >
-    <source srcset={srcsetAvif} type="image/avif" sizes="8rem"/>
-    <source srcset={srcsetWebp} type="image/webp" sizes="8rem"/>
-    <source srcset={srcsetPng} type="image/png" sizes="8rem"/>
+    <source srcset={srcsetAvif} type="image/avif" sizes="8rem" />
+    <source srcset={srcsetWebp} type="image/webp" sizes="8rem" />
+    <source srcset={srcsetPng} type="image/png" sizes="8rem" />
     <img class={props.class}
         src={placeholder}
         width={props.width ?? 120}

@@ -5,7 +5,7 @@ import gaBase from "csp-preset-google-analytics";
 const fonts = {
     "style-src": ["https://fonts.googleapis.com:443"],
     "connect-src": ["https://fonts.googleapis.com"]
-}
+};
 
 const cookies = {
     "style-src": [
@@ -16,9 +16,9 @@ const cookies = {
         "https://cookiehub.net/"
     ],
     "connect-src": [
-        "https://static.cookiehub.com/"
+        ""
     ]
-}
+};
 
 const gtm = {
     "style-src": [
@@ -28,7 +28,7 @@ const gtm = {
     "script-src": [
         "https://www.googletagmanager.com/"
     ]
-}
+};
 
 const ga = {
     ...gaBase,
@@ -38,7 +38,7 @@ const ga = {
     "connect-src": [
         "https://*.google-analytics.com"
     ]
-}
+};
 
 // Onload hash "'sha256-7OYe+LAAHfcHW+MR8MWL3ZnFtA1ZZDMcV8KhE3AicPU='"
 
