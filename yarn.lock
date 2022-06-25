@@ -25,6 +25,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@astrojs/compiler@npm:^0.17.0":
+  version: 0.17.0
+  resolution: "@astrojs/compiler@npm:0.17.0"
+  checksum: 79992b4023cb3be5fa31cbf36b02f00deba5b575a16da4ca4583e04b55e001f1efe0ffa188536da116615bdae3b04265e67f9a136ab5f02e4422a8bbfa2c266a
+  languageName: node
+  linkType: hard
+
 "@astrojs/language-server@npm:^0.13.4":
   version: 0.13.4
   resolution: "@astrojs/language-server@npm:0.13.4"
@@ -760,7 +767,7 @@ __metadata:
     "@typescript-eslint/parser": 5.29.0
     astro: 1.0.0-beta.47
     astro-critters: 0.0.8
-    astro-eslint-parser: 0.2.2
+    astro-eslint-parser: 0.3.1
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.1
     astro-seo: 0.5.0
@@ -2112,17 +2119,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-eslint-parser@npm:0.2.2":
-  version: 0.2.2
-  resolution: "astro-eslint-parser@npm:0.2.2"
+"astro-eslint-parser@npm:0.3.1":
+  version: 0.3.1
+  resolution: "astro-eslint-parser@npm:0.3.1"
   dependencies:
-    "@astrojs/compiler": ^0.15.2
+    "@astrojs/compiler": ^0.17.0
     "@typescript-eslint/types": ^5.25.0
     debug: ^4.3.4
     eslint-visitor-keys: ^3.0.0
     espree: ^9.0.0
+    mdast-util-from-markdown: ^1.2.0
     synckit: ^0.7.1
-  checksum: e94e70f3bb1b9ecdcc8801069a9b141a1fa25d71b157e86a4780e9f68826f95d4394c593f87e8f5714c956c54ba70559f73e3fc1fb6c9fbeed046c8920358447
+    yaml: ^2.1.1
+  checksum: f52f4ae77808d3974b5e9c60d5e5fd79bd469140c3e0986f4111bdd909455508121e35cdc9db31b4461c01f1d551181eb9b9a82e7347676dc541c641b062ac02
   languageName: node
   linkType: hard
 
@@ -7048,7 +7057,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdast-util-from-markdown@npm:^1.0.0":
+"mdast-util-from-markdown@npm:^1.0.0, mdast-util-from-markdown@npm:^1.2.0":
   version: 1.2.0
   resolution: "mdast-util-from-markdown@npm:1.2.0"
   dependencies:
@@ -11767,6 +11776,13 @@ __metadata:
   version: 1.10.2
   resolution: "yaml@npm:1.10.2"
   checksum: ce4ada136e8a78a0b08dc10b4b900936912d15de59905b2bf415b4d33c63df1d555d23acb2a41b23cf9fb5da41c256441afca3d6509de7247daa062fd2c5ea5f
+  languageName: node
+  linkType: hard
+
+"yaml@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "yaml@npm:2.1.1"
+  checksum: f48bb209918aa57cfaf78ef6448d1a1f8187f45c746f933268b7023dc59e5456004611879126c9bb5ea55b0a2b1c2b392dfde436931ece0c703a3d754562bb96
   languageName: node
   linkType: hard
 
