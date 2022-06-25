@@ -1,0 +1,123 @@
+---
+export interface Props {
+    class?: string;
+};
+
+const props = Astro.props as Props;
+
+
+//  const [value, setValue] = useState(() => {
+//     const val = localStorage.getItem("color-theme") === "dark"
+//             || (!("color-theme" in localStorage)
+//                 && window.matchMedia("(prefers-color-scheme: dark)").matches);
+//                 console.debug(`Inital dark mode state: ${val}`);
+//                 return val;
+//               }
+//   );
+
+//   useEffect(() => {
+//     if (value) {
+//       localStorage.setItem("color-theme", "dark");
+//       console.debug("Dark class added to root document");
+//       document.documentElement.classList.add("dark");
+//     } else {
+//       localStorage.removeItem("color-theme");
+//       console.debug("Dark class removed from root document");
+//       document.documentElement.classList.remove("dark");
+//     }
+//   }, [value]);
+
+---
+<div class={props.class}>
+    <script>
+        const button = document.getElementById("ToggleButton@DarkModeSwitch");
+
+        function isDarkMode(inital = false) {
+            const storage = localStorage.getItem("color-theme");
+            console.debug(`Fetched ${storage} from color-theme`)
+            if(storage){
+                return storage === "dark";
+            }
+
+            return inital ? window.matchMedia("(prefers-color-scheme: dark)").matches : false;
+        }
+
+        function setAriaLabel(dark){
+            console.debug("Setting ARIA label");
+            if(dark){
+                button.setAttribute("aria-label", "Switch to light mode");
+            }
+            else {
+                button.setAttribute("aria-label", "Switch to dark mode");
+            }
+        }
+
+        function setDocClass(dark) {
+            console.debug("Setting doc class");
+            if(dark) {
+                document.documentElement.classList.add("dark");
+            }
+            else {
+                document.documentElement.classList.remove("dark");
+            }
+        }
+
+        function updateStorage(dark) {
+            console.debug(`Updating color-theme to ${dark}`);
+            if(dark){
+                try{
+                    localStorage.setItem("color-theme", "dark");
+                    console.debug("Updated color-theme");
+                }
+                catch (e) {
+                    console.error(e)
+                }
+            }
+            else {
+                localStorage.removeItem("color-theme");
+            }
+        }
+
+        function handleToggleClick() {
+            console.debug("Visual mode toggled");
+            const oldMode = isDarkMode();
+            console.debug(`Old mode ${oldMode}`);
+            updateStorage(!oldMode);
+            setDocClass(!oldMode);
+            setAriaLabel(!oldMode);
+        }
+
+        button.addEventListener("click", handleToggleClick);
+
+        const initalMode = isDarkMode(true);
+        setAriaLabel(initalMode);
+        setDocClass(initalMode);
+        console.debug(`Inital visual mode is dark? ${initalMode}`);
+    </script>
+    <button
+        id="ToggleButton@DarkModeSwitch"
+        type="button"
+        class="text-gray-500 dark:text-gray-400 hover:bg-gray-400 bg-gray-200 dark:hover:bg-gray-700 dark:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+    >
+        <svg
+            class="dark:hidden w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+        </svg>
+        <svg
+            class="hidden dark:inline-block w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+            />
+        </svg>
+    </button>
+</div>

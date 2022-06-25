@@ -1795,6 +1795,8 @@ __metadata:
     astro-seo: 0.5.0
     astro-webmanifest: 0.3.0
     axe-core: 4.4.2
+    csp-header: 5.1.0
+    csp-preset-google-analytics: 1.0.2
     cypress: 9.7.0
     cypress-axe: 0.14.0
     dotenv: 16.0.1
@@ -4355,6 +4357,20 @@ __metadata:
   version: 2.0.0
   resolution: "crypto-random-string@npm:2.0.0"
   checksum: 0283879f55e7c16fdceacc181f87a0a65c53bc16ffe1d58b9d19a6277adcd71900d02bb2c4843dd55e78c51e30e89b0fec618a7f170ebcc95b33182c28f05fd6
+  languageName: node
+  linkType: hard
+
+"csp-header@npm:5.1.0":
+  version: 5.1.0
+  resolution: "csp-header@npm:5.1.0"
+  checksum: 8afdb6e8238e5ca9b89b503519a78589c88c2a719253a6cfef641d82375f9a4f17cff47ea1c783c6a466d01229eb4d35d5a0e600ee4e052cb7a6e97f7f8c8dd4
+  languageName: node
+  linkType: hard
+
+"csp-preset-google-analytics@npm:1.0.2":
+  version: 1.0.2
+  resolution: "csp-preset-google-analytics@npm:1.0.2"
+  checksum: a9f2440d5002f2b0e3ed339f0a2c0be46ededa75310d0456462eb8b9e9716566645ee83727db612de9d540f3454a955b6836b6ea5dd05f24eebc51b95e151dfa
   languageName: node
   linkType: hard
 
