@@ -1,6 +1,6 @@
 {
   "name": "@myhill-cycling/astra-web",
-  "version": "1.33.0",
+  "version": "1.34.0",
   "private": true,
   "engines": {
     "node": "^16",
