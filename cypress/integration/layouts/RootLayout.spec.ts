@@ -1,4 +1,5 @@
 import navLinks from "../../../src/helpers/NavigationLinks";
+import {AccessabilityTest} from "../../support/auditTests";
 
 function RootTests() {
     specify("Logo image visible and loaded", () => {
@@ -51,13 +52,12 @@ function MobileSizeNavigationTests(){
         .should("be.visible");
     });
 
-    specify("Mobile Nav Accessability", () => {
-        cy.injectAxe();
+    specify("Mobile Nav Accessability", () => {        
 
         cy.get("@NavMenuToggle")
         .click();        
 
-        cy.checkA11y();
+        AccessabilityTest();
     });
 
     specify("List shows all elements", () => {
@@ -77,8 +77,7 @@ function FullSizeNavigationTests() {
     });
 
     specify("Elements are accessible", () => {
-        cy.injectAxe();
-        cy.checkA11y();
+        AccessabilityTest();
     });
     
     specify("List shows all elements", NavTest_ElementNames);
@@ -110,8 +109,45 @@ function DarkModeTests(mode: "light" | "dark"){
     });
 }
 
+function CookieConsentTests() {
+    specify("Cookie Consent is shown", () => {
+        cy.contains("Allow all cookies").should("be.visible");
+        cy.contains("Deny all").should("be.visible");
+        cy.contains("Cookie settings").should("be.visible");
+        cy.get(".ch2-learn-more").should("be.visible");
+    });
+}
+
 context("Root Layout", () => {    
     const url = "/";
+
+    context("Cookie Consent", () => {
+        context("Dark mode", () => {
+            beforeEach(() => {
+                cy.visit(url, {
+                    onBeforeLoad (window) {
+                        window.localStorage.setItem("color-theme", "dark");
+                    },
+                });
+            });
+
+            CookieConsentTests();
+        });
+        context("Light mode", () => {
+            beforeEach(() => {
+                cy.visit(url, {
+                    onBeforeLoad (window) {
+                        window.localStorage.setItem("color-theme", "light");
+                    },
+                });
+            });
+
+            CookieConsentTests();
+        });
+        
+    });  
+
+
     context("Header", () => {
 
         context("Dark mode toggle", () => {
