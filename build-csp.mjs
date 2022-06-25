@@ -61,8 +61,10 @@ const policyString = getCSP({
 
 const path = "./dist/staticwebapp.config.json";
 const json = JSON.parse(await readFile(path));
-console.log(json);
+console.debug("JSON config before header injection");
+console.debug(json);
 json.globalHeaders["Content-Security-Policy"] = policyString;
-console.log(json);
+console.debug("JSON config after header injection");
+console.debug(json);
 await writeFile(path, JSON.stringify(json));
 
