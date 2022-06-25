@@ -778,7 +778,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.6.0
     flowbite: 1.4.7
     http-server: 14.1.1
-    preact: 10.8.1
+    preact: 10.8.2
     semantic-release: 19.0.3
     typescript: 4.7.4
     vite-imagetools: 4.0.4
@@ -9066,10 +9066,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preact@npm:10.8.1":
-  version: 10.8.1
-  resolution: "preact@npm:10.8.1"
-  checksum: 273500b3a763b8582420273f6bddcc74268d3cbd66f1c3cca7c4fbd0eb781740dd948bccf7011acd0b28f35dee116d038aa4d0a2112856939c26567d957d7155
+"preact@npm:10.8.2":
+  version: 10.8.2
+  resolution: "preact@npm:10.8.2"
+  checksum: 183358ba03b4c104c89b383ea926099b49acd0435f24e95dee9ff0e81350d1bfbd77908f6a2ed16b3654d75e84832fd5b4479216c85fe8af6ad8c2ebe795c4f9
   languageName: node
   linkType: hard
 
