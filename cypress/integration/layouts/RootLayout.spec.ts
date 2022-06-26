@@ -126,6 +126,7 @@ context("Root Layout", () => {
             beforeEach(() => {
                 cy.visit(url, {
                     onBeforeLoad (window) {
+                        delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                         window.localStorage.setItem("color-theme", "dark");
                     },
                 });
@@ -137,6 +138,7 @@ context("Root Layout", () => {
             beforeEach(() => {
                 cy.visit(url, {
                     onBeforeLoad (window) {
+                        delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                         window.localStorage.setItem("color-theme", "light");
                     },
                 });
@@ -156,6 +158,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -168,6 +171,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -182,6 +186,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -195,6 +200,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -210,6 +216,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -223,6 +230,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -238,6 +246,7 @@ context("Root Layout", () => {
             beforeEach(() => {
                 cy.visit(url, {
                     onBeforeLoad (window) {
+                        delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                         window.localStorage.setItem("color-theme", "dark");
                     },
                 });
@@ -249,6 +258,7 @@ context("Root Layout", () => {
             beforeEach(() => {
                 cy.visit(url, {
                     onBeforeLoad (window) {
+                        delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                         window.localStorage.setItem("color-theme", "light");
                     },
                 });
@@ -262,6 +272,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -274,6 +285,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -288,6 +300,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -301,6 +314,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -316,6 +330,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -329,6 +344,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });

@@ -16,6 +16,7 @@ export function RunAccessabilityAudit(url: string){
         specify("Light mode", () => {
             cy.visit(url, {
                 onBeforeLoad (window) {
+                    delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                     window.localStorage.setItem("color-theme", "light");
                 },
               });    
@@ -25,6 +26,7 @@ export function RunAccessabilityAudit(url: string){
         specify("Dark mode", () => {
             cy.visit(url, {
                 onBeforeLoad (window) {
+                    delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                     window.localStorage.setItem("color-theme", "dark");
                 },
               });

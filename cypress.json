@@ -2,6 +2,7 @@
     "$schema": "https://on.cypress.io/cypress.schema.json",
     "projectId": "x3qdiq",
     "baseUrl": "http://localhost:3000",
+    "chromeWebSecurity": false,
     "retries": {
         "runMode": 2,
         "openMode": 4
