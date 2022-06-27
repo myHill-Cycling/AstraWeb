@@ -88,7 +88,10 @@ const csp = {
         "connect-src": [SELF],
         "img-src": [SELF, DATA],
         "style-src": [SELF, UNSAFE_HASHES, ...styleHashes],
-        "script-src": [SELF, UNSAFE_HASHES, ...scriptHashes]
+        "script-src": [SELF, UNSAFE_HASHES, ...scriptHashes],
+        "form-action": [SELF],
+        "frame-ancestors": [NONE],
+        "upgrade-insecure-requests": true
     },
     presets: [
         ga,
