@@ -53,6 +53,6 @@ jobs:
         run: yarn add @lhci/cli@0.9.0
 
       - name: Run Lighthouse
-        run: lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }}
+        run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
