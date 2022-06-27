@@ -28,6 +28,7 @@
     "http-server": "14.1.1"
   },
   "devDependencies": {
+    "@astrojs/partytown": "0.1.5",
     "@astrojs/pwa": "portal:./src/components/pwa-plugin",
     "@astrojs/sitemap": "0.1.0",
     "@astrojs/tailwind": "0.2.1",

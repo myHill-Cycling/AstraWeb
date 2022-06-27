@@ -4,7 +4,11 @@ on:
       WebsiteArtifactName:
         description: "The name of the artifact containing the built website"
         type: string
+        required: false
+      Url:
+        type: string
         required: true
+      
     secrets:
       LHCI_GITHUB_APP_TOKEN:
         required: true
@@ -18,19 +22,37 @@ jobs:
         uses: actions/checkout@v3      
 
       - name: Download build artifact
+        if: ${{ inputs.WebsiteArtifactName != '' }}
         uses: actions/download-artifact@v3
         with:
           name: ${{ inputs.WebsiteArtifactName }}
           # download all files into "dist" folder
           path: dist
 
-      - name: Run Lighthouse
-        uses: treosh/lighthouse-ci-action@v9
+      - name: Create dummy dist
+        if: ${{ inputs.WebsiteArtifactName == '' }}
+        run: mkdir dist && touch ./dist/index.html
+
+      - name: Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
         with:
-          # no urls needed, since it uses local folder to scan .html files
-          configPath: './.github/lighthouse/.lighthouserc.js'
-          runs: 3
-          uploadArtifacts: true
+          node-version: 16
+          cache: "yarn"
+
+      - name: Dependency Module Cache
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+
+      - name: Dependency installation
+        run: yarn install
+
+      - name: Install Lighthouse
+        run: yarn add @lhci/cli@0.9.0
+
+      - name: Run Lighthouse
+        run: lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-          LHCI_UPLOAD__GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

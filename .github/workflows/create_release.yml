@@ -21,6 +21,7 @@ jobs:
       LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
     with:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
+      Url: "http://localhost:3000/"
 
   cypress_test:
     permissions: write-all

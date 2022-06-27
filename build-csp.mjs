@@ -19,6 +19,7 @@ const cookies = {
     ],
     "script-src": [
         "https://cookiehub.net/",
+        "https://dash.cookiehub.com/",
         "'sha256-aqNNdDLnnrDOnTNdkJpYlAxKVJtLt9CtFLklmInuUAE='"
     ],
     "connect-src": [
@@ -29,7 +30,8 @@ const cookies = {
 
 const gtm = {
     "style-src": [
-        "https://www.googletagmanager.com/"
+        "https://www.googletagmanager.com/",
+        "'sha256-/cz+p719dOFygDAqDgEjHhHSRaka+kWXk3WHAOXiURk='"
     ],
     "script-src": [
         "https://www.googletagmanager.com/"
