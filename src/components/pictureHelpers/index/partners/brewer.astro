@@ -23,7 +23,7 @@ const props = Astro.props as Props;
     <source srcset={srcsetAvif} type="image/avif" />
     <source srcset={srcsetWebp} type="image/webp" />
     <source srcset={srcsetPng} type="image/png" />
-    <img class={props.class}
+    <img class={props.class} loading="lazy"
         src={placeholder} width={118} height={106}
         alt="Brampton Brewery" />
 </picture>

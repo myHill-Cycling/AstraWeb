@@ -27,7 +27,7 @@ const props = Astro.props as Props;
     <source srcset={srcsetWebp} type="image/webp" sizes="8rem" />
     <source srcset={srcsetPng} type="image/png" sizes="8rem" />
     <img class={props.class}
-        src={placeholder}
+        src={placeholder} loading="lazy"
         width={props.width ?? 120}
         height={props.height ?? 36}
         alt="myHill Cycling" />
