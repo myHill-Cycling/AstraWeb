@@ -95,25 +95,26 @@ function DarkModeTests(mode: "light" | "dark"){
         fetchButton().should("be.visible");
     });
 
-    specify("Aria label correct for mode", () => {
-        const expectedAria = mode === "dark" ? "Switch to light mode" : "Switch to dark mode";
+    //TODO Replcae with playwright
+    // specify("Aria label correct for mode", () => {
+    //     const expectedAria = mode === "dark" ? "Switch to light mode" : "Switch to dark mode";
 
-        fetchButton()
-        .should("have.attr", "aria-label", expectedAria);
-    });
+    //     fetchButton()
+    //     .should("have.attr", "aria-label", expectedAria);
+    // });
 
-    specify("Button toggles local storage", () => {
-        fetchButton()
-        .click()
-        .then(() => {
-            if(mode === "dark"){
-                expect(window.localStorage.getItem("color-theme")).to.not.eq("dark");
-            }
-            else {
-                expect(window.localStorage.getItem("color-theme")).to.eq("dark");
-            }
-        });
-    });   
+    // specify("Button toggles local storage", () => {
+    //     fetchButton()
+    //     .click()
+    //     .then(() => {
+    //         if(mode === "dark"){
+    //             expect(window.localStorage.getItem("color-theme")).to.not.eq("dark");
+    //         }
+    //         else {
+    //             expect(window.localStorage.getItem("color-theme")).to.eq("dark");
+    //         }
+    //     });
+    // });   
 }
 
 function CookieConsentTests() {
