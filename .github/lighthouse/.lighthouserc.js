@@ -11,6 +11,7 @@ module.exports = {
       assert: {
         preset: 'lighthouse:no-pwa',
         assertions: {
+          "errors-in-console": "warn",
           "uses-text-compression": "off", //Handled externally
           "uses-long-cache-ttl": "off",
           "csp-xss": "off", //CSP handled in server outside of lighthouse

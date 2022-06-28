@@ -88,11 +88,18 @@ function FullSizeNavigationTests() {
 function DarkModeTests(mode: "light" | "dark"){
 
     function fetchButton() {
-        return cy.get(`[aria-label="Switch to ${mode === "light" ? "dark" : "light" } mode"]`);
+        return cy.get("#ToggleButton_DarkModeSwitch");
     }
 
     specify("Button is visible", () => {
         fetchButton().should("be.visible");
+    });
+
+    specify("Aria label correct for mode", () => {
+        const expectedAria = mode === "dark" ? "Switch to light mode" : "Switch to dark mode";
+
+        fetchButton()
+        .should("have.attr", "aria-label", expectedAria);
     });
 
     specify("Button toggles local storage", () => {
@@ -106,7 +113,7 @@ function DarkModeTests(mode: "light" | "dark"){
                 expect(window.localStorage.getItem("color-theme")).to.eq("dark");
             }
         });
-    });
+    });   
 }
 
 function CookieConsentTests() {

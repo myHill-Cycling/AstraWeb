@@ -18,14 +18,27 @@ import GtmHead from "@components/shell/gtm/gtmHead.astro";
         <slot name="head" />
         <script>            
             // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-
-            const colourTheme = localStorage.getItem("color-theme");
-            const darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            if (colourTheme === "dark" || darkModeMedia)
+            console.debug("Loading color theme");
+            const colourTheme = localStorage.getItem("color-theme");            
+            if (colourTheme === "dark")
             {
+                console.debug("Explicit dark mode");
                 document.documentElement.classList.add("dark");
             } else {
-                document.documentElement.classList.remove("dark");
+                const darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                if (darkModeMedia) {
+                    console.debug("Implicit dark mode");
+                    document.documentElement.classList.add("dark");
+                }
+                else {
+                    if(colourTheme === "light") {
+                        console.debug("Explicit light mode");
+                    }
+                    else{
+                        console.debug("Implicit light mode");
+                    }
+                    document.documentElement.classList.remove("dark");
+                }
             }
         </script>
         <script>
