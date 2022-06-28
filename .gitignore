@@ -23,6 +23,7 @@ pnpm-debug.log*
 *.env
 .cache/
 artifacts/
+.lighthouseci/
 
 # macOS-specific files
 .DS_Store

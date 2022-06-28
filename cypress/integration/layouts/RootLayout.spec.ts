@@ -1,4 +1,5 @@
 import navLinks from "../../../src/helpers/NavigationLinks";
+import {AccessabilityTest} from "../../support/auditTests";
 
 function RootTests() {
     specify("Logo image visible and loaded", () => {
@@ -51,13 +52,12 @@ function MobileSizeNavigationTests(){
         .should("be.visible");
     });
 
-    specify("Mobile Nav Accessability", () => {
-        cy.injectAxe();
+    specify("Mobile Nav Accessability", () => {        
 
         cy.get("@NavMenuToggle")
         .click();        
 
-        cy.checkA11y();
+        AccessabilityTest();
     });
 
     specify("List shows all elements", () => {
@@ -77,8 +77,7 @@ function FullSizeNavigationTests() {
     });
 
     specify("Elements are accessible", () => {
-        cy.injectAxe();
-        cy.checkA11y();
+        AccessabilityTest();
     });
     
     specify("List shows all elements", NavTest_ElementNames);
@@ -89,29 +88,76 @@ function FullSizeNavigationTests() {
 function DarkModeTests(mode: "light" | "dark"){
 
     function fetchButton() {
-        return cy.get(`[aria-label="Switch to ${mode === "light" ? "dark" : "light" } mode"]`);
+        return cy.get("#ToggleButton_DarkModeSwitch");
     }
 
     specify("Button is visible", () => {
         fetchButton().should("be.visible");
     });
 
-    specify("Button toggles local storage", () => {
-        fetchButton()
-        .click()
-        .then(() => {
-            if(mode === "dark"){
-                expect(window.localStorage.getItem("color-theme")).to.not.eq("dark");
-            }
-            else {
-                expect(window.localStorage.getItem("color-theme")).to.eq("dark");
-            }
-        });
+    //TODO Replcae with playwright
+    // specify("Aria label correct for mode", () => {
+    //     const expectedAria = mode === "dark" ? "Switch to light mode" : "Switch to dark mode";
+
+    //     fetchButton()
+    //     .should("have.attr", "aria-label", expectedAria);
+    // });
+
+    // specify("Button toggles local storage", () => {
+    //     fetchButton()
+    //     .click()
+    //     .then(() => {
+    //         if(mode === "dark"){
+    //             expect(window.localStorage.getItem("color-theme")).to.not.eq("dark");
+    //         }
+    //         else {
+    //             expect(window.localStorage.getItem("color-theme")).to.eq("dark");
+    //         }
+    //     });
+    // });   
+}
+
+function CookieConsentTests() {
+    specify("Cookie Consent is shown", () => {
+        cy.contains("Allow all cookies").should("be.visible");
+        cy.contains("Deny all").should("be.visible");
+        cy.contains("Cookie settings").should("be.visible");
+        cy.get(".ch2-learn-more").should("be.visible");
     });
 }
 
 context("Root Layout", () => {    
     const url = "/";
+
+    context("Cookie Consent", () => {
+        context("Dark mode", () => {
+            beforeEach(() => {
+                cy.visit(url, {
+                    onBeforeLoad (window) {
+                        delete Object.getPrototypeOf(window.navigator).ServiceWorker;
+                        window.localStorage.setItem("color-theme", "dark");
+                    },
+                });
+            });
+
+            CookieConsentTests();
+        });
+        context("Light mode", () => {
+            beforeEach(() => {
+                cy.visit(url, {
+                    onBeforeLoad (window) {
+                        delete Object.getPrototypeOf(window.navigator).ServiceWorker;
+                        window.localStorage.setItem("color-theme", "light");
+                    },
+                });
+            });
+
+            CookieConsentTests();
+        });
+        
+    });  
+
+
     context("Header", () => {
 
         context("Dark mode toggle", () => {
@@ -120,6 +166,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -132,6 +179,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -146,6 +194,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -159,6 +208,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -174,6 +224,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -187,6 +238,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -202,6 +254,7 @@ context("Root Layout", () => {
             beforeEach(() => {
                 cy.visit(url, {
                     onBeforeLoad (window) {
+                        delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                         window.localStorage.setItem("color-theme", "dark");
                     },
                 });
@@ -213,6 +266,7 @@ context("Root Layout", () => {
             beforeEach(() => {
                 cy.visit(url, {
                     onBeforeLoad (window) {
+                        delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                         window.localStorage.setItem("color-theme", "light");
                     },
                 });
@@ -226,6 +280,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -238,6 +293,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -252,6 +308,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -265,6 +322,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });
@@ -280,6 +338,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "dark");
                             },
                         });
@@ -293,6 +352,7 @@ context("Root Layout", () => {
                     beforeEach(() => {
                         cy.visit(url, {
                             onBeforeLoad (window) {
+                                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                                 window.localStorage.setItem("color-theme", "light");
                             },
                         });

@@ -42,11 +42,10 @@ jobs:
       - name: Type check
         run: yarn type-check
 
-      - name: Astro check
-        run: yarn run astro check
-
       - name: Build
         run: yarn build
+        env:
+          DEBUG_GTM_ENV: true
 
       - name: Upload website artifact
         uses: actions/upload-artifact@v3

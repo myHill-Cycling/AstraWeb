@@ -75,7 +75,11 @@ function WelcomeBanner() {
 
 context("Index Page", () => {
     specify("Load success", () => {
-        cy.visit("/");
+        cy.visit("/", {
+            onBeforeLoad(window){
+                delete Object.getPrototypeOf(window.navigator).ServiceWorker;
+            }
+        });
     });
 
     context("Desktop viewport", () => {
@@ -87,6 +91,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "dark");
                         },
                     });
@@ -98,6 +103,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "light");
                         },
                     });
@@ -111,6 +117,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "dark");
                         },
                     });
@@ -122,6 +129,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "light");
                         },
                     });
@@ -143,6 +151,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "dark");
                         },
                     });
@@ -154,6 +163,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "light");
                         },
                     });
@@ -167,6 +177,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "dark");
                         },
                     });
@@ -178,6 +189,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "light");
                         },
                     });
@@ -199,6 +211,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "dark");
                         },
                     });
@@ -210,6 +223,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "light");
                         },
                     });
@@ -223,6 +237,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "dark");
                         },
                     });
@@ -234,6 +249,7 @@ context("Index Page", () => {
                 beforeEach(() => {
                     cy.visit("/", {
                         onBeforeLoad (window) {
+                            delete Object.getPrototypeOf(window.navigator).ServiceWorker;
                             window.localStorage.setItem("color-theme", "light");
                         },
                     });

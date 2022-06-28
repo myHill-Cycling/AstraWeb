@@ -1,10 +1,12 @@
 ---
-const gtmSrcLive = "https://www.googletagmanager.com/ns.html?id=GTM-MB87RDP&gtm_auth=EVnxaLdz6hH9pOb_sguE0w&gtm_preview=env-1&gtm_cookies_win=x"
-const gtmSrcDev = "https://www.googletagmanager.com/ns.html?id=GTM-MB87RDP&gtm_auth=J75EY7yn6iy6dyZOs8awrg&gtm_preview=env-4&gtm_cookies_win=x"
+const gtmSrcLive = "https://www.googletagmanager.com/ns.html?id=GTM-MB87RDP&gtm_auth=EVnxaLdz6hH9pOb_sguE0w&gtm_preview=env-1&gtm_cookies_win=x";
+const gtmSrcDev = "https://www.googletagmanager.com/ns.html?id=GTM-MB87RDP&gtm_auth=J75EY7yn6iy6dyZOs8awrg&gtm_preview=env-4&gtm_cookies_win=x";
 
-const gtmSrc = import.meta.env.PROD ? gtmSrcLive : gtmSrcDev;
+const gtmSrc = import.meta.env.DEBUG_GTM_ENV ? gtmSrcDev : gtmSrcLive;
+
+// For some reason if you don't inject it like this astro hoists it out of the noscript element which makes it a bit pointless
+const frameHtml = `<iframe src="${gtmSrc}" height="0" width="0" style="display:none;visibility:hidden"/>`;
 ---
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src={gtmSrc}
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript set:html={frameHtml}></noscript>
 <!-- End Google Tag Manager (noscript) -->

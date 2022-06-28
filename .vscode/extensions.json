@@ -1,7 +1,7 @@
 {
   "recommendations": [
     "arcanis.vscode-zipfs",
-    "dbaeumer.vscode-eslint",
-    "Shelex.vscode-cy-helper"
+    "astro-build.astro-vscode",
+    "bradlc.vscode-tailwindcss"
   ]
 }

@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-      "target": "es5",
+      "target": "es6",
       "skipLibCheck": true,
-      "lib": ["es5", "dom"],
+      "lib": ["es6", "dom"],
       "types": ["cypress", "jquery", "cypress-axe"],
       "composite": true
     },

@@ -15,18 +15,8 @@ jobs:
       WebsiteUrl: https://calm-plant-0e1398703.1.azurestaticapps.net/
 
   run_lighthouse:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Run Lighthouse
-        uses: treosh/lighthouse-ci-action@v9
-        with:
-          urls: https://calm-plant-0e1398703.1.azurestaticapps.net
-          configPath: './.github/lighthouse/.lighthouserc.live.js'
-          runs: 3
-          uploadArtifacts: true
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-          LHCI_UPLOAD__GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+    uses: ./.github/workflows/lighthouse_audit.yml
+    secrets:
+      LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+    with:
+      Url: "https://calm-plant-0e1398703.1.azurestaticapps.net"

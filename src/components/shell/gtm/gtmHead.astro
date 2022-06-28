@@ -1,13 +1,29 @@
 ---
-const gtmSrcLive = "gtm_auth=EVnxaLdz6hH9pOb_sguE0w&gtm_preview=env-1&gtm_cookies_win=x"
-const gtmSrcDev = "&gtm_auth=J75EY7yn6iy6dyZOs8awrg&gtm_preview=env-4&gtm_cookies_win=x"
+const env = import.meta.env.DEBUG_GTM_ENV ? "env-4" : "env-1";
+const auth = import.meta.env.DEBUG_GTM_ENV ? "J75EY7yn6iy6dyZOs8awrg" : "EVnxaLdz6hH9pOb_sguE0w";
 
-const gtmSrc = import.meta.env.PROD ? gtmSrcLive : gtmSrcDev;
+if(import.meta.env.DEBUG_GTM_ENV) {
+    console.info("Google Tag Manager env - debug");
+}
+else {
+    console.info("Google Tag Manager env - live");
+}
 ---
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i,k){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl+ {gtmSrc};f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MB87RDP');</script>
+<script define:vars={{ env, auth }}>
+function ActivateTagManager (win, doc, scriptElementName, dataLayerName, gtmId, k) {
+    win[dataLayerName] = win[dataLayerName] || [];
+    win[dataLayerName].push({
+        "gtm.start": new Date().getTime(),
+        event: "gtm.js"
+    });
+    const firstScript = doc.getElementsByTagName(scriptElementName)[0];
+    const gtmTag = doc.createElement(scriptElementName);
+    gtmTag.async = true;
+    gtmTag.src = `https://www.googletagmanager.com/gtm.js?id=${gtmId}&l=${dataLayerName}&gtm_auth=${auth}&gtm_preview=${env}&gtm_cookies_win=x`;
+    firstScript.parentNode.insertBefore(gtmTag, firstScript); //Inject GTM as the very first script to be loaded
+};
+
+ActivateTagManager(window, document, "script", "dataLayer", "GTM-MB87RDP");
+</script>
 <!-- End Google Tag Manager -->
