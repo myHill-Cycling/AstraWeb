@@ -1,5 +1,26 @@
 # Semantic Versioning Changelog
 
+# [1.36.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.35.0...v1.36.0) (2022-06-28)
+
+
+### Bug Fixes
+
+* fix build error due to missing braces ([20c851a](https://github.com/myHill-Cycling/AstraWeb/commit/20c851a60d771e673ddfc967c3b20a4cadbecef6))
+* fix content security policy generation ([f7f4078](https://github.com/myHill-Cycling/AstraWeb/commit/f7f4078bc497fa0e8aa3b8197462964ca68beb43))
+* fix incorrect ARIA role ([2d5ebba](https://github.com/myHill-Cycling/AstraWeb/commit/2d5ebbabfe7d1eab667d5b99987d7916c6c1ba1e))
+* remove invalid astro directive ([294b868](https://github.com/myHill-Cycling/AstraWeb/commit/294b8681f7b2d3e13c4b70dffa6b2cabd56b85a2))
+* update CSP to allow cookiehub connections ([8061fcb](https://github.com/myHill-Cycling/AstraWeb/commit/8061fcb35e6a80e4d0891a7580cd19116c93eb9d))
+* update security headers ([74ec1a8](https://github.com/myHill-Cycling/AstraWeb/commit/74ec1a8a71ed12d866a915a78d03fd24f5f4113b))
+
+
+### Features
+
+* add native lazy load support to images ([eee5216](https://github.com/myHill-Cycling/AstraWeb/commit/eee5216a085861fbe7bbbf727b4b96c79ae80d29))
+* fix PWA support ([1904f73](https://github.com/myHill-Cycling/AstraWeb/commit/1904f73354f5d89d8c1abeb59bd4a9fe64c6d6ee))
+* fix sticky dark mode toggle ([1630a3b](https://github.com/myHill-Cycling/AstraWeb/commit/1630a3bb403500d37e68ea44e1222af6d352d58f))
+* implement GTM support ([e835c72](https://github.com/myHill-Cycling/AstraWeb/commit/e835c72cb7792205bc663beac7a1fba58d851cf9))
+* switch to custom service worker implementation ([c59c4bd](https://github.com/myHill-Cycling/AstraWeb/commit/c59c4bd34fe746adf190c8a0b472d50c7919cb0b))
+
 # [1.35.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.34.0...v1.35.0) (2022-06-26)
 
 # [1.34.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.33.0...v1.34.0) (2022-06-25)
