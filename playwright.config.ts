@@ -68,12 +68,13 @@ const config: PlaywrightTestConfig = {
 			},
 		},
 
-		{
-			name: "webkit",
-			use: {
-				...devices["Desktop Safari"],
-			},
-		},
+		//TODO WebKit does not work due to how it handles relative URLS (it forces https urls and does not accept self-signed certificates) https://github.com/microsoft/playwright/issues/9466
+		// {
+		// 	name: "webkit",
+		// 	use: {
+		// 		...devices["Desktop Safari"],
+		// 	},
+		// },
 
 		/* Test against mobile viewports. */
 		{
@@ -82,12 +83,12 @@ const config: PlaywrightTestConfig = {
 				...devices["Pixel 5"],
 			},
 		},
-		{
-			name: "Mobile Safari",
-			use: {
-				...devices["iPhone 12"],
-			},
-		},
+		// {
+		// 	name: "Mobile Safari",
+		// 	use: {
+		// 		...devices["iPhone 12"],
+		// 	},
+		// },
 
 		/* Test against branded browsers. */
 		// {
