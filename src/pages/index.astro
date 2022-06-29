@@ -1,7 +1,6 @@
 ---
 import Banner from "@pictures/index/banner.astro";
 import Layout from "@layouts/RootLayout.astro";
-//@ts-ignore
 import {SEO} from "astro-seo";
 import Brewer from "@pictures/index/partners/brewer.astro";
 import Pillar from "@pictures/index/partners/pillar.astro";
@@ -11,40 +10,40 @@ import HillClimb from "@pictures/index/events/hillclimb.astro";
 ---
 
 <Layout>
-    <SEO slot="head"
-        title="Welcome to myHill cycling"
-        description="Sportives and weekend training camps set in the peak district to get more people on their bikes!"
-    />
-    <main >    
-        <section class="relative">
-            <div class="w-full h-full top-0 left-0">
-                <Banner />
-            </div>
-            <div class="absolute w-full h-full top-10 left-0 z-10">
-                <div class="relative">
-                    <h1 class="backdrop-blur-sm w-full bg-white/60 text-brand p-2 pb-4 sm:p-4 sm:pb-6 text-2xl sm:text-4xl md:text-6xl">aspire:<b>enjoy</b>:inspire</h1>
-                    <a href="/gateway2racing" aria-label="Gateway to Racing">
-                        <RacingGateway class="sm:block hidden absolute right-4 top-0 bottom-0 m-auto z-20 h-20 w-36 md:h-40 md:w-72 hover:scale-75 transition-transform" />
-                    </a>
-                </div>
-            </div>
-            <div class="absolute bottom-8 ml-4 z-10 italic">
-                <p class="text-white text-xl"><q>Nothing compares to the simple pleasure of riding a bike</q> - John F Kennedy</p>
-            </div>
-        </section>
-        <section>
-            <h2 class="text-4xl sm:text-6xl dark:text-dark-mode-foreground text-center">Events 2022</h2>
-            <hr aria-hidden="true" class="mx-6 sm:mx-16" />
-            <ul class="flex flex-col sm:flex-row sm:space-x-10 dark:text-dark-mode-foreground justify-center items-center ml-auto mr-auto mt-12">
-                <li><a href="hillclimb"><HillClimb class="h-28 hover:scale-125 transition-all contrast-50 hover:contrast-100" /></a></li>
-            </ul>
-        </section>
-        <section class="flex flex-col sm:flex-row dark:text-dark-mode-foreground justify-center items-center ml-auto mr-auto mt-12">
-            <h2 class="text-2xl sm:mr-10 bg-transparent">Our partners:</h2>
-            <ul class="flex flex-col sm:flex-row justify-center items-center sm:space-x-10 mb-2">
-                <li><a href="https://www.bramptonbrewery.co.uk/"><Brewer class="w-28 transition-transform hover:scale-125" /></a></li>
-                <li><a href="https://www.pillar-app.com/"><Pillar class="w-28 dark:bg-gray-400 p-2 rounded transition-transform hover:scale-125" /></a></li>
-            </ul>
-        </section>
-    </main>
+	<SEO slot="head"
+		title="Welcome to myHill cycling"
+		description="Sportives and weekend training camps set in the peak district to get more people on their bikes!"
+	/>
+	<main >    
+		<section class="relative">
+			<div class="w-full h-full top-0 left-0">
+				<Banner />
+			</div>
+			<div class="absolute w-full h-full top-10 left-0 z-10">
+				<div class="relative">
+					<h1 class="backdrop-blur-sm w-full bg-white/60 text-brand p-2 pb-4 sm:p-4 sm:pb-6 text-2xl sm:text-4xl md:text-6xl">aspire:<b>enjoy</b>:inspire</h1>
+					<a href="/gateway2racing" aria-label="Gateway to Racing">
+						<RacingGateway class="sm:block hidden absolute right-4 top-0 bottom-0 m-auto z-20 h-20 w-36 md:h-40 md:w-72 hover:scale-75 transition-transform" />
+					</a>
+				</div>
+			</div>
+			<div class="absolute bottom-8 ml-4 z-10 italic">
+				<p class="text-white text-xl"><q>Nothing compares to the simple pleasure of riding a bike</q> - John F Kennedy</p>
+			</div>
+		</section>
+		<section>
+			<h2 class="text-4xl sm:text-6xl dark:text-dark-mode-foreground text-center">Events 2022</h2>
+			<hr aria-hidden="true" class="mx-6 sm:mx-16" />
+			<ul class="flex flex-col sm:flex-row sm:space-x-10 dark:text-dark-mode-foreground justify-center items-center ml-auto mr-auto mt-12">
+				<li><a href="hillclimb"><HillClimb class="h-28 hover:scale-125 transition-all contrast-50 hover:contrast-100" /></a></li>
+			</ul>
+		</section>
+		<section class="flex flex-col sm:flex-row dark:text-dark-mode-foreground justify-center items-center ml-auto mr-auto mt-12">
+			<h2 class="text-2xl sm:mr-10 bg-transparent">Our partners:</h2>
+			<ul class="flex flex-col sm:flex-row justify-center items-center sm:space-x-10 mb-2">
+				<li><a href="https://www.bramptonbrewery.co.uk/"><Brewer class="w-28 transition-transform hover:scale-125" /></a></li>
+				<li><a href="https://www.pillar-app.com/"><Pillar class="w-28 dark:bg-gray-400 p-2 rounded transition-transform hover:scale-125" /></a></li>
+			</ul>
+		</section>
+	</main>
 </Layout>
