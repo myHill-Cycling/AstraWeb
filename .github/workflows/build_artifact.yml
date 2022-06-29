@@ -35,6 +35,8 @@ jobs:
 
       - name: Dependency installation
         run: yarn install --immutable
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: Linting
         run: yarn lint
@@ -44,8 +46,6 @@ jobs:
 
       - name: Build
         run: yarn build
-        env:
-          DEBUG_GTM_ENV: true
 
       - name: Upload website artifact
         uses: actions/upload-artifact@v3

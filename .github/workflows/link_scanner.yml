@@ -35,7 +35,9 @@ jobs:
   #         key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
   #     - name: Dependency installation
-  #       run: yarn install --immutable
+  #       run: yarn install
+  #       env:
+  #         PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
   #     - name: Download build artifact
   #       uses: actions/download-artifact@v3

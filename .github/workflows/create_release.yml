@@ -11,10 +11,28 @@ on:
       - "yarn.lock"
 
 jobs:
+  pre_job:
+    permissions:
+      actions: write
+      contents: read
+    # continue-on-error: true # Uncomment once integration is finished
+    runs-on: ubuntu-latest
+    # Map a step output to a job output
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@v4
+        with:
+          # All of these options are optional, so you can remove them if you are happy with the defaults
+          cancel_others: true
+          skip_after_successful_duplicate: true
+
   build_website:
     uses: ./.github/workflows/build_artifact.yml
 
   lighthouse:
+    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     uses: ./.github/workflows/lighthouse_audit.yml
     needs: [build_website]
     secrets:
@@ -23,19 +41,17 @@ jobs:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
       Url: "http://localhost:3000/"
 
-  cypress_test:
-    permissions: write-all
-    uses: ./.github/workflows/cypress_tests.yml
+  test:
+    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    uses: ./.github/workflows/tests.yml
     needs: [build_website]
     with:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
-    secrets:
-      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   release:
     name: "Package Website"
     runs-on: ubuntu-latest
-    needs: [build_website, cypress_test, lighthouse]
+    needs: [build_website, test, lighthouse]
     steps:
       - name: Get Token
         id: get_workflow_token
@@ -73,7 +89,9 @@ jobs:
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
       - name: Dependency installation
-        run: yarn install --immutable
+        run: yarn install
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: Download build artifact
         uses: actions/download-artifact@v3

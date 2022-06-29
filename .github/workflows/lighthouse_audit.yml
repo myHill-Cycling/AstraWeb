@@ -48,9 +48,13 @@ jobs:
 
       - name: Dependency installation
         run: yarn install
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: Install Lighthouse
         run: yarn add @lhci/cli@0.9.0
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: Run Lighthouse
         run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }}
