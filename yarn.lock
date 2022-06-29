@@ -2010,7 +2010,7 @@ __metadata:
     astro-critters: 0.0.8
     astro-eslint-parser: 0.3.1
     astro-icon: 0.7.1
-    astro-robots-txt: 0.3.1
+    astro-robots-txt: 0.3.6
     astro-seo: 0.5.0
     astro-webmanifest: 0.3.4
     axe-core: 4.4.2
@@ -3587,13 +3587,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-robots-txt@npm:0.3.1":
-  version: 0.3.1
-  resolution: "astro-robots-txt@npm:0.3.1"
+"astro-robots-txt@npm:0.3.6":
+  version: 0.3.6
+  resolution: "astro-robots-txt@npm:0.3.6"
   dependencies:
     deepmerge: ^4.2.2
+    valid-filename: ^4.0.0
     zod: ^3.17.3
-  checksum: caf1d694c840f3733bf03d5b21743f7b434d134e46924646b726248d84892832ee0e2b59edb3f42effef279cea21262d9f3857141843c9dfbaeb7557c41c0709
+  checksum: f2a6859d2f50bd06ee2dd9cec218bd2d934e6e22291bb01a19c2581e34f51a2167e2b140ea7beded232bd84e141a8e279959a255297d32937e9814b3a19cc475
   languageName: node
   linkType: hard
 
