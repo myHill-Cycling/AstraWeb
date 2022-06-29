@@ -2008,7 +2008,7 @@ __metadata:
     "@typescript-eslint/parser": 5.29.0
     astro: 1.0.0-beta.47
     astro-critters: 0.0.8
-    astro-eslint-parser: 0.2.2
+    astro-eslint-parser: 0.3.1
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.1
     astro-seo: 0.5.0
@@ -3544,17 +3544,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-eslint-parser@npm:0.2.2":
-  version: 0.2.2
-  resolution: "astro-eslint-parser@npm:0.2.2"
+"astro-eslint-parser@npm:0.3.1":
+  version: 0.3.1
+  resolution: "astro-eslint-parser@npm:0.3.1"
   dependencies:
-    "@astrojs/compiler": ^0.15.2
+    "@astrojs/compiler": ^0.17.0
     "@typescript-eslint/types": ^5.25.0
     debug: ^4.3.4
     eslint-visitor-keys: ^3.0.0
     espree: ^9.0.0
+    mdast-util-from-markdown: ^1.2.0
     synckit: ^0.7.1
-  checksum: e94e70f3bb1b9ecdcc8801069a9b141a1fa25d71b157e86a4780e9f68826f95d4394c593f87e8f5714c956c54ba70559f73e3fc1fb6c9fbeed046c8920358447
+    yaml: ^2.1.1
+  checksum: f52f4ae77808d3974b5e9c60d5e5fd79bd469140c3e0986f4111bdd909455508121e35cdc9db31b4461c01f1d551181eb9b9a82e7347676dc541c641b062ac02
   languageName: node
   linkType: hard
 
