@@ -1965,7 +1965,7 @@ __metadata:
     "@astrojs/tailwind": 0.2.1
     "@commitlint/cli": 17.0.3
     "@commitlint/config-conventional": 17.0.3
-    "@playwright/test": ^1.23.0
+    "@playwright/test": 1.23.0
     "@semantic-release/changelog": 6.0.1
     "@semantic-release/git": 10.0.1
     "@semantic-release/npm": 9.0.1
@@ -1974,12 +1974,12 @@ __metadata:
     "@typescript-eslint/parser": 5.29.0
     astro: 1.0.0-beta.47
     astro-critters: 0.0.8
-    astro-eslint-parser: 0.2.2
+    astro-eslint-parser: 0.3.1
     astro-icon: 0.7.1
-    astro-robots-txt: 0.3.1
+    astro-robots-txt: 0.3.6
     astro-seo: 0.5.0
-    astro-webmanifest: 0.3.0
-    cheerio: 1.0.0-rc.11
+    astro-webmanifest: 0.3.4
+    cheerio: 1.0.0-rc.12
     csp-header: 5.1.0
     csp-preset-google-analytics: 1.0.2
     dotenv: 16.0.1
@@ -2373,7 +2373,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:^1.23.0":
+"@playwright/test@npm:1.23.0":
   version: 1.23.0
   resolution: "@playwright/test@npm:1.23.0"
   dependencies:
@@ -3549,21 +3549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-eslint-parser@npm:0.2.2":
-  version: 0.2.2
-  resolution: "astro-eslint-parser@npm:0.2.2"
-  dependencies:
-    "@astrojs/compiler": ^0.15.2
-    "@typescript-eslint/types": ^5.25.0
-    debug: ^4.3.4
-    eslint-visitor-keys: ^3.0.0
-    espree: ^9.0.0
-    synckit: ^0.7.1
-  checksum: e94e70f3bb1b9ecdcc8801069a9b141a1fa25d71b157e86a4780e9f68826f95d4394c593f87e8f5714c956c54ba70559f73e3fc1fb6c9fbeed046c8920358447
-  languageName: node
-  linkType: hard
-
-"astro-eslint-parser@npm:^0.3.0":
+"astro-eslint-parser@npm:0.3.1, astro-eslint-parser@npm:^0.3.0":
   version: 0.3.1
   resolution: "astro-eslint-parser@npm:0.3.1"
   dependencies:
@@ -3590,13 +3576,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-robots-txt@npm:0.3.1":
-  version: 0.3.1
-  resolution: "astro-robots-txt@npm:0.3.1"
+"astro-robots-txt@npm:0.3.6":
+  version: 0.3.6
+  resolution: "astro-robots-txt@npm:0.3.6"
   dependencies:
     deepmerge: ^4.2.2
+    valid-filename: ^4.0.0
     zod: ^3.17.3
-  checksum: caf1d694c840f3733bf03d5b21743f7b434d134e46924646b726248d84892832ee0e2b59edb3f42effef279cea21262d9f3857141843c9dfbaeb7557c41c0709
+  checksum: f2a6859d2f50bd06ee2dd9cec218bd2d934e6e22291bb01a19c2581e34f51a2167e2b140ea7beded232bd84e141a8e279959a255297d32937e9814b3a19cc475
   languageName: node
   linkType: hard
 
@@ -3607,16 +3594,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-webmanifest@npm:0.3.0":
-  version: 0.3.0
-  resolution: "astro-webmanifest@npm:0.3.0"
+"astro-webmanifest@npm:0.3.4":
+  version: 0.3.4
+  resolution: "astro-webmanifest@npm:0.3.4"
   dependencies:
     deepmerge: ^4.2.2
     node-html-parser: ^5.3.3
-    sharp: ^0.30.6
+    sharp: ^0.30.7
     valid-filename: ^4.0.0
     zod: ^3.17.3
-  checksum: 10ab68c3601b0516e0a296df3966d0b55b69551bb7b6ae105021bd30ab58fcf86aef563546f640f285a38c7c34f1bb97fe58e76f2c6f385d1ec3630a5de438ad
+  checksum: f4b96cabd3ed7b14f030f8e1809e5616f990c2929f48cd3f322dc2c67818d69da01aa75bce8668189afad681058add34c26fb78df0105d27fcd993e61dcc8554
   languageName: node
   linkType: hard
 
@@ -4159,9 +4146,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cheerio@npm:1.0.0-rc.11":
-  version: 1.0.0-rc.11
-  resolution: "cheerio@npm:1.0.0-rc.11"
+"cheerio@npm:1.0.0-rc.12":
+  version: 1.0.0-rc.12
+  resolution: "cheerio@npm:1.0.0-rc.12"
   dependencies:
     cheerio-select: ^2.1.0
     dom-serializer: ^2.0.0
@@ -4170,8 +4157,7 @@ __metadata:
     htmlparser2: ^8.0.1
     parse5: ^7.0.0
     parse5-htmlparser2-tree-adapter: ^7.0.0
-    tslib: ^2.4.0
-  checksum: 7619edcbecafb70ca6ca842ce149307a84e8d451432a888d82959b2aa04e2090701658f25eac75821e0832cc1305bdbcf02f17175102fc1723f119f3c9ece17a
+  checksum: 5d4c1b7a53cf22d3a2eddc0aff70cf23cbb30d01a4c79013e703a012475c02461aa1fcd99127e8d83a02216386ed6942b2c8103845fd0812300dd199e6e7e054
   languageName: node
   linkType: hard
 
@@ -10655,6 +10641,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prebuild-install@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "prebuild-install@npm:7.1.1"
+  dependencies:
+    detect-libc: ^2.0.0
+    expand-template: ^2.0.3
+    github-from-package: 0.0.0
+    minimist: ^1.2.3
+    mkdirp-classic: ^0.5.3
+    napi-build-utils: ^1.0.1
+    node-abi: ^3.3.0
+    pump: ^3.0.0
+    rc: ^1.2.7
+    simple-get: ^4.0.0
+    tar-fs: ^2.0.0
+    tunnel-agent: ^0.6.0
+  bin:
+    prebuild-install: bin.js
+  checksum: dbf96d0146b6b5827fc8f67f72074d2e19c69628b9a7a0a17d0fad1bf37e9f06922896972e074197fc00a52eae912993e6ef5a0d471652f561df5cb516f3f467
+  languageName: node
+  linkType: hard
+
 "preferred-pm@npm:^3.0.3":
   version: 3.0.3
   resolution: "preferred-pm@npm:3.0.3"
@@ -11620,7 +11628,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.30.0, sharp@npm:^0.30.6":
+"sharp@npm:^0.30.0":
   version: 0.30.6
   resolution: "sharp@npm:0.30.6"
   dependencies:
@@ -11634,6 +11642,23 @@ __metadata:
     tar-fs: ^2.1.1
     tunnel-agent: ^0.6.0
   checksum: 2560b5769d78ee660d767e59f6fa56531c448d16383f9700e4ecb8016382104c1bb42991bdd4ea741c0f4d934ea5246c5d602fc5f39062bcc1c2c8786421fd5a
+  languageName: node
+  linkType: hard
+
+"sharp@npm:^0.30.7":
+  version: 0.30.7
+  resolution: "sharp@npm:0.30.7"
+  dependencies:
+    color: ^4.2.3
+    detect-libc: ^2.0.1
+    node-addon-api: ^5.0.0
+    node-gyp: latest
+    prebuild-install: ^7.1.1
+    semver: ^7.3.7
+    simple-get: ^4.0.1
+    tar-fs: ^2.1.1
+    tunnel-agent: ^0.6.0
+  checksum: bbc63ca3c7ea8a5bff32cd77022cfea30e25a03f5bd031e935924bf6cf0e11e3388e8b0e22b3137bf8816aa73407f1e4fbeb190f3a35605c27ffca9f32b91601
   languageName: node
   linkType: hard
 
