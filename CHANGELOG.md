@@ -1,5 +1,7 @@
 # Semantic Versioning Changelog
 
+# [1.37.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.36.0...v1.37.0) (2022-06-30)
+
 # [1.36.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.35.0...v1.36.0) (2022-06-28)
 
 
