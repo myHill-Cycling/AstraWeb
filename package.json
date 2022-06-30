@@ -27,7 +27,7 @@
   },
   "lint-staged": {
     "**/*{.js,.cjs,mjs,.astro,.ts,.tsx}": [
-      "yarn run lint"
+      "yarn run lint && yarn run type-check && yarn astro check"
     ]
   },
   "commitlint": {
