@@ -18,7 +18,6 @@
 		"browser": true,
 		"node": true
 	},
-	"ignorePatterns": ["*.lock", "*.zip"],
 	"overrides": [
 		{
 			"files": ["*.json"],
