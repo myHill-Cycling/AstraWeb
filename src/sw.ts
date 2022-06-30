@@ -42,5 +42,5 @@ const gtm = new Route(({ request }) => {
 registerRoute(gtm);
 
 console.debug("Activating...");
-self.skipWaiting();
+void self.skipWaiting();
 clientsClaim();

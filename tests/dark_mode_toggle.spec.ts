@@ -47,7 +47,7 @@ function Tests(mode: modeType) {
 
 	test("Toggle should change document class list", async ({page}) => {
 		await setupPage(page);
-		page.locator(toggleLocatorString).click();
+		await page.locator(toggleLocatorString).click();
 
 		if(mode === "dark"){
 			await expect(page.locator("html")).not.toHaveClass("dark");

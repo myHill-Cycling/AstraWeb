@@ -1979,6 +1979,7 @@ __metadata:
     astro-robots-txt: 0.3.6
     astro-seo: 0.5.0
     astro-webmanifest: 0.3.4
+    axe-playwright: 1.1.11
     cheerio: 1.0.0-rc.12
     csp-header: 5.1.0
     csp-preset-google-analytics: 1.0.2
@@ -1996,6 +1997,7 @@ __metadata:
     http-server: 14.1.1
     husky: 8.0.1
     lint-staged: 13.0.3
+    playwright-core: 1.23.0
     preact: 10.8.2
     semantic-release: 19.0.3
     typescript: 4.7.4
@@ -3720,10 +3722,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.4.2":
+"axe-core@npm:^4.0.1, axe-core@npm:^4.4.2":
   version: 4.4.2
   resolution: "axe-core@npm:4.4.2"
   checksum: 93fbb36c5ac8ab5e67e49678a6f7be0dc799a9f560edd95cca1f0a8183def8c50205972366b9941a3ea2b20224a1fe230e6d87ef38cb6db70472ed1b694febd1
+  languageName: node
+  linkType: hard
+
+"axe-playwright@npm:1.1.11":
+  version: 1.1.11
+  resolution: "axe-playwright@npm:1.1.11"
+  dependencies:
+    axe-core: ^4.0.1
+  peerDependencies:
+    playwright-core: ">1.0.0"
+  checksum: 651deb9c2b1df94bb39472bdbbc449e56460ca58826b50c8fd654803d0823d9c09eae181daf24f2350fb822278f435c6cff1009fc077cfaf49af2252759b7478
   languageName: node
   linkType: hard
 
