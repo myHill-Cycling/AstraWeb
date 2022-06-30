@@ -107,6 +107,13 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true      
 
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ needs.build_website.outputs.WebsiteArtifactName }}
+          # download all files into "dist" folder
+          path: dist
+
       - name: Run Playwright tests
         run: yarn test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
       

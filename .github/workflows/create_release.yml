@@ -11,28 +11,11 @@ on:
       - "yarn.lock"
 
 jobs:
-  pre_job:
-    permissions:
-      actions: write
-      contents: read
-    # continue-on-error: true # Uncomment once integration is finished
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v4
-        with:
-          # All of these options are optional, so you can remove them if you are happy with the defaults
-          cancel_others: true
-          skip_after_successful_duplicate: true
 
   build_website:
     uses: ./.github/workflows/build_artifact.yml
 
   lighthouse:
-    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     uses: ./.github/workflows/lighthouse_audit.yml
     needs: [build_website]
     secrets:
@@ -42,7 +25,6 @@ jobs:
       Url: "http://localhost:3000/"
 
   test:
-    if: ${{ needs.pre_job.outputs.should_skip != 'true' }}
     uses: ./.github/workflows/tests.yml
     needs: [build_website]
     with:

@@ -7,31 +7,13 @@ on:
     paths-ignore:
       - "**/CHANGELOG.md"
 
-jobs:
-  pre_job:
-    permissions:
-      actions: write
-      contents: read
-    # continue-on-error: true # Uncomment once integration is finished
-    runs-on: ubuntu-latest
-    # Map a step output to a job output
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v4
-        with:
-          # All of these options are optional, so you can remove them if you are happy with the defaults
-          cancel_others: true
-          skip_after_successful_duplicate: true
-          paths_ignore: '["**/CHANGELOG.md"]'
-
+jobs: 
   build_website:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed' && ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
     uses: ./.github/workflows/build_artifact.yml
 
   lighthouse:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed' && ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
     uses: ./.github/workflows/lighthouse_audit.yml
     needs: [build_website]
     secrets:
@@ -41,7 +23,7 @@ jobs:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
 
   test:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed' && ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
     uses: ./.github/workflows/test.yml
     needs: [build_website]
     with:
@@ -58,7 +40,7 @@ jobs:
       deployments: write
       issues: write
       pull-requests: write
-    if: github.event_name == 'pull_request' && github.event.action != 'closed' && ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
     runs-on: ubuntu-latest
     name: Deploy preview app
     outputs:
@@ -88,14 +70,14 @@ jobs:
           ###### End of Repository/Build Configurations ######
   
   audit_http:
-    if: github.event_name == 'pull_request' && github.event.action != 'closed' && ${{ needs.pre_job.outputs.should_skip != 'true' }}
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
     uses: ./.github/workflows/http_audit.yml
     needs: [deploy_preview]
     with:
       WebsiteUrl: ${{ needs.deploy_preview.outputs.static_web_app_url }}
 
   # scan_links_live:
-  #   if: github.event_name == 'pull_request' && github.event.action != 'closed' && ${{ needs.pre_job.outputs.should_skip != 'true' }}
+  #   if: github.event_name == 'pull_request' && github.event.action != 'closed'
   #   uses: ./.github/workflows/link_scanner.yml
   #   needs: [deploy_preview]
   #   with:
