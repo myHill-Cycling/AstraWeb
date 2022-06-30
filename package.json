@@ -30,9 +30,12 @@
 		"**/*{.astro,.ts,.tsx,.js,.cjs,.mjs,.json}": [
 			"yarn lint#base"
 		],
-		"**/*{.astro,.ts,.tsx}": [
-			"yarn type-check",
-			"astro check"
+		"**/*{.astro}": [
+			"astro check",
+			"yarn type-check"
+		],
+		"**/*{.ts,.tsx}": [
+			"yarn type-check"
 		]
 	},
 	"commitlint": {

@@ -1,13 +1,13 @@
 import {expect, Page, test} from "@playwright/test";
 import {injectAxe, checkA11y} from "axe-playwright";
+import { waitForCookieBubble } from "../utils";
 
 test.describe("Page accessability", () => {
 	async function Test(page: Page, mode: "dark" | "light") {
 		await page.emulateMedia({ colorScheme: mode });
-
 		await page.goto("/");
-		// Wait for this to be visible so the transition doesn't throw off the accessability tests
-		await page.locator("button:has-text('Cookie settings')").waitFor({state: "visible"});
+		await waitForCookieBubble(page);
+
 		await injectAxe(page);
 		await checkA11y(page);
 	}
