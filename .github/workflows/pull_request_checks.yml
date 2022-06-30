@@ -24,7 +24,7 @@ jobs:
 
   test:
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
-    uses: ./.github/workflows/test.yml
+    uses: ./.github/workflows/tests.yml
     needs: [build_website]
     with:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
