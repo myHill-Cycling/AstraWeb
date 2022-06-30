@@ -3544,23 +3544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-eslint-parser@npm:0.3.1":
-  version: 0.3.1
-  resolution: "astro-eslint-parser@npm:0.3.1"
-  dependencies:
-    "@astrojs/compiler": ^0.17.0
-    "@typescript-eslint/types": ^5.25.0
-    debug: ^4.3.4
-    eslint-visitor-keys: ^3.0.0
-    espree: ^9.0.0
-    mdast-util-from-markdown: ^1.2.0
-    synckit: ^0.7.1
-    yaml: ^2.1.1
-  checksum: f52f4ae77808d3974b5e9c60d5e5fd79bd469140c3e0986f4111bdd909455508121e35cdc9db31b4461c01f1d551181eb9b9a82e7347676dc541c641b062ac02
-  languageName: node
-  linkType: hard
-
-"astro-eslint-parser@npm:^0.3.0":
+"astro-eslint-parser@npm:0.3.1, astro-eslint-parser@npm:^0.3.0":
   version: 0.3.1
   resolution: "astro-eslint-parser@npm:0.3.1"
   dependencies:
