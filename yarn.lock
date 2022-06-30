@@ -137,7 +137,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@astrojs/pwa@portal:./src/components/pwa-plugin::locator=%40myhill-cycling%2Fastra-web%40workspace%3A."
   dependencies:
-    vite: 2.9.10
+    vite: 2.9.13
     vite-plugin-pwa: 0.12.0
     workbox-build: 6.5.3
   peerDependencies:
@@ -145,12 +145,13 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@astrojs/sitemap@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@astrojs/sitemap@npm:0.1.0"
+"@astrojs/sitemap@npm:0.2.4":
+  version: 0.2.4
+  resolution: "@astrojs/sitemap@npm:0.2.4"
   dependencies:
     sitemap: ^7.1.1
-  checksum: 3719190bcc86782063f80d9bfc9688d79ee335331696e859ac1f0465a52f7319f451cd07e68967fb1fb8b3c6d6b8ff34e1a1c2439b1f81c4d6a1e5af2e1b161c
+    zod: ^3.17.3
+  checksum: 28bfb3991cd23fa997a7e58c141ff9392b3f97983f9293936c7304254533cb0e7e2b94b24be32a398eb123847712f8a820ccfa3303082fb7263a4f9d20163e8a
   languageName: node
   linkType: hard
 
@@ -1997,7 +1998,7 @@ __metadata:
   dependencies:
     "@astrojs/partytown": 0.1.5
     "@astrojs/pwa": "portal:./src/components/pwa-plugin"
-    "@astrojs/sitemap": 0.1.0
+    "@astrojs/sitemap": 0.2.4
     "@astrojs/tailwind": 0.2.1
     "@commitlint/cli": 17.0.3
     "@commitlint/config-conventional": 17.0.3
@@ -13816,9 +13817,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:2.9.10":
-  version: 2.9.10
-  resolution: "vite@npm:2.9.10"
+"vite@npm:2.9.13":
+  version: 2.9.13
+  resolution: "vite@npm:2.9.13"
   dependencies:
     esbuild: ^0.14.27
     fsevents: ~2.3.2
@@ -13841,7 +13842,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 37a4eafdb0990e496a27903b0722f1a5d13c622338a885f66d9b4da955ac40cb567e7e8bc97aac50c3f2a385f10a2e03bc9d5c14bf8a8bd0a1fbf6321c0d3562
+  checksum: a5e501b920a448c352e9b3836019dea56c523535f8e8540160708c2e164d84da6655ae39abbba1e2888092f5c6cd03dd06279852422359b51be601914645f49f
   languageName: node
   linkType: hard
 
