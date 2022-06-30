@@ -20,6 +20,12 @@
 	},
 	"overrides": [
 		{
+			"files": ["*.json"],
+			"rules": {
+				"semi": "off"
+			}
+		},
+		{
 			"files": ["*.cjs"],
 			"rules": {
 				"@typescript-eslint/no-var-requires": "off"
