@@ -7,47 +7,47 @@ on:
 
 jobs:
   build_website:
-    name: Build Website
+    name: 🏗️ Build Website
     runs-on: ubuntu-latest
     outputs:
       WebsiteArtifactName: website-${{ github.sha }}
     steps:
-      - name: Checkout
+      - name: 📥 Checkout
         uses: actions/checkout@v3
         with:
           lfs: true
 
       - run: yarn --version || npm install -g yarn
-        name: Install yarn
+        name: 🔗 Install yarn
 
-      - name: Node Setup
+      - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "yarn"
 
-      - name: Dependency Module Cache
+      - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
         with:
           path: "**/node_modules"
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
-      - name: Dependency installation
+      - name: 🔗 Dependency installation
         run: yarn install --immutable
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      - name: Linting
+      - name: 🕵️ Linting
         run: yarn lint
 
-      - name: Type check
+      - name: 🕵️ Type check
         run: yarn type-check
 
-      - name: Build
+      - name: 🏗️ Build
         run: yarn build
 
-      - name: Upload website artifact
+      - name: 📦 Upload website artifact
         uses: actions/upload-artifact@v3
         with:
           name: website-${{ github.sha }}

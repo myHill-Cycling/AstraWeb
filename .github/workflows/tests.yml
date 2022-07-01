@@ -11,18 +11,26 @@ jobs:
   install:
     name: 🔍 Install
     runs-on: ubuntu-latest
+    outputs:
+      PlaywrightCache: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
     steps:
-      - name: Checkout
+      - name: 📥 Checkout
         uses: actions/checkout@v3     
 
-      - name: Node Setup
+      - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "yarn"
 
-      - name: Install dependencies
+      - name: 🗄️ Dependency Module Cache
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"   
+
+      - name: 🔗 Install dependencies
         run: yarn install
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
@@ -37,7 +45,7 @@ jobs:
       #    the correct version string.
       # 4. Finally, we use sed to extract just the version number (eg; '1.22.0')
       # The result is stored in steps.playwright-version.outputs.version
-      - name: Get installed Playwright version
+      - name: 🔍 Get installed Playwright version
         id: playwright-version
         run: echo "::set-output name=version::$(yarn why --json @playwright/test | grep -h 'workspace:.' | jq --raw-output '.children[].locator' | sed -e 's/@playwright\/test@.*://')"
 
@@ -49,6 +57,7 @@ jobs:
       # it out for us.
       - uses: actions/cache@v3
         id: playwright-cache
+        name: 🌐 Playwright Browser Cache
         with:
           path: '~/.cache/ms-playwright'
           key: '${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}'
@@ -65,7 +74,7 @@ jobs:
 
       # If the Playwright browser binaries weren't able to be restored, we tell
       # paywright to install everything for us.
-      - name: Install Playwright's dependencies
+      - name: 🌐 Install Playwright's dependencies
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
@@ -77,47 +86,48 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2]
+        shard: [1, 2, 3]
     steps:
-      - name: Checkout
+      - name: 📥 Checkout
         uses: actions/checkout@v3      
 
-      - name: Download build artifact
+      - name: 📦 Download build artifact
         uses: actions/download-artifact@v3
         with:
           name: ${{ inputs.WebsiteArtifactName }}
           # download all files into "dist" folder
           path: dist
 
-      - name: Node Setup
+      - uses: actions/cache@v3
+        name: 🌐 Playwright Browser Cache
+        id: playwright-cache
+        with:
+          path: '~/.cache/ms-playwright'
+          key: '${{needs.install.outputs.PlaywrightCache}}'
+
+      - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
         uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: "yarn"
 
-      - name: Dependency Module Cache
+      - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
         with:
           path: "**/node_modules"
-          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"      
 
-      - name: Install dependencies
+      - name: 🔗 Install dependencies
         run: yarn install
         env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true      
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      - name: Download build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ needs.build_website.outputs.WebsiteArtifactName }}
-          # download all files into "dist" folder
-          path: dist
-
-      - name: Run Playwright tests
+      - name: 🧪 Run Playwright tests
         run: yarn test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
       
       - uses: actions/upload-artifact@v3
+        name: 📋 Upload report
         if: always()
         with:
           name: playwright-report-${{ matrix.shard }}_${{ strategy.job-total }}

@@ -8,10 +8,11 @@ on:
 
 jobs:
   security-headers-check:
-    name: Analyse HTTP response headers
+    name: 🛡️ Check HTTP security headers
     runs-on: ubuntu-latest    
     steps:
       - uses: marcuslindblom/security-headers@main
+        name: 👮 Audit headers
         with:
           url: ${{ inputs.WebsiteUrl }}
           followRedirects: true 

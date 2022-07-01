@@ -42,18 +42,18 @@ jobs:
       pull-requests: write
     if: github.event_name == 'pull_request' && github.event.action != 'closed'
     runs-on: ubuntu-latest
-    name: Deploy preview app
+    name: 🚀 Deploy preview app
     outputs:
       static_web_app_url: ${{ steps.deploy.outputs.static_web_app_url }}
     steps:
-      - name: Download build artifact
+      - name: 📦 Download build artifact
         uses: actions/download-artifact@v3
         with:
           name: ${{ needs.build_website.outputs.WebsiteArtifactName }}
           # download all files into "dist" folder
           path: dist
 
-      - name: Deploy Release
+      - name: 🚀 Deploy Release
         id: deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
@@ -92,20 +92,19 @@ jobs:
       pull-requests: write
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
-    name: Close Pull Request Preview
+    name: 📪 Close Preview Enviroment
     steps:
-      - name: Close Pull Request
+      - name: ☁️ Shutdown azure enviroment
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: "close"
 
-  delete_deployments:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    uses: ./.github/workflows/delete_env.yml
-    with:
-      environment: pr-${{github.event.number}}
-    secrets:
-      APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
-      APPLICATION_PRIVATE_KEY: ${{ secrets.APPLICATION_PRIVATE_KEY }}
+      - name: 🌲 Delete GitHub Enviroment
+        uses: bobheadxi/deployments@v1
+        with:
+          step: delete-env
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: pr-${{github.event.number}}
+          desc: Environment was deleted as part of closing a pull request preview
