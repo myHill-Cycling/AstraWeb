@@ -31,8 +31,6 @@ jobs:
     needs: [build_website]
     with:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
-    secrets:
-      reporting_token: ${{ github.token }}
 
   deploy_preview:
     environment:

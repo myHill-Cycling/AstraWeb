@@ -5,10 +5,6 @@ on:
         description: "The name of the artifact containing the built website"
         type: string
         required: true
-    secrets:
-      reporting_token:
-        required: true
-
 
 jobs:
   install:
@@ -191,4 +187,3 @@ jobs:
           list-tests: 'all'
 
           max-annotations: 0
-          token: ${{ secrets.reporting_token }}
