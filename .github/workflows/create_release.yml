@@ -26,9 +26,14 @@ jobs:
 
   test:
     uses: ./.github/workflows/tests.yml
+    permissions:
+      contents: read
+      checks: write
     needs: [build_website]
     with:
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
+    secrets:
+      reporting_token: ${{ github.token }}
 
   release:
     name: 📦 Package Website

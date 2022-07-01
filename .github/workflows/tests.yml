@@ -5,6 +5,9 @@ on:
         description: "The name of the artifact containing the built website"
         type: string
         required: true
+    secrets:
+      reporting_token:
+        required: true
 
 
 jobs:
@@ -136,9 +139,6 @@ jobs:
   report:
     name: 🛂 Report test results
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      checks: write
     steps:    
       - uses: dorny/test-reporter@v1
         name: 👔 Reporter
@@ -191,4 +191,4 @@ jobs:
           list-tests: 'all'
 
           max-annotations: 0
-          token: ${{ github.token }}
+          token: ${{ secrets.reporting_token }}
