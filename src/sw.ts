@@ -1,3 +1,4 @@
+/// <reference lib="WebWorker" />
 import {precacheAndRoute, cleanupOutdatedCaches} from "workbox-precaching";
 import { clientsClaim } from "workbox-core";
 import {googleFontsCache, imageCache} from "workbox-recipes";

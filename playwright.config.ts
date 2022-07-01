@@ -8,7 +8,7 @@ import { devices } from "@playwright/test";
 // require('dotenv').config();
 
 function createReporterList(): ReporterDescription[] {
-	const list: ReporterDescription[] = [["list"]];
+	const list: ReporterDescription[] = [["list"], ["junit", {outputFile: "./playwright-report/results.xml"}]];
 
 	if(process.env.CI) {
 		list.push(["github"]);
