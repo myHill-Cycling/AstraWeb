@@ -17,7 +17,7 @@ function createReporterList(): ReporterDescription[] {
 	return list;
 }
 
-const localServerUrl = "https://localhost:4280";
+const localServerUrl = "https://127.0.0.1:4280";
 
 /**
  * See https://playwright.dev/docs/test-configuration.

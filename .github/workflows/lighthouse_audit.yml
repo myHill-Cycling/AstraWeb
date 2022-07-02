@@ -19,7 +19,7 @@ on:
 jobs:
   lighthouse:
     name: 💡 Lighthouse audit
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v3      
@@ -62,14 +62,17 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
+      - name: 🔏 - 🗄️ Update APT
+        run: sudo apt-get update
+
       - name: 🔏 - 🔗 Install certutils
-        run: brew install nss
+        run: sudo apt-get install libnss3-tools --yes
 
       - name: 🔏 - 🔗 Install mkcert
-        run: brew install mkcert
+        run: curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && chmod +x mkcert-v*-linux-amd64 && sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
 
       - name: 🔏 - 💥 Configure root CA
-        run: mkcert -install
+        run: sudo mkcert -install
 
       - name: 🔏 - ✨ Issue test certificates
         run: mkcert -key-file server.key -cert-file server.crt localhost *.localhost

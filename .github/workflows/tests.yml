@@ -9,7 +9,7 @@ on:
 jobs:
   install:
     name: 🔍 Install
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     outputs:
       PlaywrightCache: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
     steps:
@@ -84,7 +84,7 @@ jobs:
     name: 🧪 Test (${{ matrix.shard }}/${{ strategy.job-total }})
     needs: install
     timeout-minutes: 60
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
@@ -132,14 +132,17 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
+      - name: 🔏 - 🗄️ Update APT
+        run: sudo apt-get update
+
       - name: 🔏 - 🔗 Install certutils
-        run: brew install nss
+        run: sudo apt-get install libnss3-tools --yes
 
       - name: 🔏 - 🔗 Install mkcert
-        run: brew install mkcert
+        run: curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && chmod +x mkcert-v*-linux-amd64 && sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
 
       - name: 🔏 - 💥 Configure root CA
-        run: mkcert -install
+        run: sudo mkcert -install
 
       - name: 🔏 - ✨ Issue test certificates
         run: mkcert -key-file server.key -cert-file server.crt localhost *.localhost
