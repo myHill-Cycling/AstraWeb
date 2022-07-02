@@ -59,14 +59,19 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      - name: 💡 Run Lighthouse 🛑 (UNSAFE)
+      - name: Install dev certificates (1/3)
         if: ${{ inputs.Insecure == true }}
-        run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }} --collect.settings.chrome-flags="--ignore-certificate-errors"
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        run: sudo apt-get install -y ca-certificates
+
+      - name: Install dev certificates (2/3)
+        if: ${{ inputs.Insecure == true }}
+        run: sudo cp ./server.crt /usr/local/share/ca-certificates
+      
+      - name: Install dev certificates (3/3)
+        if: ${{ inputs.Insecure == true }}
+        run: sudo update-ca-certificates
 
       - name: 💡 Run Lighthouse
-        if: ${{ inputs.Insecure != true }}
         run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
