@@ -116,13 +116,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/partytown@npm:0.1.5":
-  version: 0.1.5
-  resolution: "@astrojs/partytown@npm:0.1.5"
+"@astrojs/partytown@npm:0.1.6":
+  version: 0.1.6
+  resolution: "@astrojs/partytown@npm:0.1.6"
   dependencies:
     "@builder.io/partytown": ^0.4.5
     mrmime: ^1.0.0
-  checksum: 26cb32d4d5c186238b19dca129b220102bb78df8048480c0c8995d3983a175c0d0a5f99eaeec26898002142245d2567aef4967f042208fe0808b41b2d47b38b9
+  checksum: 3ea79af7c521c5cec2a3d139fe906fa7043940f413aff065a928fd0c10956d7eaf7c25cdc10242a29d8fe8f40d4bd578ccfbff070c374054ba53b6080be7923a
   languageName: node
   linkType: hard
 
@@ -2241,7 +2241,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@myhill-cycling/astra-web@workspace:."
   dependencies:
-    "@astrojs/partytown": 0.1.5
+    "@astrojs/partytown": 0.1.6
     "@astrojs/pwa": "portal:./src/components/pwa-plugin"
     "@astrojs/sitemap": 0.2.4
     "@astrojs/tailwind": 0.2.2
