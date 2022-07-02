@@ -8,6 +8,9 @@ on:
       Url:
         type: string
         required: true
+      Insecure:
+        type: boolean
+        required: false
       
     secrets:
       LHCI_GITHUB_APP_TOKEN:
@@ -56,7 +59,14 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
+      - name: 💡 Run Lighthouse 🛑 (UNSAFE)
+        if: ${{ inputs.Insecure == true }}
+        run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }} --collect.settings.chrome-flags="--ignore-certificate-errors"
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
       - name: 💡 Run Lighthouse
+        if: ${{ inputs.Insecure != true }}
         run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

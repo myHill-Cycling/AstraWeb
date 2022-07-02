@@ -55,8 +55,7 @@ const config: PlaywrightTestConfig = {
 		video: "on-first-retry",
 
 		/* Ignore errors caused by running with a local self-signed cert */
-		ignoreHTTPSErrors: true,
-		headless: false
+		ignoreHTTPSErrors: true
 	},
 
 	/* Configure projects for major browsers */
