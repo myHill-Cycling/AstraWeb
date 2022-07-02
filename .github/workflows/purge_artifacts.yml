@@ -16,8 +16,7 @@ on:
 
 jobs:
   remove-old-artifacts:
-    permissions:
-      actions: write
+    permissions: write-all
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
