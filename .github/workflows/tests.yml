@@ -132,14 +132,11 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      - name: 🔏 - 🗄️ Update APT
-        run: sudo apt-get update
-
       - name: 🔏 - 🔗 Install certutils
-        run: sudo apt-get install libnss3-tools --yes
+        run: brew install nss
 
       - name: 🔏 - 🔗 Install mkcert
-        run: curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && chmod +x mkcert-v*-linux-amd64 && sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+        run: brew install mkcert
 
       - name: 🔏 - 💥 Configure root CA
         run: sudo mkcert -install
