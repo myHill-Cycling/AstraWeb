@@ -9,7 +9,7 @@ on:
 jobs:
   install:
     name: 🔍 Install
-    runs-on: windows-latest
+    runs-on: macos-latest
     outputs:
       PlaywrightCache: ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
     steps:
@@ -84,7 +84,7 @@ jobs:
     name: 🧪 Test (${{ matrix.shard }}/${{ strategy.job-total }})
     needs: install
     timeout-minutes: 60
-    runs-on: windows-latest
+    runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:

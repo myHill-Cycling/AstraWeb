@@ -19,7 +19,7 @@ on:
 jobs:
   lighthouse:
     name: 💡 Lighthouse audit
-    runs-on: windows-latest
+    runs-on: macos-latest
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v3      
