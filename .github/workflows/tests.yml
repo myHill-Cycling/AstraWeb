@@ -130,10 +130,17 @@ jobs:
 
       - name: 🧪 Run Playwright tests
         run: yarn test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+
+      - uses: actions/upload-artifact@v3
+        name: 🛑 Upload failures
+        if: failure()
+        with:
+          name: playwright-results-${{ matrix.shard }}_${{ strategy.job-total }}
+          path: test-results
       
       - uses: actions/upload-artifact@v3
         name: 📋 Upload report
         if: always()
         with:
-          name: playwright-report-${{ env.GITHUB_RUN_ID }}-${{ matrix.shard }}_${{ strategy.job-total }}
+          name: playwright-report-${{ matrix.shard }}_${{ strategy.job-total }}
           path: playwright-report

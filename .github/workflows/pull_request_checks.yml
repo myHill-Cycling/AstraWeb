@@ -19,7 +19,7 @@ jobs:
     secrets:
       LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
     with:
-      Url: "http://localhost:3000/"
+      Url: "https://localhost:4280"
       WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
 
   test:
