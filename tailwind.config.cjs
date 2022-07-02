@@ -15,9 +15,9 @@ module.exports = {
 		},
 		extend: {
 			fontFamily: {
-			  sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
+				sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
 			},
-		  }
+		}
 	},
 	plugins: [
 		require("flowbite/plugin")

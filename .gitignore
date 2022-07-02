@@ -28,9 +28,10 @@ artifacts/
 # macOS-specific files
 .DS_Store
 
-# Cypress
-cypress/screenshots
-cypress/videos
-
-
 *.tsbuildinfo
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+*.crt
+*.key

@@ -1,8 +1,6 @@
 module.exports = {
     ci: {
       collect: {
-        startServerCommand: "yarn run start",
-        startServerReadyPattern: "Server listening on: 127.0.0.1:3000",
         // collect options here
         settings: {
             chromeFlags: "--no-sandbox"

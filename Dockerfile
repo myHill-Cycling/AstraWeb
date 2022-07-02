@@ -17,13 +17,8 @@ FROM node:16-alpine AS runtime
 
 # Metadata
 WORKDIR /srv
-ENV ASTRAWEB_ADDRESS=0.0.0.0
 
-HEALTHCHECK --interval=1m --timeout=3s \
-  CMD curl -f http://localhost/ || exit 1
-
-# Copy server files
-COPY staging-server.cjs package.json ./
+HEALTHCHECK --interval=1m --timeout=3s CMD curl -f http://localhost/ || exit 1
 
 # Copy yarn metadata
 COPY .yarnrc.yml yarn.lock ./

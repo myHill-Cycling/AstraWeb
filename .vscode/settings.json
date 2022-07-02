@@ -1,7 +1,16 @@
 {
-  "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
-  },
-  "eslint.nodePath": ".yarn/sdks"
+	"search.exclude": {
+	"**/.yarn": true,
+	"**/.pnp.*": true
+	},
+	"eslint.options": {
+		"nodePath": ".yarn/sdks",
+		"options": {
+			"overrideConfig": {
+				"parserOptions": {
+					"createDefaultProgram": true,
+				}
+			}
+		}
+	}
 }

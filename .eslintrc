@@ -1,47 +1,60 @@
 {
-    "extends": ["plugin:cypress/recommended", "plugin:astro/recommended", "plugin:astro/jsx-a11y-recommended"],
-    "plugins": [],
-    "rules": {
-        "quotes": ["warn", "double"],
-        "semi": ["error", "always"],
-        "jest/expect-expect": "off",
-        "jest/valid-expect": "off",
-        "jest/valid-expect-in-promise": "off",
-        "jest/no-standalone-expect": "off"
-    },
-    "settings": {
-        "jest": {
-          "version": "28.1.0"
-        }
-      },
-      "env": {
-        "cypress/globals": true
-      },
-    "parserOptions": {
-        "ecmaVersion": 2022
-    },
-    "overrides": [
-        {
-            "files": ["*.ts", "*.tsx"],
-            "parser": "@typescript-eslint/parser",
-            "parserOptions": {
-                "project": ["./tsconfig.json", "./**/tsconfig.json"]
-            }
-        },
-        {
-            // Define the configuration for `.astro` file.
-            "files": ["*.astro"],
-            // Allows Astro components to be parsed.
-            "parser": "astro-eslint-parser",
-            // Parse the script in `.astro` as TypeScript by adding the following configuration.
-            // It's the setting you need when using TypeScript.
-            "parserOptions": {
-              "parser": "@typescript-eslint/parser",
-              "extraFileExtensions": [".astro"]
-            }
-          }
-    ],
-    "globals": {
-        "Astro": "readonly"
-    }
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:astro/recommended",
+		"plugin:astro/jsx-a11y-recommended"
+	],
+	"plugins": [],
+	"rules": {
+		"quotes": ["warn", "double"],
+		"semi": ["error", "always"],
+		"indent": ["error", "tab"]
+	},
+	"parserOptions": {
+		"ecmaVersion": 2022
+	},
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"overrides": [
+		{
+			"files": ["*.json"],
+			"rules": {
+				"semi": "off"
+			}
+		},
+		{
+			"files": ["*.cjs"],
+			"rules": {
+				"@typescript-eslint/no-var-requires": "off"
+			}
+		},
+		{
+			"files": ["*.ts", "*.tsx"],
+			"parser": "@typescript-eslint/parser",
+			"parserOptions": {
+				"project": ["./tsconfig.json"]
+			},
+			"rules": {
+				"@typescript-eslint/no-floating-promises": ["error", { "ignoreVoid": true }]
+			}
+		},
+		{
+			// Define the configuration for `.astro` file.
+			"files": ["*.astro"],
+			// Allows Astro components to be parsed.
+			"parser": "astro-eslint-parser",
+			// Parse the script in `.astro` as TypeScript by adding the following configuration.
+			// It's the setting you need when using TypeScript.
+			"parserOptions": {
+				"parser": "@typescript-eslint/parser",
+				"extraFileExtensions": [".astro"]
+			}
+		}
+	],
+	"globals": {
+		"Astro": "readonly"
+	}
 }
