@@ -145,12 +145,13 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@astrojs/sitemap@npm:0.1.0":
-  version: 0.1.0
-  resolution: "@astrojs/sitemap@npm:0.1.0"
+"@astrojs/sitemap@npm:0.2.4":
+  version: 0.2.4
+  resolution: "@astrojs/sitemap@npm:0.2.4"
   dependencies:
     sitemap: ^7.1.1
-  checksum: 3719190bcc86782063f80d9bfc9688d79ee335331696e859ac1f0465a52f7319f451cd07e68967fb1fb8b3c6d6b8ff34e1a1c2439b1f81c4d6a1e5af2e1b161c
+    zod: ^3.17.3
+  checksum: 28bfb3991cd23fa997a7e58c141ff9392b3f97983f9293936c7304254533cb0e7e2b94b24be32a398eb123847712f8a820ccfa3303082fb7263a4f9d20163e8a
   languageName: node
   linkType: hard
 
@@ -164,15 +165,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/tailwind@npm:0.2.1":
-  version: 0.2.1
-  resolution: "@astrojs/tailwind@npm:0.2.1"
+"@astrojs/tailwind@npm:0.2.2":
+  version: 0.2.2
+  resolution: "@astrojs/tailwind@npm:0.2.2"
   dependencies:
-    "@proload/core": ^0.3.1
-    autoprefixer: ^10.4.4
-    postcss: ^8.4.12
+    "@proload/core": ^0.3.2
+    autoprefixer: ^10.4.7
+    postcss: ^8.4.14
     tailwindcss: ^3.0.24
-  checksum: 0051e3435745f8999772c0bee9ae858307b91edb190a74d730855a4cdcf12875821227f60748e71e69c6e9778ab2ed1fa17eb21f1d8d7de4bda71970ae45d044
+  checksum: 12f0ae6495cf0ef440c314c8662b41474e3465ceb3493be6c6078fae46a2e92ca1c7472fab58f1420c1f0c756fea2e7013f2cf7f6e71b6fdeeed3a134383a672
   languageName: node
   linkType: hard
 
@@ -2242,8 +2243,8 @@ __metadata:
   dependencies:
     "@astrojs/partytown": 0.1.5
     "@astrojs/pwa": "portal:./src/components/pwa-plugin"
-    "@astrojs/sitemap": 0.1.0
-    "@astrojs/tailwind": 0.2.1
+    "@astrojs/sitemap": 0.2.4
+    "@astrojs/tailwind": 0.2.2
     "@azure/static-web-apps-cli": 1.0.2
     "@commitlint/cli": 17.0.3
     "@commitlint/config-conventional": 17.0.3
@@ -2691,7 +2692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@proload/core@npm:^0.3.1, @proload/core@npm:^0.3.2":
+"@proload/core@npm:^0.3.2":
   version: 0.3.2
   resolution: "@proload/core@npm:0.3.2"
   dependencies:
@@ -4118,7 +4119,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.4":
+"autoprefixer@npm:^10.4.7":
   version: 10.4.7
   resolution: "autoprefixer@npm:10.4.7"
   dependencies:
