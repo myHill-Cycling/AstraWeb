@@ -132,14 +132,20 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      - name: Install dev certificates (1/3)
-        run: sudo apt-get install -y ca-certificates
+      - name: 🔏 - 🗄️ Update APT
+        run: sudo apt-get update
 
-      - name: Install dev certificates (2/3)
-        run: sudo cp ./server.crt /usr/local/share/ca-certificates
-      
-      - name: Install dev certificates (3/3)
-        run: sudo update-ca-certificates
+      - name: 🔏 - 🔗 Install certutils
+        run: sudo apt-get install libnss3-tools --yes
+
+      - name: 🔏 - 🔗 Install mkcert
+        run: curl -nc -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && chmod +x mkcert-v*-linux-amd64 && sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
+
+      - name: 🔏 - 💥 Configure root CA
+        run: sudo mkcert -install
+
+      - name: 🔏 - ✨ Issue test certificates
+        run: mkcert -key-file server.key -cert-file server.crt localhost *.localhost
 
       - name: 🧪 Run Playwright tests
         run: yarn test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
