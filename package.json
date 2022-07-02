@@ -41,7 +41,7 @@
   "devDependencies": {
     "@astrojs/partytown": "0.1.5",
     "@astrojs/pwa": "portal:./src/components/pwa-plugin",
-    "@astrojs/sitemap": "0.1.0",
+    "@astrojs/sitemap": "0.2.4",
     "@astrojs/tailwind": "0.2.1",
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
