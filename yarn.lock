@@ -2256,7 +2256,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.30.0
     "@typescript-eslint/parser": 5.30.0
     astro: 1.0.0-beta.47
-    astro-critters: 0.0.8
+    astro-critters: 0.0.9
     astro-eslint-parser: 0.3.1
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.6
@@ -3965,13 +3965,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-critters@npm:0.0.8":
-  version: 0.0.8
-  resolution: "astro-critters@npm:0.0.8"
+"astro-critters@npm:0.0.9":
+  version: 0.0.9
+  resolution: "astro-critters@npm:0.0.9"
   dependencies:
     critters: 0.0.16
     fast-glob: 3.2.11
-  checksum: 2b2a2fed1156e617a7bca974b5475eb3d89c032789f176cff4915d1645f992c0ae5fc7372f68a637a5c4d3cd682eea96ba0196789da9a987f8ac48c491bee623
+  checksum: b57fdd478966293b83853a917a451ca4f590518373701d433e40774d167bb514f4803d37490e45eae858fe95091a1a745c0eb08f3b4047153fb343dfc4f7387f
   languageName: node
   linkType: hard
 
