@@ -23,7 +23,7 @@ jobs:
     - name: Remove old artifacts
       uses: c-hive/gha-remove-artifacts@v1
       with:
-        age: ${{ inputs.age }} # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
+        age: ${{ github.event.inputs.age }} # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
         # Optional inputs
-        skip-tags: ${{ inputs.skip_tags }}
+        skip-tags: ${{ github.event.inputs.skip_tags }}
         # skip-recent: 5
