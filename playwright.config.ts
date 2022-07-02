@@ -17,7 +17,7 @@ function createReporterList(): ReporterDescription[] {
 	return list;
 }
 
-const localServerUrl = "https://127.0.0.1:4280";
+const localServerUrl = process.env.CI ? process.env.TEST_URL : "https://127.0.0.1:4280";
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -52,10 +52,7 @@ const config: PlaywrightTestConfig = {
 
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: "on-first-retry",
-		video: "on-first-retry",
-
-		/* Ignore errors caused by running with a local self-signed cert */
-		ignoreHTTPSErrors: true
+		video: "on-first-retry"
 	},
 
 	/* Configure projects for major browsers */
@@ -111,15 +108,17 @@ const config: PlaywrightTestConfig = {
 	],
 
 	/* Folder for test artifacts such as screenshots, videos, traces, etc. */
-	outputDir: "test-results/",
+	outputDir: "test-results/"
+};
 
+if(!process.env.CI){
 	/* Run your local dev server before starting the tests */
-	webServer: {
+	config.webServer = {
 		command: "yarn run start",
 		url: localServerUrl,
 		reuseExistingServer: !process.env.CI,
 		ignoreHTTPSErrors: true
-	},
-};
+	};
+}
 
 export default config;

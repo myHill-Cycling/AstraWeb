@@ -15,21 +15,6 @@ jobs:
   build_website:
     uses: ./.github/workflows/build_artifact.yml
 
-  lighthouse:
-    uses: ./.github/workflows/lighthouse_audit.yml
-    needs: [build_website]
-    secrets:
-      LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-    with:
-      WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
-      Url: "http://localhost:3000/"
-
-  test:
-    uses: ./.github/workflows/tests.yml
-    needs: [build_website]
-    with:
-      WebsiteArtifactName: ${{ needs.build_website.outputs.WebsiteArtifactName }}
-
   release:
     name: 📦 Package Website
     runs-on: ubuntu-latest

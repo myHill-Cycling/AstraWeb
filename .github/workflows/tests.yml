@@ -1,10 +1,10 @@
 on:
   workflow_call:
     inputs:
-      WebsiteArtifactName:
-        description: "The name of the artifact containing the built website"
+      DeploymentUrl:
         type: string
         required: true
+      
 
 jobs:
   install:
@@ -91,14 +91,7 @@ jobs:
         shard: [1, 2, 3]
     steps:
       - name: 📥 Checkout
-        uses: actions/checkout@v3      
-
-      - name: 📦 Download build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ inputs.WebsiteArtifactName }}
-          # download all files into "dist" folder
-          path: dist
+        uses: actions/checkout@v3
 
       - uses: actions/cache@v3
         name: 🌐 Playwright Browser Cache
@@ -132,23 +125,10 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      - name: 🔏 - 🗄️ Update APT
-        run: sudo apt-get update
-
-      - name: 🔏 - 🔗 Install certutils
-        run: sudo apt-get install libnss3-tools --yes
-
-      - name: 🔏 - 🔗 Install mkcert
-        run: curl -JLO "https://dl.filippo.io/mkcert/latest?for=linux/amd64" && chmod +x mkcert-v*-linux-amd64 && sudo cp mkcert-v*-linux-amd64 /usr/local/bin/mkcert
-
-      - name: 🔏 - 💥 Configure root CA
-        run: sudo mkcert -install
-
-      - name: 🔏 - ✨ Issue test certificates
-        run: mkcert -key-file server.key -cert-file server.crt localhost *.localhost
-
       - name: 🧪 Run Playwright tests
         run: yarn test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+        env:
+          TEST_URL: ${{ inputs.DeploymentUrl }}
 
       - uses: actions/upload-artifact@v3
         name: 🛑 Upload failures
