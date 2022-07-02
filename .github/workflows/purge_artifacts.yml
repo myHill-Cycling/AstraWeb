@@ -1,0 +1,29 @@
+name: 🗑️ Purge artifacts
+
+on:
+  workflow_dispatch:
+    inputs:
+      age:
+        description: Any artifacts older than this value will be eligible for deletion. Formated as '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
+        type: string
+        required: true
+        default: 30 seconds
+      skip_tags:
+        description: If an artifact is associated with a git tag it will be excluded from deletion
+        type: boolean
+        required: false
+        default: true
+
+jobs:
+  remove-old-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+    - name: Remove old artifacts
+      uses: c-hive/gha-remove-artifacts@v1
+      with:
+        age: ${{ inputs.age }} # '<number> <unit>', e.g. 5 days, 2 years, 90 seconds, parsed by Moment.js
+        # Optional inputs
+        skip-tags: ${{ inputs.skip_tags }}
+        # skip-recent: 5
