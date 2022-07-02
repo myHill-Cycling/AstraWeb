@@ -17,6 +17,8 @@ function createReporterList(): ReporterDescription[] {
 	return list;
 }
 
+const localServerUrl = "https://localhost:4280";
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -46,10 +48,13 @@ const config: PlaywrightTestConfig = {
 		/* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
 		actionTimeout: 0,
 		/* Base URL to use in actions like `await page.goto('/')`. */
-		baseURL: "http://localhost:3000",
+		baseURL: localServerUrl,
 
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: "on-first-retry",
+
+		/* Ignore errors caused by running with a local self-signed cert */
+		ignoreHTTPSErrors: true
 	},
 
 	/* Configure projects for major browsers */
@@ -68,13 +73,12 @@ const config: PlaywrightTestConfig = {
 			},
 		},
 
-		//TODO WebKit does not work due to how it handles relative URLS (it forces https urls and does not accept self-signed certificates) https://github.com/microsoft/playwright/issues/9466
-		// {
-		// 	name: "webkit",
-		// 	use: {
-		// 		...devices["Desktop Safari"],
-		// 	},
-		// },
+		{
+			name: "webkit",
+			use: {
+				...devices["Desktop Safari"],
+			},
+		},
 
 		/* Test against mobile viewports. */
 		{
@@ -83,12 +87,12 @@ const config: PlaywrightTestConfig = {
 				...devices["Pixel 5"],
 			},
 		},
-		// {
-		// 	name: "Mobile Safari",
-		// 	use: {
-		// 		...devices["iPhone 12"],
-		// 	},
-		// },
+		{
+			name: "Mobile Safari",
+			use: {
+				...devices["iPhone 12"],
+			},
+		},
 
 		/* Test against branded browsers. */
 		// {
@@ -111,8 +115,9 @@ const config: PlaywrightTestConfig = {
 	/* Run your local dev server before starting the tests */
 	webServer: {
 		command: "yarn run start",
-		port: 3000,
+		url: localServerUrl,
 		reuseExistingServer: !process.env.CI,
+		ignoreHTTPSErrors: true
 	},
 };
 

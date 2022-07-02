@@ -16,7 +16,7 @@
 	"description": "This package contains the code and assets required to build myHill cycling's main web site",
 	"scripts": {
 		"postinstall": "husky install",
-		"start": "node staging-server.cjs",
+		"start": "swa start dist --swa-config-location dist --ssl --ssl-cert server.crt --ssl-key server.key",
 		"test": "playwright test",
 		"dev": "astro dev",
 		"build": "astro build && yarn build#csp",
@@ -44,7 +44,8 @@
 		]
 	},
 	"dependencies": {
-		"http-server": "14.1.1"
+		"@azure/static-web-apps-cli": "1.0.2",
+		"azure-functions-core-tools": "4.0.4590"
 	},
 	"devDependencies": {
 		"@astrojs/partytown": "0.1.5",
