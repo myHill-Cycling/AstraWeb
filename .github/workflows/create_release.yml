@@ -1,14 +1,18 @@
 name: Release
 on:
+  workflow_dispatch:
+    
   push:
     branches:
       - main
     paths:
       - "src/"
       - "assets/"
-      - "cypress/"
       - "public/"
       - "yarn.lock"
+      - "astro.config.mjs"
+      - "build-csp.mjs"
+      - "tailwind.config.cjs"
 
 jobs:
 

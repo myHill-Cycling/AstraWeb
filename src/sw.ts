@@ -8,21 +8,22 @@ import {StaleWhileRevalidate} from "workbox-strategies";
 // Give TypeScript the correct global.
 declare let self: ServiceWorkerGlobalScope;
 
-
+console.info("👷 - Installing service worker...");
 const manifest = self.__WB_MANIFEST;
-console.debug("Cleaning outdated asset caches...");
+console.info("👷 - Revitalising asset caches...");
+console.debug("👷 - Cleaing outdated caches...");
 cleanupOutdatedCaches();
-console.debug("SW - Precaching assets...");
+console.debug("👷 - Precaching assets...");
 precacheAndRoute(manifest);
-console.debug("SW - Precached manifest");
+console.debug("👷 - Precached manifest");
 
-console.debug("SW - Configure font cache");
+console.debug("👷 - Configure font cache");
 googleFontsCache();
 
-console.debug("SW - Configure image cache");
+console.debug("👷 - Configure image cache");
 imageCache();
 
-console.debug("SW - Configure cookiehub cache");
+console.debug("👷 - Configure cookiehub cache");
 const cookiehub = new Route(({ request }) => {
 	if(request.destination !== "style" && request.destination !== "script") {
 		return false;
@@ -42,8 +43,8 @@ const gtm = new Route(({ request }) => {
 }, new StaleWhileRevalidate());
 registerRoute(gtm);
 
-console.debug("Activating...");
-console.debug("Skipping waiting and claiming clients...");
+console.debug("👷 - Activating...");
+console.debug("👷 - Skipping waiting and claiming clients...");
 void self.skipWaiting();
 clientsClaim();
-console.info("Installation complete");
+console.info("👷 - Installation complete");
