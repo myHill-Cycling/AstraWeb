@@ -116,16 +116,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/partytown@npm:0.1.5":
-  version: 0.1.5
-  resolution: "@astrojs/partytown@npm:0.1.5"
-  dependencies:
-    "@builder.io/partytown": ^0.4.5
-    mrmime: ^1.0.0
-  checksum: 26cb32d4d5c186238b19dca129b220102bb78df8048480c0c8995d3983a175c0d0a5f99eaeec26898002142245d2567aef4967f042208fe0808b41b2d47b38b9
-  languageName: node
-  linkType: hard
-
 "@astrojs/prism@npm:0.4.1, @astrojs/prism@npm:^0.4.1":
   version: 0.4.1
   resolution: "@astrojs/prism@npm:0.4.1"
@@ -138,7 +128,7 @@ __metadata:
   resolution: "@astrojs/pwa@portal:./src/components/pwa-plugin::locator=%40myhill-cycling%2Fastra-web%40workspace%3A."
   dependencies:
     vite: 2.9.13
-    vite-plugin-pwa: 0.12.0
+    vite-plugin-pwa: 0.12.2
     workbox-build: 6.5.3
   peerDependencies:
     astro: 1.0.0-beta.47
@@ -1840,15 +1830,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@builder.io/partytown@npm:^0.4.5":
-  version: 0.4.5
-  resolution: "@builder.io/partytown@npm:0.4.5"
-  bin:
-    partytown: bin/partytown.cjs
-  checksum: 55d99da774e2353a5aa3aa3e2389ef08958026db00ffd0321aa4f0c5681d7877abd72910f75b26bb6da54dcd980ffdbe5297c0157095ea9fbb98d44d0b2ede84
-  languageName: node
-  linkType: hard
-
 "@colors/colors@npm:1.5.0":
   version: 1.5.0
   resolution: "@colors/colors@npm:1.5.0"
@@ -2241,7 +2222,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@myhill-cycling/astra-web@workspace:."
   dependencies:
-    "@astrojs/partytown": 0.1.5
     "@astrojs/pwa": "portal:./src/components/pwa-plugin"
     "@astrojs/sitemap": 0.2.4
     "@astrojs/tailwind": 0.2.2
@@ -2256,7 +2236,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.30.0
     "@typescript-eslint/parser": 5.30.0
     astro: 1.0.0-beta.47
-    astro-critters: 0.0.8
+    astro-critters: 0.0.9
     astro-eslint-parser: 0.3.1
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.6
@@ -3965,13 +3945,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-critters@npm:0.0.8":
-  version: 0.0.8
-  resolution: "astro-critters@npm:0.0.8"
+"astro-critters@npm:0.0.9":
+  version: 0.0.9
+  resolution: "astro-critters@npm:0.0.9"
   dependencies:
     critters: 0.0.16
     fast-glob: 3.2.11
-  checksum: 2b2a2fed1156e617a7bca974b5475eb3d89c032789f176cff4915d1645f992c0ae5fc7372f68a637a5c4d3cd682eea96ba0196789da9a987f8ac48c491bee623
+  checksum: b57fdd478966293b83853a917a451ca4f590518373701d433e40774d167bb514f4803d37490e45eae858fe95091a1a745c0eb08f3b4047153fb343dfc4f7387f
   languageName: node
   linkType: hard
 
@@ -12859,7 +12839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.43.1, rollup@npm:^2.70.2":
+"rollup@npm:^2.43.1":
   version: 2.75.6
   resolution: "rollup@npm:2.75.6"
   dependencies:
@@ -14888,21 +14868,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-pwa@npm:0.12.0":
-  version: 0.12.0
-  resolution: "vite-plugin-pwa@npm:0.12.0"
+"vite-plugin-pwa@npm:0.12.2":
+  version: 0.12.2
+  resolution: "vite-plugin-pwa@npm:0.12.2"
   dependencies:
     debug: ^4.3.4
     fast-glob: ^3.2.11
     pretty-bytes: ^6.0.0
-    rollup: ^2.70.2
+    rollup: ^2.75.5
     workbox-build: ^6.5.3
     workbox-window: ^6.5.3
   peerDependencies:
-    vite: ^2.0.0
+    vite: ^2.0.0 || ^3.0.0-0
     workbox-build: ^6.4.0
     workbox-window: ^6.4.0
-  checksum: f66e405ca1c884566c37791c518a86880b63b57f51bd21c9498d0bca28f5385bdee1a29885284c9d70eb6d36d9e800de867c816ff190f79456a6f05e90618dde
+  checksum: 4bddb8d9dff2ff777adeef864ea5f3145a9c14807a6912f1d6aaa17c785724f84100ec4a7a55c1e9bd8644d42b6707f49faa6c1070d47800e4383013cc34716f
   languageName: node
   linkType: hard
 
