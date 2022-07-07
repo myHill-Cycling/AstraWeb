@@ -42,6 +42,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@astrojs/compiler@npm:^0.18.0":
+  version: 0.18.0
+  resolution: "@astrojs/compiler@npm:0.18.0"
+  checksum: 599f04c92353a42956f56e29939f7a7ebed6d01bafe52c3a7be25edad4832b58e366caba535f82352704d43c85e4c0744facd05106739c2771da9e9ac8abf1b7
+  languageName: node
+  linkType: hard
+
 "@astrojs/language-server@npm:^0.13.4":
   version: 0.13.4
   resolution: "@astrojs/language-server@npm:0.13.4"
@@ -2303,7 +2310,7 @@ __metadata:
     "@typescript-eslint/parser": 5.30.0
     astro: 1.0.0-beta.63
     astro-critters: 0.0.9
-    astro-eslint-parser: 0.3.1
+    astro-eslint-parser: 0.4.0
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.6
     astro-seo: 0.5.0
@@ -4021,7 +4028,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-eslint-parser@npm:0.3.1, astro-eslint-parser@npm:^0.3.0":
+"astro-eslint-parser@npm:0.4.0":
+  version: 0.4.0
+  resolution: "astro-eslint-parser@npm:0.4.0"
+  dependencies:
+    "@astrojs/compiler": ^0.18.0
+    "@typescript-eslint/types": ^5.25.0
+    debug: ^4.3.4
+    eslint-visitor-keys: ^3.0.0
+    espree: ^9.0.0
+    mdast-util-from-markdown: ^1.2.0
+    synckit: ^0.7.1
+    yaml: ^2.1.1
+  checksum: 3ba537e50e4fca8808002c957dfce5c08f8b19ac49089cd5ce022a233effa93fec705cb9ce6f95d4564321e049a6fdbd8e60936b053e3b10c0780153f194cddb
+  languageName: node
+  linkType: hard
+
+"astro-eslint-parser@npm:^0.3.0":
   version: 0.3.1
   resolution: "astro-eslint-parser@npm:0.3.1"
   dependencies:
