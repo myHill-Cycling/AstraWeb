@@ -128,7 +128,7 @@ __metadata:
     vite-plugin-pwa: 0.12.2
     workbox-build: 6.5.3
   peerDependencies:
-    astro: 1.0.0-beta.63
+    astro: 1.0.0-beta.64
   languageName: node
   linkType: soft
 
@@ -164,9 +164,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/telemetry@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "@astrojs/telemetry@npm:0.2.3"
+"@astrojs/telemetry@npm:^0.2.4":
+  version: 0.2.5
+  resolution: "@astrojs/telemetry@npm:0.2.5"
   dependencies:
     ci-info: ^3.3.1
     debug: ^4.3.4
@@ -177,7 +177,8 @@ __metadata:
     is-docker: ^3.0.0
     is-wsl: ^2.2.0
     node-fetch: ^3.2.5
-  checksum: 33e85b8861675c012fb576485ffc6e25aae4fd20dbb9ef6660a28e6b6608459216f705c1069572b9502a3c1362beabeba456ba3e67eb380ec2d5e7e3bb5819ab
+    which-pm-runs: ^1.1.0
+  checksum: d40727b178029240a78846108614d58c10a11b023692491546a1951d3330bd3cb707fc7215cb2be7b859b5ce9bcd31f8aea48682787478214161bf36f2689168
   languageName: node
   linkType: hard
 
@@ -2301,7 +2302,7 @@ __metadata:
     "@types/node": 18.0.0
     "@typescript-eslint/eslint-plugin": 5.30.5
     "@typescript-eslint/parser": 5.30.5
-    astro: 1.0.0-beta.63
+    astro: 1.0.0-beta.64
     astro-critters: 0.0.9
     astro-eslint-parser: 0.3.1
     astro-icon: 0.7.1
@@ -4079,15 +4080,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:1.0.0-beta.63":
-  version: 1.0.0-beta.63
-  resolution: "astro@npm:1.0.0-beta.63"
+"astro@npm:1.0.0-beta.64":
+  version: 1.0.0-beta.64
+  resolution: "astro@npm:1.0.0-beta.64"
   dependencies:
     "@astrojs/compiler": ^0.17.1
     "@astrojs/language-server": ^0.13.4
     "@astrojs/markdown-remark": ^0.11.3
     "@astrojs/prism": 0.4.1
-    "@astrojs/telemetry": ^0.2.3
+    "@astrojs/telemetry": ^0.2.4
     "@astrojs/webapi": ^0.12.0
     "@babel/core": ^7.18.2
     "@babel/generator": ^7.18.2
@@ -4140,7 +4141,7 @@ __metadata:
     zod: ^3.17.3
   bin:
     astro: astro.js
-  checksum: 4db4f64f3a636a6a64c829526be82aeae004e06261e18a84e0a17b849659635b29b1476d2e9ccfe4eca2a91a55d7faa57c56fb9a91bb17d80e07a32e1b663882
+  checksum: 230f5e3720c4bf8d6de42cec149d55fdd24dddfaaf2f4172038f2538a2d36f1ef31c030bc0cd6f3d4287a635423da8cff45aed0b4bd7d8c0789eb05d77a8bf4c
   languageName: node
   linkType: hard
 
@@ -15337,6 +15338,13 @@ __metadata:
     is-string: ^1.0.5
     is-symbol: ^1.0.3
   checksum: 53ce774c7379071729533922adcca47220228405e1895f26673bbd71bdf7fb09bee38c1d6399395927c6289476b5ae0629863427fd151491b71c4b6cb04f3a5e
+  languageName: node
+  linkType: hard
+
+"which-pm-runs@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "which-pm-runs@npm:1.1.0"
+  checksum: 39a56ee50886fb33ec710e3b36dc9fe3d0096cac44850d9ca0c6186c4cb824d6c8125f013e0562e7c94744e1e8e4a6ab695592cdb12555777c7a4368143d822c
   languageName: node
   linkType: hard
 
