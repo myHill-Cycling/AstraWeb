@@ -16,7 +16,7 @@
 	"description": "This package contains the code and assets required to build myHill cycling's main web site",
 	"scripts": {
 		"postinstall": "husky install",
-		"start": "swa start dist --swa-config-location dist --ssl --ssl-cert server.crt --ssl-key server.key",
+		"start": "swa start dist --swa-config-location dist --ssl --ssl-cert server.crt --ssl-key server.key -q 127.0.0.1",
 		"test": "playwright test",
 		"dev": "astro dev",
 		"build": "astro build && yarn build#csp",
