@@ -128,7 +128,7 @@ __metadata:
     vite-plugin-pwa: 0.12.2
     workbox-build: 6.5.3
   peerDependencies:
-    astro: 1.0.0-beta.63
+    astro: 1.0.0-beta.64
   languageName: node
   linkType: soft
 
@@ -164,9 +164,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/telemetry@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "@astrojs/telemetry@npm:0.2.3"
+"@astrojs/telemetry@npm:^0.2.4":
+  version: 0.2.5
+  resolution: "@astrojs/telemetry@npm:0.2.5"
   dependencies:
     ci-info: ^3.3.1
     debug: ^4.3.4
@@ -177,7 +177,8 @@ __metadata:
     is-docker: ^3.0.0
     is-wsl: ^2.2.0
     node-fetch: ^3.2.5
-  checksum: 33e85b8861675c012fb576485ffc6e25aae4fd20dbb9ef6660a28e6b6608459216f705c1069572b9502a3c1362beabeba456ba3e67eb380ec2d5e7e3bb5819ab
+    which-pm-runs: ^1.1.0
+  checksum: d40727b178029240a78846108614d58c10a11b023692491546a1951d3330bd3cb707fc7215cb2be7b859b5ce9bcd31f8aea48682787478214161bf36f2689168
   languageName: node
   linkType: hard
 
@@ -2294,14 +2295,14 @@ __metadata:
     "@azure/static-web-apps-cli": 1.0.2
     "@commitlint/cli": 17.0.3
     "@commitlint/config-conventional": 17.0.3
-    "@playwright/test": 1.23.1
+    "@playwright/test": 1.23.2
     "@semantic-release/changelog": 6.0.1
     "@semantic-release/git": 10.0.1
     "@semantic-release/npm": 9.0.1
     "@types/node": 18.0.0
     "@typescript-eslint/eslint-plugin": 5.30.5
     "@typescript-eslint/parser": 5.30.5
-    astro: 1.0.0-beta.63
+    astro: 1.0.0-beta.64
     astro-critters: 0.0.9
     astro-eslint-parser: 0.3.1
     astro-icon: 0.7.1
@@ -2309,7 +2310,7 @@ __metadata:
     astro-seo: 0.5.0
     astro-webmanifest: 0.3.4
     axe-playwright: 1.1.11
-    azure-functions-core-tools: 4.0.4590
+    azure-functions-core-tools: 4.0.4629
     cheerio: 1.0.0-rc.12
     csp-header: 5.1.0
     csp-preset-google-analytics: 1.0.2
@@ -2326,8 +2327,8 @@ __metadata:
     glob: 8.0.3
     husky: 8.0.1
     lint-staged: 13.0.3
-    playwright-core: 1.23.1
-    preact: 10.8.2
+    playwright-core: 1.23.2
+    preact: 10.9.0
     semantic-release: 19.0.3
     tsc-files: 1.1.3
     typescript: 4.7.4
@@ -2712,15 +2713,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.23.1":
-  version: 1.23.1
-  resolution: "@playwright/test@npm:1.23.1"
+"@playwright/test@npm:1.23.2":
+  version: 1.23.2
+  resolution: "@playwright/test@npm:1.23.2"
   dependencies:
     "@types/node": "*"
-    playwright-core: 1.23.1
+    playwright-core: 1.23.2
   bin:
     playwright: cli.js
-  checksum: 27fc6b4424dfb0f0dfaaecb01a33bf77c0f95e6a1e635fe85dd4ad36e5053afdbe4ad1de4be1c5705e482451b43f7ddacf667f6c5b70ab5f8e32c30110211c29
+  checksum: 3f01cc25d9e2095ee31a272cead11de859303f7c2e4ccdbd5a01985d51dd0d946da2b284b43fb0bcd6780e80939ef4b67215650572a3124a84339c760faa8460
   languageName: node
   linkType: hard
 
@@ -4079,15 +4080,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:1.0.0-beta.63":
-  version: 1.0.0-beta.63
-  resolution: "astro@npm:1.0.0-beta.63"
+"astro@npm:1.0.0-beta.64":
+  version: 1.0.0-beta.64
+  resolution: "astro@npm:1.0.0-beta.64"
   dependencies:
     "@astrojs/compiler": ^0.17.1
     "@astrojs/language-server": ^0.13.4
     "@astrojs/markdown-remark": ^0.11.3
     "@astrojs/prism": 0.4.1
-    "@astrojs/telemetry": ^0.2.3
+    "@astrojs/telemetry": ^0.2.4
     "@astrojs/webapi": ^0.12.0
     "@babel/core": ^7.18.2
     "@babel/generator": ^7.18.2
@@ -4140,7 +4141,7 @@ __metadata:
     zod: ^3.17.3
   bin:
     astro: astro.js
-  checksum: 4db4f64f3a636a6a64c829526be82aeae004e06261e18a84e0a17b849659635b29b1476d2e9ccfe4eca2a91a55d7faa57c56fb9a91bb17d80e07a32e1b663882
+  checksum: 230f5e3720c4bf8d6de42cec149d55fdd24dddfaaf2f4172038f2538a2d36f1ef31c030bc0cd6f3d4287a635423da8cff45aed0b4bd7d8c0789eb05d77a8bf4c
   languageName: node
   linkType: hard
 
@@ -4224,9 +4225,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"azure-functions-core-tools@npm:4.0.4590":
-  version: 4.0.4590
-  resolution: "azure-functions-core-tools@npm:4.0.4590"
+"azure-functions-core-tools@npm:4.0.4629":
+  version: 4.0.4629
+  resolution: "azure-functions-core-tools@npm:4.0.4629"
   dependencies:
     chalk: 3.0.0
     command-exists: 1.2.8
@@ -4240,7 +4241,7 @@ __metadata:
     azfun: lib/main.js
     azurefunctions: lib/main.js
     func: lib/main.js
-  checksum: d9447231b5bed4fb819af8f67bde9b0a6c0920fde6ceb01bee7c23593a8f273098dc434034cfac0ac71537eec900e6a74f2c53e61dfc4dc4404becb4e887735a
+  checksum: 27c9734ced740f9f8b84e613791e1f2276ef4ecc62d6a579894a77700c40082d7f68df5ee011a240e576f06372032a3f36430ed2a8439ae5417c8a6100a21064
   conditions: (os=win32 | os=darwin | os=linux)
   languageName: node
   linkType: hard
@@ -12043,12 +12044,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.23.1":
-  version: 1.23.1
-  resolution: "playwright-core@npm:1.23.1"
+"playwright-core@npm:1.23.2":
+  version: 1.23.2
+  resolution: "playwright-core@npm:1.23.2"
   bin:
     playwright: cli.js
-  checksum: 1e6a3a7a9aaee1864b22195c7fef52b6980fcafc6d667749737455360a44a182a7035f12bfd76f298f957d1b99550420a8748f6a473ceeacf2cb2db42beb9be0
+  checksum: 7e5c7adbc436c68e5de8535508746c2734393f77948c08ff1df7d21eaa518cd00d82f49c936b2776be6958dc2d7f18985582d72690ffeee7a59006267e22a391
   languageName: node
   linkType: hard
 
@@ -12120,10 +12121,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"preact@npm:10.8.2":
-  version: 10.8.2
-  resolution: "preact@npm:10.8.2"
-  checksum: 183358ba03b4c104c89b383ea926099b49acd0435f24e95dee9ff0e81350d1bfbd77908f6a2ed16b3654d75e84832fd5b4479216c85fe8af6ad8c2ebe795c4f9
+"preact@npm:10.9.0":
+  version: 10.9.0
+  resolution: "preact@npm:10.9.0"
+  checksum: 752109823affeb531fd1a97a62a08015f93aef4f46e876cdbc4db5a11023269aa24728a61916f965adc7d864e5d43b6a25c00dee49051ace6b6e95db7b0f77f5
   languageName: node
   linkType: hard
 
@@ -15337,6 +15338,13 @@ __metadata:
     is-string: ^1.0.5
     is-symbol: ^1.0.3
   checksum: 53ce774c7379071729533922adcca47220228405e1895f26673bbd71bdf7fb09bee38c1d6399395927c6289476b5ae0629863427fd151491b71c4b6cb04f3a5e
+  languageName: node
+  linkType: hard
+
+"which-pm-runs@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "which-pm-runs@npm:1.1.0"
+  checksum: 39a56ee50886fb33ec710e3b36dc9fe3d0096cac44850d9ca0c6186c4cb824d6c8125f013e0562e7c94744e1e8e4a6ab695592cdb12555777c7a4368143d822c
   languageName: node
   linkType: hard
 
