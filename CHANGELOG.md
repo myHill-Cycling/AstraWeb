@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.51.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.50.0...v1.51.0) (2022-07-12)
+
+
+### Features
+
+* add error page handling ([bb5c9ea](https://github.com/myHill-Cycling/AstraWeb/commit/bb5c9ea11922fe1bccb14d5c1a9ec84b70c547fa))
+
 # [1.50.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.49.0...v1.50.0) (2022-07-12)
 
 # [1.49.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.48.0...v1.49.0) (2022-07-10)
