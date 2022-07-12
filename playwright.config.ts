@@ -61,6 +61,7 @@ const config: PlaywrightTestConfig = {
 			name: "chromium",
 			use: {
 				...devices["Desktop Chrome"],
+				serviceWorkers: "block"
 			},
 		},
 
@@ -68,7 +69,8 @@ const config: PlaywrightTestConfig = {
 			name: "firefox",
 			use: {
 				...devices["Desktop Firefox"],
-				ignoreHTTPSErrors: true
+				ignoreHTTPSErrors: true,
+				serviceWorkers: "block"
 			},
 		},
 
@@ -76,6 +78,7 @@ const config: PlaywrightTestConfig = {
 			name: "webkit",
 			use: {
 				...devices["Desktop Safari"],
+				serviceWorkers: "block"
 			},
 		},
 
@@ -84,12 +87,14 @@ const config: PlaywrightTestConfig = {
 			name: "Mobile Chrome",
 			use: {
 				...devices["Pixel 5"],
+				serviceWorkers: "block"
 			},
 		},
 		{
 			name: "Mobile Safari",
 			use: {
 				...devices["iPhone 12"],
+				serviceWorkers: "block"
 			},
 		},
 
