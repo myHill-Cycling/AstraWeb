@@ -1,0 +1,29 @@
+---
+import Layout from "@layouts/RootLayout.astro";
+import Banner from "@pictures/index/banner.astro";
+import { SEO } from "astro-seo";
+
+export interface Props {
+	code: string | number;
+	message: string;
+	explainer?: string;
+}
+
+const props = Astro.props as Props;
+---
+<Layout>
+	<SEO slot="head"
+		title={`${props.code} error - ${props.message}`}
+	/>
+	<main class="relative">
+		<div class="w-full h-full top-0 left-0">
+			<Banner id="error_banner_image" />
+		</div>
+		<div class="absolute w-full h-full top-10 left-0 z-10">
+			<div class="flex justify-between backdrop-blur-sm w-full bg-white/60 text-brand p-2 pb-4 sm:p-4 sm:pb-6 text-2xl sm:text-4xl md:text-6xl">
+				<h1>{props.code}</h1>
+				<h2>{props.message}</h2>
+			</div>
+		</div>
+	</main>
+</Layout>
