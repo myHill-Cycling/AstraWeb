@@ -11,6 +11,9 @@ test.describe("404", () => {
 
 	test("Provides expected text", async ({page}) => {
 		await testPage(page, 404, "Not Found");
+		await expect(page.locator("text=Oh no, this page doesn't exist!")).toBeVisible();
+		await expect(page.locator("text=home page")).toBeVisible();
+		await expect(page.locator("text=home page")).toHaveAttribute("href", "/");
 	});
 });
 
