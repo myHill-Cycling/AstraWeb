@@ -28,17 +28,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/compiler@npm:^0.17.0":
-  version: 0.17.0
-  resolution: "@astrojs/compiler@npm:0.17.0"
-  checksum: 79992b4023cb3be5fa31cbf36b02f00deba5b575a16da4ca4583e04b55e001f1efe0ffa188536da116615bdae3b04265e67f9a136ab5f02e4422a8bbfa2c266a
-  languageName: node
-  linkType: hard
-
 "@astrojs/compiler@npm:^0.17.1":
   version: 0.17.1
   resolution: "@astrojs/compiler@npm:0.17.1"
   checksum: e14b2346b622f91202712baaecc3a7e079f4541a9f96a595b5eb2d87245140b519f03b3499c5dc6acff213ef73fed51743df29db781eeb0d7af13e2d0eacbcb9
+  languageName: node
+  linkType: hard
+
+"@astrojs/compiler@npm:^0.18.0":
+  version: 0.18.0
+  resolution: "@astrojs/compiler@npm:0.18.0"
+  checksum: 599f04c92353a42956f56e29939f7a7ebed6d01bafe52c3a7be25edad4832b58e366caba535f82352704d43c85e4c0744facd05106739c2771da9e9ac8abf1b7
   languageName: node
   linkType: hard
 
@@ -124,21 +124,21 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@astrojs/pwa@portal:./src/components/pwa-plugin::locator=%40myhill-cycling%2Fastra-web%40workspace%3A."
   dependencies:
-    vite: 2.9.13
+    vite: 2.9.14
     vite-plugin-pwa: 0.12.2
     workbox-build: 6.5.3
   peerDependencies:
-    astro: 1.0.0-beta.63
+    astro: 1.0.0-beta.64
   languageName: node
   linkType: soft
 
-"@astrojs/sitemap@npm:0.2.4":
-  version: 0.2.4
-  resolution: "@astrojs/sitemap@npm:0.2.4"
+"@astrojs/sitemap@npm:0.2.6":
+  version: 0.2.6
+  resolution: "@astrojs/sitemap@npm:0.2.6"
   dependencies:
     sitemap: ^7.1.1
     zod: ^3.17.3
-  checksum: 28bfb3991cd23fa997a7e58c141ff9392b3f97983f9293936c7304254533cb0e7e2b94b24be32a398eb123847712f8a820ccfa3303082fb7263a4f9d20163e8a
+  checksum: 6ebc799af13d87ec51957d92c2d05320914d933abc82eaad9422411eaf618c57eb6315c2e2d0ed9c050383c555d47681231fd291273e4253021c1b6ae1b2c04d
   languageName: node
   linkType: hard
 
@@ -164,9 +164,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/telemetry@npm:^0.2.3":
-  version: 0.2.3
-  resolution: "@astrojs/telemetry@npm:0.2.3"
+"@astrojs/telemetry@npm:^0.2.4":
+  version: 0.2.5
+  resolution: "@astrojs/telemetry@npm:0.2.5"
   dependencies:
     ci-info: ^3.3.1
     debug: ^4.3.4
@@ -177,7 +177,8 @@ __metadata:
     is-docker: ^3.0.0
     is-wsl: ^2.2.0
     node-fetch: ^3.2.5
-  checksum: 33e85b8861675c012fb576485ffc6e25aae4fd20dbb9ef6660a28e6b6608459216f705c1069572b9502a3c1362beabeba456ba3e67eb380ec2d5e7e3bb5819ab
+    which-pm-runs: ^1.1.0
+  checksum: d40727b178029240a78846108614d58c10a11b023692491546a1951d3330bd3cb707fc7215cb2be7b859b5ce9bcd31f8aea48682787478214161bf36f2689168
   languageName: node
   linkType: hard
 
@@ -2289,21 +2290,21 @@ __metadata:
   resolution: "@myhill-cycling/astra-web@workspace:."
   dependencies:
     "@astrojs/pwa": "portal:./src/components/pwa-plugin"
-    "@astrojs/sitemap": 0.2.4
+    "@astrojs/sitemap": 0.2.6
     "@astrojs/tailwind": 0.2.2
     "@azure/static-web-apps-cli": 1.0.2
     "@commitlint/cli": 17.0.3
     "@commitlint/config-conventional": 17.0.3
-    "@playwright/test": 1.23.1
+    "@playwright/test": 1.23.2
     "@semantic-release/changelog": 6.0.1
     "@semantic-release/git": 10.0.1
     "@semantic-release/npm": 9.0.1
     "@types/node": 18.0.0
     "@typescript-eslint/eslint-plugin": 5.30.5
     "@typescript-eslint/parser": 5.30.5
-    astro: 1.0.0-beta.63
+    astro: 1.0.0-beta.64
     astro-critters: 0.0.9
-    astro-eslint-parser: 0.3.1
+    astro-eslint-parser: 0.4.0
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.6
     astro-seo: 0.5.0
@@ -2316,7 +2317,7 @@ __metadata:
     dotenv: 16.0.1
     eslint: 8.19.0
     eslint-config-preact: 1.3.0
-    eslint-plugin-astro: 0.14.0
+    eslint-plugin-astro: 0.15.0
     eslint-plugin-compat: 4.0.2
     eslint-plugin-import: 2.26.0
     eslint-plugin-jsx-a11y: 6.6.0
@@ -2326,7 +2327,7 @@ __metadata:
     glob: 8.0.3
     husky: 8.0.1
     lint-staged: 13.0.3
-    playwright-core: 1.23.1
+    playwright-core: 1.23.2
     preact: 10.9.0
     semantic-release: 19.0.3
     tsc-files: 1.1.3
@@ -2712,15 +2713,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.23.1":
-  version: 1.23.1
-  resolution: "@playwright/test@npm:1.23.1"
+"@playwright/test@npm:1.23.2":
+  version: 1.23.2
+  resolution: "@playwright/test@npm:1.23.2"
   dependencies:
     "@types/node": "*"
-    playwright-core: 1.23.1
+    playwright-core: 1.23.2
   bin:
     playwright: cli.js
-  checksum: 27fc6b4424dfb0f0dfaaecb01a33bf77c0f95e6a1e635fe85dd4ad36e5053afdbe4ad1de4be1c5705e482451b43f7ddacf667f6c5b70ab5f8e32c30110211c29
+  checksum: 3f01cc25d9e2095ee31a272cead11de859303f7c2e4ccdbd5a01985d51dd0d946da2b284b43fb0bcd6780e80939ef4b67215650572a3124a84339c760faa8460
   languageName: node
   linkType: hard
 
@@ -4021,11 +4022,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-eslint-parser@npm:0.3.1, astro-eslint-parser@npm:^0.3.0":
-  version: 0.3.1
-  resolution: "astro-eslint-parser@npm:0.3.1"
+"astro-eslint-parser@npm:0.4.0, astro-eslint-parser@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "astro-eslint-parser@npm:0.4.0"
   dependencies:
-    "@astrojs/compiler": ^0.17.0
+    "@astrojs/compiler": ^0.18.0
     "@typescript-eslint/types": ^5.25.0
     debug: ^4.3.4
     eslint-visitor-keys: ^3.0.0
@@ -4033,7 +4034,7 @@ __metadata:
     mdast-util-from-markdown: ^1.2.0
     synckit: ^0.7.1
     yaml: ^2.1.1
-  checksum: f52f4ae77808d3974b5e9c60d5e5fd79bd469140c3e0986f4111bdd909455508121e35cdc9db31b4461c01f1d551181eb9b9a82e7347676dc541c641b062ac02
+  checksum: 3ba537e50e4fca8808002c957dfce5c08f8b19ac49089cd5ce022a233effa93fec705cb9ce6f95d4564321e049a6fdbd8e60936b053e3b10c0780153f194cddb
   languageName: node
   linkType: hard
 
@@ -4079,15 +4080,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:1.0.0-beta.63":
-  version: 1.0.0-beta.63
-  resolution: "astro@npm:1.0.0-beta.63"
+"astro@npm:1.0.0-beta.64":
+  version: 1.0.0-beta.64
+  resolution: "astro@npm:1.0.0-beta.64"
   dependencies:
     "@astrojs/compiler": ^0.17.1
     "@astrojs/language-server": ^0.13.4
     "@astrojs/markdown-remark": ^0.11.3
     "@astrojs/prism": 0.4.1
-    "@astrojs/telemetry": ^0.2.3
+    "@astrojs/telemetry": ^0.2.4
     "@astrojs/webapi": ^0.12.0
     "@babel/core": ^7.18.2
     "@babel/generator": ^7.18.2
@@ -4140,7 +4141,7 @@ __metadata:
     zod: ^3.17.3
   bin:
     astro: astro.js
-  checksum: 4db4f64f3a636a6a64c829526be82aeae004e06261e18a84e0a17b849659635b29b1476d2e9ccfe4eca2a91a55d7faa57c56fb9a91bb17d80e07a32e1b663882
+  checksum: 230f5e3720c4bf8d6de42cec149d55fdd24dddfaaf2f4172038f2538a2d36f1ef31c030bc0cd6f3d4287a635423da8cff45aed0b4bd7d8c0789eb05d77a8bf4c
   languageName: node
   linkType: hard
 
@@ -6659,19 +6660,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-astro@npm:0.14.0":
-  version: 0.14.0
-  resolution: "eslint-plugin-astro@npm:0.14.0"
+"eslint-plugin-astro@npm:0.15.0":
+  version: 0.15.0
+  resolution: "eslint-plugin-astro@npm:0.15.0"
   dependencies:
     "@typescript-eslint/types": ^5.25.0
-    astro-eslint-parser: ^0.3.0
+    astro-eslint-parser: ^0.4.0
     eslint-utils: ^3.0.0
     postcss: ^8.4.14
     postcss-selector-parser: ^6.0.10
     sourcemap-codec: ^1.4.8
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: 68f7831e0e8a199bfb7c260eb880332233c87521dac6ef37d6a0e7efe8d01e026e44bdfb9452df8ef2d3acc902d85c36fe37c3d3f71e6b70c9e50370b8623a32
+  checksum: ae2b9f2a2ec81b2a8427d555ae61fc081c0cd519abb4c8241d3a2871a7044b6c209f786b5cf5b1bfe897a633f6fe92dfe060f07f49f11a177890d9639a65141f
   languageName: node
   linkType: hard
 
@@ -12043,12 +12044,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.23.1":
-  version: 1.23.1
-  resolution: "playwright-core@npm:1.23.1"
+"playwright-core@npm:1.23.2":
+  version: 1.23.2
+  resolution: "playwright-core@npm:1.23.2"
   bin:
     playwright: cli.js
-  checksum: 1e6a3a7a9aaee1864b22195c7fef52b6980fcafc6d667749737455360a44a182a7035f12bfd76f298f957d1b99550420a8748f6a473ceeacf2cb2db42beb9be0
+  checksum: 7e5c7adbc436c68e5de8535508746c2734393f77948c08ff1df7d21eaa518cd00d82f49c936b2776be6958dc2d7f18985582d72690ffeee7a59006267e22a391
   languageName: node
   linkType: hard
 
@@ -15064,9 +15065,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:2.9.13":
-  version: 2.9.13
-  resolution: "vite@npm:2.9.13"
+"vite@npm:2.9.14":
+  version: 2.9.14
+  resolution: "vite@npm:2.9.14"
   dependencies:
     esbuild: ^0.14.27
     fsevents: ~2.3.2
@@ -15089,7 +15090,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: a5e501b920a448c352e9b3836019dea56c523535f8e8540160708c2e164d84da6655ae39abbba1e2888092f5c6cd03dd06279852422359b51be601914645f49f
+  checksum: f78b54f58482ea97d385e36873ae1aa4744c5e467c1d6d4e0835bd55494d2d8f6ce763f17c241c66104be687d5ee535b8e1e96c14210c9ba0c343fe78c58f694
   languageName: node
   linkType: hard
 
@@ -15337,6 +15338,13 @@ __metadata:
     is-string: ^1.0.5
     is-symbol: ^1.0.3
   checksum: 53ce774c7379071729533922adcca47220228405e1895f26673bbd71bdf7fb09bee38c1d6399395927c6289476b5ae0629863427fd151491b71c4b6cb04f3a5e
+  languageName: node
+  linkType: hard
+
+"which-pm-runs@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "which-pm-runs@npm:1.1.0"
+  checksum: 39a56ee50886fb33ec710e3b36dc9fe3d0096cac44850d9ca0c6186c4cb824d6c8125f013e0562e7c94744e1e8e4a6ab695592cdb12555777c7a4368143d822c
   languageName: node
   linkType: hard
 
