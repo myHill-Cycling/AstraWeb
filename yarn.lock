@@ -132,13 +132,13 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@astrojs/sitemap@npm:0.2.4":
-  version: 0.2.4
-  resolution: "@astrojs/sitemap@npm:0.2.4"
+"@astrojs/sitemap@npm:0.2.6":
+  version: 0.2.6
+  resolution: "@astrojs/sitemap@npm:0.2.6"
   dependencies:
     sitemap: ^7.1.1
     zod: ^3.17.3
-  checksum: 28bfb3991cd23fa997a7e58c141ff9392b3f97983f9293936c7304254533cb0e7e2b94b24be32a398eb123847712f8a820ccfa3303082fb7263a4f9d20163e8a
+  checksum: 6ebc799af13d87ec51957d92c2d05320914d933abc82eaad9422411eaf618c57eb6315c2e2d0ed9c050383c555d47681231fd291273e4253021c1b6ae1b2c04d
   languageName: node
   linkType: hard
 
@@ -2290,7 +2290,7 @@ __metadata:
   resolution: "@myhill-cycling/astra-web@workspace:."
   dependencies:
     "@astrojs/pwa": "portal:./src/components/pwa-plugin"
-    "@astrojs/sitemap": 0.2.4
+    "@astrojs/sitemap": 0.2.6
     "@astrojs/tailwind": 0.2.2
     "@azure/static-web-apps-cli": 1.0.2
     "@commitlint/cli": 17.0.3

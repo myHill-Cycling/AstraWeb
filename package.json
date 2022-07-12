@@ -49,7 +49,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/pwa": "portal:./src/components/pwa-plugin",
-		"@astrojs/sitemap": "0.2.4",
+		"@astrojs/sitemap": "0.2.6",
 		"@astrojs/tailwind": "0.2.2",
 		"@commitlint/cli": "17.0.3",
 		"@commitlint/config-conventional": "17.0.3",
