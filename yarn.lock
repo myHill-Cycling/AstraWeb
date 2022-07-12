@@ -152,15 +152,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/tailwind@npm:0.2.2":
-  version: 0.2.2
-  resolution: "@astrojs/tailwind@npm:0.2.2"
+"@astrojs/tailwind@npm:0.2.4":
+  version: 0.2.4
+  resolution: "@astrojs/tailwind@npm:0.2.4"
   dependencies:
     "@proload/core": ^0.3.2
     autoprefixer: ^10.4.7
     postcss: ^8.4.14
     tailwindcss: ^3.0.24
-  checksum: 12f0ae6495cf0ef440c314c8662b41474e3465ceb3493be6c6078fae46a2e92ca1c7472fab58f1420c1f0c756fea2e7013f2cf7f6e71b6fdeeed3a134383a672
+  checksum: 44a7cff7f3c8764ab11758e3597b85617ee7c12f0677922f702b1ae29ef75064e4f8fc93c832be9f39d68d8c51a746908daf6fd003af0193b0c4360f8e8e5955
   languageName: node
   linkType: hard
 
@@ -2291,7 +2291,7 @@ __metadata:
   dependencies:
     "@astrojs/pwa": "portal:./src/components/pwa-plugin"
     "@astrojs/sitemap": 0.2.6
-    "@astrojs/tailwind": 0.2.2
+    "@astrojs/tailwind": 0.2.4
     "@azure/static-web-apps-cli": 1.0.2
     "@commitlint/cli": 17.0.3
     "@commitlint/config-conventional": 17.0.3
