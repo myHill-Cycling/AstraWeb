@@ -11,7 +11,7 @@ import pwa from "@astrojs/pwa";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://www.myhillcycling.co.uk",
+	site: "https://calm-plant-0e1398703.1.azurestaticapps.net",
 	build: {
 		// Example: Generate `page.html` instead of `page/index.html` during build.
 		format: "file"
