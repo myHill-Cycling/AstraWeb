@@ -126,7 +126,7 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: 🧪 Run Playwright tests
-        run: yarn test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+        run: yarn workspace @myhill-cycling/astra-web.site test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
         env:
           TEST_URL: ${{ inputs.DeploymentUrl }}
 

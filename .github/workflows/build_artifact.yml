@@ -39,10 +39,10 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: 🕵️ Linting
-        run: yarn lint
+        run: yarn workspace @myhill-cycling/astra-web.site lint
 
       - name: 🕵️ Type check
-        run: yarn type-check
+        run: yarn workspace @myhill-cycling/astra-web.site type-check
 
       - name: 🏗️ Build
         run: yarn workspace @myhill-cycling/astra-web.site build
