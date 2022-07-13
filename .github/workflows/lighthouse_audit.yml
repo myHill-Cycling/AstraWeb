@@ -44,6 +44,6 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: 💡 Run Lighthouse
-        run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }}
+        run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }} --upload.githubAppToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}

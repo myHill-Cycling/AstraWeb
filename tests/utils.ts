@@ -1,4 +1,15 @@
-import { Page } from "@playwright/test";
+import { Page, APIRequestContext } from "@playwright/test";
+
+export async function testImg(page: Page, request: APIRequestContext, loc: string) {
+	const src = await page.locator(loc).getAttribute("src");
+	if(!src){
+		throw "Img element src null or undefined";
+	}
+	const resp = await request.get(src, {ignoreHTTPSErrors: true, failOnStatusCode: true});
+	if(!resp.ok()){
+		throw "Fetching img source failed";
+	}				
+}
 
 export async function waitForCookieBubble(page: Page) {
 	const selector = "body > section > div.ch2-container.ch2-theme-bubble.ch2-style-dark.ch2-ea > div.ch2-dialog.ch2-dialog-left.ch2-visible";
