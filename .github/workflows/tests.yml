@@ -134,12 +134,12 @@ jobs:
         name: 🛑 Upload failures
         if: failure()
         with:
-          name: playwright-results-${{ matrix.shard }}_${{ strategy.job-total }}
+          name: ./site/playwright-results-${{ matrix.shard }}_${{ strategy.job-total }}
           path: test-results
       
       - uses: actions/upload-artifact@v3
         name: 📋 Upload report
         if: always()
         with:
-          name: playwright-report-${{ matrix.shard }}_${{ strategy.job-total }}
+          name: ./site/playwright-report-${{ matrix.shard }}_${{ strategy.job-total }}
           path: playwright-report

@@ -52,6 +52,7 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "./dist" # App source code path
           api_location: "./api" # Api source code path - optional
+          api_build_command: "yarn workspace @myhill-cycling/astra-web.api build"
           output_location: "" # Built app content directory - optional
           skip_app_build: true
           ###### End of Repository/Build Configurations ######
