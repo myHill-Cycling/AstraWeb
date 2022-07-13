@@ -203,4 +203,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: api-${{ github.sha }}
-          path: ./api/dist/
+          path: ./api
