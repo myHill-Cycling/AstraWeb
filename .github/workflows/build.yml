@@ -1,0 +1,206 @@
+on:
+  workflow_call:
+    outputs:
+      api_artifact:
+        description: "The name of the artifact containing the built api"
+        value: ${{ jobs.build_api.outputs.artifact_name }}
+      website_artifact:
+        description: "The name of the artifact containing the built website"
+        value: ${{ jobs.build_website.outputs.artifact_name }}
+
+jobs:
+  dependencies:
+    name: "Load build dependencies"
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: false
+
+      - run: yarn --version || npm install --location=global yarn
+        name: 🔗 Install yarn
+
+      - name: 🧱 Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: 🗄️ Dependency Module Cache
+        uses: actions/cache@v3
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+
+      - name: 🔗 Dependency installation
+        run: yarn install --immutable --check-cache
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+
+  pre_build_site:
+    name: "🛃 Site prebuild checks"
+    runs-on: ubuntu-latest
+    needs: dependencies
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: false
+
+      - run: yarn --version || npm install -g yarn
+        name: 🔗 Install yarn
+
+      - name: 🧱 Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: 🗄️ Dependency Module Cache
+        uses: actions/cache@v3
+        id: module-cache
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+
+      - name: 🔗 Dependency installation
+        run: yarn install --immutable --check-cache
+        if: steps.module-cache.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+
+      - name: 🕵️ Linting
+        run: yarn workspace @myhill-cycling/astra-web.site lint
+
+      - name: 🕵️ Type check
+        run: yarn workspace @myhill-cycling/astra-web.site type-check
+
+  pre_build_api:
+    name: "🛃 API prebuild checks"
+    runs-on: ubuntu-latest
+    needs: dependencies
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: false
+
+      - run: yarn --version || npm install --location=global yarn
+        name: 🔗 Install yarn
+
+      - name: 🧱 Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: 🗄️ Dependency Module Cache
+        uses: actions/cache@v3
+        id: module-cache
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+
+      - name: 🔗 Dependency installation
+        run: yarn install --immutable --check-cache
+        if: steps.module-cache.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+
+      # - name: 🕵️ Linting
+      #   run: yarn workspace @myhill-cycling/astra-web.api lint
+
+      - name: 🕵️ Type check
+        run: yarn workspace @myhill-cycling/astra-web.api type-check
+
+  build_website:
+    name: 🏗️ Build Website
+    runs-on: ubuntu-latest
+    needs: pre_build_site
+    outputs:
+      artifact_name: website-${{ github.sha }}
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+
+      - run: yarn --version || npm install --location=global yarn
+        name: 🔗 Install yarn
+
+      - name: 🧱 Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: 🗄️ Dependency Module Cache
+        uses: actions/cache@v3
+        id: module-cache
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+
+      - name: 🔗 Dependency installation
+        run: yarn install --immutable --check-cache
+        if: steps.module-cache.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+
+      - name: 🏗️ Build
+        run: yarn workspace @myhill-cycling/astra-web.site build
+
+      - name: 📦 Upload website artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: website-${{ github.sha }}
+          path: ./site/dist/
+
+  build_api:
+    name: 🏗️ Build API
+    runs-on: ubuntu-latest
+    needs: pre_build_api
+    outputs:
+      artifact_name: api-${{ github.sha }}
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+
+      - run: yarn --version || npm install --location=global yarn
+        name: 🔗 Install yarn
+
+      - name: 🧱 Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - name: 🗄️ Dependency Module Cache
+        uses: actions/cache@v3
+        id: module-cache
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+
+      - name: 🔗 Dependency installation
+        run: yarn install --immutable --check-cache
+        if: steps.module-cache.outputs.cache-hit != 'true'
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+
+      - name: 🏗️ Build
+        run: yarn workspace @myhill-cycling/astra-web.api build
+
+      - name: 📦 Upload API artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: api-${{ github.sha }}
+          path: ./api/dist/
