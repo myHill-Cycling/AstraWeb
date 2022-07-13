@@ -17,7 +17,7 @@ jobs:
         with:
           website_url: ${{ inputs.WebsiteUrl }}
           exclude_url_prefix: "https://fonts.gstatic.com,https://fonts.googleapis.com"
-          exclude_url_suffix: "/about,/policy/privacy,/policy/toc,/hillclimb,/services,/shop,/gateway2racing,/contact"
+          exclude_url_suffix: "/about,/policy/privacy,/policy/toc,/hillclimb,/services,/shop,/gateway2racing"
           verbose: true
           max_retry_time: 30
           max_retries: 5

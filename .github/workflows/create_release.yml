@@ -67,14 +67,14 @@ jobs:
       - name: 📦 Download site artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ needs.build_website.outputs.website_artifact }}
+          name: ${{ needs.build.outputs.website_artifact }}
           # download all files into "dist" folder
           path: dist
 
       - name: 📦 Download API artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ needs.build_website.outputs.api_artifact }}
+          name: ${{ needs.build.outputs.api_artifact }}
           path: dist-api
 
       - name: 📫 Archive distribution
