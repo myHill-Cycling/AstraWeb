@@ -102,7 +102,7 @@ jobs:
 
       #We have the browser binaries but annoyingly this doesn't include any host dependencies
       - name: 🌐 Install Playwright's dependencies
-        run: npx playwright install --with-deps
+        run: sudo apt-get update && npx playwright install --with-deps
 
       - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
