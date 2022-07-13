@@ -18,7 +18,7 @@ FROM node:16-alpine AS runtime
 # Metadata
 WORKDIR /srv
 
-HEALTHCHECK --interval=1m --timeout=3s CMD curl -f http://localhost/ || exit 1
+HEALTHCHECK --interval=1m --timeout=3s CMD curl -f https://127.0.0.1/ || exit 1
 
 # Copy yarn metadata
 COPY .yarnrc.yml yarn.lock ./

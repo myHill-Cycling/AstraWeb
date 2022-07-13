@@ -22,6 +22,7 @@ module.exports = {
       },
       upload: {
         // upload options here
+		target: "temporary-public-storage"
       },
       server: {
         // server options here
