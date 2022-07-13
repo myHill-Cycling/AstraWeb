@@ -1,5 +1,12 @@
 # Semantic Versioning Changelog
 
+# [1.54.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.53.0...v1.54.0) (2022-07-13)
+
+
+### Bug Fixes
+
+* update asset name to fix URL response issue ([c603591](https://github.com/myHill-Cycling/AstraWeb/commit/c603591376dc0b1d16dd8ff3ad15f62d3b7fe2bd))
+
 # [1.53.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.52.0...v1.53.0) (2022-07-12)
 
 # [1.52.0](https://github.com/myHill-Cycling/AstraWeb/compare/v1.51.0...v1.52.0) (2022-07-12)
