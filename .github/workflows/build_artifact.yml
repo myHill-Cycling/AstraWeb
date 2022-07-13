@@ -45,10 +45,10 @@ jobs:
         run: yarn type-check
 
       - name: 🏗️ Build
-        run: yarn build
+        run: yarn workspace @myhill-cycling/astra-web.site build
 
       - name: 📦 Upload website artifact
         uses: actions/upload-artifact@v3
         with:
           name: website-${{ github.sha }}
-          path: ./dist/
+          path: ./site/dist/

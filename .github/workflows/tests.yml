@@ -16,6 +16,9 @@ jobs:
       - name: 📥 Checkout
         uses: actions/checkout@v3     
 
+      - run: yarn --version || npm install -g yarn
+        name: 🔗 Install yarn
+
       - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
         uses: actions/setup-node@v3
@@ -28,9 +31,6 @@ jobs:
         with:
           path: "**/node_modules"
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
-
-      - run: yarn --version || npm install -g yarn
-        name: 🔗 Install yarn
 
       - name: 🔗 Install dependencies
         run: yarn install

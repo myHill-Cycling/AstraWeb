@@ -13,29 +13,27 @@
 	"maintainers": [
 		"Vespion"
 	],
-	"description": "This package contains the code and assets required to build myHill cycling's main web site",
+	"workspaces": [
+		"api",
+		"site"
+	],
 	"scripts": {
 		"postinstall": "husky install",
-		"start": "swa start dist --swa-config-location dist --ssl --ssl-cert server.crt --ssl-key server.key -q 127.0.0.1",
-		"test": "playwright test",
-		"dev": "astro dev",
-		"build": "astro build && yarn build#csp",
-		"build#csp": "node build-csp.mjs",
-		"lint": "yarn run lint#base .",
-		"lint#base": "eslint --ignore-path .gitignore --cache --cache-location ./.cache/eslint/",
-		"lint#fix": "yarn run lint --fix",
-		"type-check": "tsc-files --noEmit"
+		"dev": "yarn dev#api & yarn dev#site & yarn dev#srv",
+		"dev#srv": "swa start http://localhost:3000 --api-location ./api --ssl --ssl-cert server.crt --ssl-key server.key -q 127.0.0.1",
+		"dev#site": "yarn workspace @myhill-cycling/astra-web.site dev",
+		"dev#api": "yarn workspace @myhill-cycling/astra-web.api watch"
 	},
 	"lint-staged": {
-		"**/*{.astro,.ts,.tsx,.js,.cjs,.mjs,.json}": [
-			"yarn lint#base"
+		"site/**/*{.astro,.ts,.tsx,.js,.cjs,.mjs,.json}": [
+			"yarn workspace @myhill-cycling/astra-web.site lint#base"
 		],
-		"**/*.astro": [
-			"astro check",
-			"yarn type-check"
+		"site/**/*.astro": [
+			"yarn workspace @myhill-cycling/astra-web.site astro check",
+			"yarn workspace @myhill-cycling/astra-web.site type-check"
 		],
-		"**/*{.ts,.tsx}": [
-			"yarn type-check"
+		"site/**/*{.ts,.tsx}": [
+			"yarn workspace @myhill-cycling/astra-web.site type-check"
 		]
 	},
 	"commitlint": {
@@ -44,55 +42,20 @@
 		]
 	},
 	"dependencies": {
-		"@azure/static-web-apps-cli": "1.0.2",
-		"azure-functions-core-tools": "4.0.4629"
+		"@azure/static-web-apps-cli": "1.0.2"
 	},
 	"devDependencies": {
-		"@astrojs/pwa": "portal:./src/components/pwa-plugin",
-		"@astrojs/sitemap": "0.2.6",
-		"@astrojs/tailwind": "0.2.4",
 		"@commitlint/cli": "17.0.3",
 		"@commitlint/config-conventional": "17.0.3",
-		"@playwright/test": "1.23.2",
+		"@commitlint/cz-commitlint": "17.0.3",
 		"@semantic-release/changelog": "6.0.1",
 		"@semantic-release/git": "10.0.1",
 		"@semantic-release/npm": "9.0.1",
-		"@types/node": "18.0.0",
-		"@typescript-eslint/eslint-plugin": "5.30.5",
-		"@typescript-eslint/parser": "5.30.5",
-		"astro": "1.0.0-beta.64",
-		"astro-critters": "0.0.9",
-		"astro-eslint-parser": "0.4.0",
-		"astro-icon": "0.7.1",
-		"astro-robots-txt": "0.3.6",
-		"astro-seo": "0.5.0",
-		"astro-webmanifest": "0.3.4",
-		"axe-playwright": "1.1.11",
-		"cheerio": "1.0.0-rc.12",
-		"csp-header": "5.1.0",
-		"csp-preset-google-analytics": "1.0.2",
-		"dotenv": "16.0.1",
-		"eslint": "8.19.0",
-		"eslint-plugin-astro": "0.15.0",
-		"eslint-plugin-compat": "4.0.2",
-		"eslint-plugin-import": "2.26.0",
-		"eslint-plugin-jsx-a11y": "6.6.0",
-		"eslint-plugin-react": "7.30.1",
-		"eslint-plugin-react-hooks": "4.6.0",
-		"flowbite": "1.4.7",
-		"glob": "8.0.3",
+		"commitizen": "4.2.4",
 		"husky": "8.0.1",
 		"lint-staged": "13.0.3",
-		"playwright-core": "1.23.2",
-		"semantic-release": "19.0.3",
-		"tsc-files": "1.1.3",
-		"typescript": "4.7.4",
-		"vite-imagetools": "4.0.4",
-		"workbox-core": "6.5.3",
-		"workbox-precaching": "6.5.3",
-		"workbox-recipes": "6.5.3",
-		"workbox-routing": "6.5.3",
-		"workbox-strategies": "6.5.3"
+		"npm-run-all": "4.1.5",
+		"semantic-release": "19.0.3"
 	},
 	"release": {
 		"branches": [
@@ -149,5 +112,10 @@
 			]
 		]
 	},
-	"packageManager": "yarn@3.2.1"
+	"packageManager": "yarn@3.2.1",
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/@commitlint/cz-commitlint"
+		}
+	}
 }
