@@ -3,6 +3,9 @@
 		"plugin:astro/recommended",
 		"plugin:astro/jsx-a11y-recommended"
 	],
+	"rules": {
+		"astro/jsx-a11y/label-has-associated-control": "warn"
+	},
 	"overrides": [
 		{
 			"files": ["*.ts", "*.tsx"],
