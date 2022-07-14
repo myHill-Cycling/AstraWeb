@@ -16,10 +16,11 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
-			},
+			}
 		}
 	},
 	plugins: [
-		require("flowbite/plugin")
+		require("flowbite/plugin"),
+		require("@tailwindcss/forms")
 	]
 };

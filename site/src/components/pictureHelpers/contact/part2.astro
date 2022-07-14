@@ -1,0 +1,23 @@
+---
+import srcsetAvif from "@assets/images/contact/part2.webp?w=250;360;480;534&avif&srcset";
+import srcsetWebp from "@assets/images/contact/part2.webp?w=250;360;480;534&webp&srcset";
+import srcsetPng from "@assets/images/contact/part2.webp?w=250;360;480;534&png&srcset";
+import { src as placeholder } from "@assets/images/contact/part2.webp?w=200&metadata";
+
+export interface Props {
+    class?: string
+	id?: string
+}
+
+const props = Astro.props as Props;
+---
+
+<picture>
+	<source srcset={srcsetAvif} type="image/avif" />
+	<source srcset={srcsetWebp} type="image/webp" />
+	<source srcset={srcsetPng} type="image/png" />
+	<img class={props.class} id={props.id ?? ""}
+		src={placeholder}
+		alt=""
+		role="presentation" />
+</picture>

@@ -1,0 +1,28 @@
+---
+import Layout from "@layouts/RootLayout.astro";
+import {SEO} from "astro-seo";
+import Part1 from "@pictures/contact/part1.astro";
+import Part2 from "@pictures/contact/part2.astro";
+
+---
+
+<Layout>
+	<SEO slot="head"
+		title="Contact myHill cycling"
+		description="Send a message to myHill Cycling"
+	/>
+	<main class="lg:flex lg:static relative">    
+		<Part1 class="lg:static absolute top-0 h-full -z-20" />
+		<form class="w-full text-center pb-2 dark:bg-gray-700/90 bg-gray-500/90 backdrop-blur-sm lg:static lg:bg-transparent dark:lg:bg-transparent lg:backdrop-blur-none">
+			<h1 class="text-brand text-3xl">Contact<br/> my<i>Hill</i> Cycling</h1>
+			<div class="grid grid-cols-2 mt-2 gap-2 mx-12">
+				<input placeholder="Name *" name="name" required maxlength="100" type="text"/>
+				<input placeholder="Email *" name="email" required type="email"/>
+				<input placeholder="Subject" name="subject" type="text" class="col-span-2"/>
+				<textarea placeholder="Message" name="message" type="text" class="col-span-2" rows="7"/>
+				<button class="col-span-2 bg-brand-contrast ">Send</button>
+			</div>
+		</form>
+		<Part2 class="lg:block hidden" />
+	</main>
+</Layout>
