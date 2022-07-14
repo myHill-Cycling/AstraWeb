@@ -12,6 +12,7 @@ export async function testImg(page: Page, request: APIRequestContext, loc: strin
 }
 
 export async function waitForCookieBubble(page: Page) {
+	return;
 	const selector = "body > section > div.ch2-container.ch2-theme-bubble.ch2-style-dark.ch2-ea > div.ch2-dialog.ch2-dialog-left.ch2-visible";
 
 	const animationPromise = page.evaluate((bubbleSelector) => {
