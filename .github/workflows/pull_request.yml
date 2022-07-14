@@ -1,5 +1,8 @@
-name: Pull request checks
+name: Merge checks
 on: 
+  push:
+    branches:
+      - renovate/**
   pull_request:
     types: [opened, synchronize, reopened]
     branches:
@@ -13,7 +16,7 @@ jobs:
   
   deploy_preview:
     environment:
-      name: pr-${{github.event.number}}
+      name: sha-${{github.sha}}
       url: ${{ steps.deploy.outputs.static_web_app_url }}
     needs: [build]
     permissions:
