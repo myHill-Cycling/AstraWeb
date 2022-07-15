@@ -1,5 +1,11 @@
 on:
   workflow_call:
+    inputs:
+      site:
+        description: The base URL for the site, injected into astro.config.mjs
+        required: false
+        default: "https://calm-plant-0e1398703.1.azurestaticapps.net"
+        type: string
     outputs:
       api_artifact:
         description: "The name of the artifact containing the built api"
@@ -154,6 +160,8 @@ jobs:
 
       - name: 🏗️ Build
         run: yarn workspace @myhill-cycling/astra-web.site build
+        env:
+          SITE_BASE: ${{ inputs.site }}
 
       - name: 📦 Upload website artifact
         uses: actions/upload-artifact@v3

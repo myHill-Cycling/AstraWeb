@@ -18,6 +18,8 @@ jobs:
 
   build:
     uses: ./.github/workflows/build.yml
+    with:
+      site: "https://myhill.vespion.dev/"
   
   release:
     name: 📦 Package Website

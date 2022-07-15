@@ -1,9 +1,9 @@
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 import {createTransport} from "nodemailer";
 import MailComposer from "nodemailer/lib/mail-composer";
 import { Address } from "nodemailer/lib/mailer";
 import { SMTPLogger } from "./SMTPLogger";
-import Validator, { ValidationError, ValidationSchema } from "fastest-validator";
+import Validator, { ValidationSchema } from "fastest-validator";
 
 type DTO = {
 	name: string | null,
@@ -38,7 +38,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 		email: parsed.get("email"),
 		subject: parsed.get("subject"),
 		message: parsed.get("message")
-	}
+	};
 
 	const passedChecks = await MessageCheck(dto);
 	if(passedChecks !== true){
@@ -48,20 +48,20 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 				status: "validation-error",
 				errors: passedChecks
 			}
-		}
+		};
 	}
 
 	const msgData = dto as MessageData;
 
-	const contactUsAddress = {
+	const contactUsAddress: Address = {
 		name: process.env.CONTACT_ADDRESS_NAME ?? "Contact",
 		address: process.env.CONTACT_ADDRESS_EMAIL ?? ""
-	}
+	};
 
-	const systemAddress = {
+	const systemAddress: Address = {
 		name: process.env.SYSTEM_ADDRESS_NAME ?? "System NO-REPLY",
 		address: process.env.SYSTEM_ADDRESS_EMAIL ?? ""
-	}
+	};
 
 	const mailBuilder = new MailComposer({
 		from: systemAddress,
@@ -75,7 +75,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 		text: msgData.message ?? ""
 	});
 
-	const parsedSmtpPort = parseInt(process.env.SMTP_PORT ?? "")
+	const parsedSmtpPort = parseInt(process.env.SMTP_PORT ?? "");
 
 	const mailTransport = createTransport({
 		host: process.env.SMTP_HOST ?? "localhost",
@@ -101,7 +101,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 			body: {
 				status: "send-error"
 			}
-		}
+		};
 	}
 
 	return {
@@ -109,7 +109,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 		body: {
 			status: "success"
 		}
-	}
+	};
 };
 
 export default httpTrigger;

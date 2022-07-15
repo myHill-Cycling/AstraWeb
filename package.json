@@ -19,6 +19,7 @@
 	],
 	"scripts": {
 		"postinstall": "husky install",
+		"start": "swa start ./site/dist --swa-config-location dist --ssl --ssl-cert server.crt --ssl-key server.key -q 127.0.0.1 --api-location ./api",
 		"build": "yarn workspace @myhill-cycling/astra-web.site build & yarn workspace @myhill-cycling/astra-web.api build",
 		"dev": "yarn dev#api & yarn dev#site & yarn dev#srv",
 		"dev#srv": "swa start http://localhost:3000 --api-location ./api --ssl --ssl-cert server.crt --ssl-key server.key -q 127.0.0.1",
@@ -35,6 +36,12 @@
 		],
 		"site/**/*{.ts,.tsx}": [
 			"yarn workspace @myhill-cycling/astra-web.site type-check"
+		],
+		"api/**/*{.ts,.js,.cjs,.mjs,.json}": [
+			"yarn workspace @myhill-cycling/astra-web.api lint#base"
+		],
+		"api/**/*.ts": [
+			"yarn workspace @myhill-cycling/astra-web.api type-check"
 		]
 	},
 	"commitlint": {

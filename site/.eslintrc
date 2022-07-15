@@ -4,7 +4,8 @@
 		"plugin:astro/jsx-a11y-recommended"
 	],
 	"rules": {
-		"astro/jsx-a11y/label-has-associated-control": "warn"
+		//Too many false positives, let the accessability tests weed this out
+		"astro/jsx-a11y/label-has-associated-control": "off"
 	},
 	"overrides": [
 		{

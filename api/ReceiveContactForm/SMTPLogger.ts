@@ -9,12 +9,12 @@ export class SMTPLogger {
 	private FATAL = 60;
 
 	private levelFromName = {
-		'trace': this.TRACE,
-		'debug': this.DEBUG,
-		'info': this.INFO,
-		'warn': this.WARN,
-		'error': this.ERROR,
-		'fatal': this.FATAL
+		"trace": this.TRACE,
+		"debug": this.DEBUG,
+		"info": this.INFO,
+		"warn": this.WARN,
+		"error": this.ERROR,
+		"fatal": this.FATAL
 	};
 
 	private logger: Logger;
@@ -25,35 +25,35 @@ export class SMTPLogger {
 
 	private _level: number = this.TRACE;
 
-	level(level: 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'fatal') {
+	level(level: "trace" | "debug" | "info" | "warn" | "error" | "fatal") {
 		this._level = this.levelFromName[level];
 	}
-	trace(...params: any[]) {
+	trace(...params: unknown[]) {
 		if (this._level >= this.TRACE) {
 			this.logger.verbose(params);
 		}
 	}
-	debug(...params: any[]) {
+	debug(...params: unknown[]) {
 		if (this._level >= this.DEBUG) {
 			this.logger.verbose(params);
 		}
 	}
-	info(...params: any[]) {
+	info(...params: unknown[]) {
 		if (this._level >= this.INFO) {
 			this.logger.info(params);
 		}
 	}
-	warn(...params: any[]) {
+	warn(...params: unknown[]) {
 		if (this._level >= this.WARN) {
 			this.logger.warn(params);
 		}
 	}
-	error(...params: any[]) {
+	error(...params: unknown[]) {
 		if (this._level >= this.ERROR) {
 			this.logger.error(params);
 		}
 	}
-	fatal(...params: any[]) {
+	fatal(...params: unknown[]) {
 		if (this._level >= this.ERROR) {
 			this.logger.error(params);
 		}

@@ -7,7 +7,10 @@
 		"prestart": "yarn build",
 		"start": "func start",
 		"test": "echo \"No tests yet...\"",
-		"type-check": "tsc-files --noEmit"
+		"type-check": "tsc-files --noEmit",
+		"lint": "yarn run lint#base .",
+		"lint#base": "eslint --ignore-path ../.gitignore --cache --cache-location ../.cache/eslint/",
+		"lint#fix": "yarn run lint --fix"
 	},
 	"engines": {
 		"node": "^16",
@@ -20,6 +23,9 @@
 		"@azure/functions": "3.2.0",
 		"@types/node": "18.0.0",
 		"@types/nodemailer": "6.4.4",
+		"@typescript-eslint/eslint-plugin": "5.30.5",
+		"@typescript-eslint/parser": "5.30.5",
+		"eslint": "8.19.0",
 		"fastest-validator": "1.12.0",
 		"nodemailer": "6.7.7",
 		"tsc-files": "1.1.3",
