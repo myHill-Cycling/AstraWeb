@@ -2138,7 +2138,10 @@ __metadata:
   dependencies:
     "@azure/functions": 3.2.0
     "@types/node": 18.0.0
+    "@types/nodemailer": 6.4.4
     azure-functions-core-tools: 4.0.4629
+    fastest-validator: 1.12.0
+    nodemailer: 6.7.7
     tsc-files: 1.1.3
     typescript: 4.7.4
   languageName: unknown
@@ -3141,6 +3144,15 @@ __metadata:
   version: 8.10.66
   resolution: "@types/node@npm:8.10.66"
   checksum: c52039de862654a139abdc6a51de532a69dd80516ac35a959c3b3a2831ecbaaf065b0df5f9db943f5e28b544ebb9a891730d52b52f7a169b86a82bc060210000
+  languageName: node
+  linkType: hard
+
+"@types/nodemailer@npm:6.4.4":
+  version: 6.4.4
+  resolution: "@types/nodemailer@npm:6.4.4"
+  dependencies:
+    "@types/node": "*"
+  checksum: 16ed1bad2cd8471fd3b026471e234da33ba3b65935dc44b31be3145eff7bdb067eb4d08ec4b41d23339b988075299abc1a0c0fe77b99f04ca235827bca95af81
   languageName: node
   linkType: hard
 
@@ -6746,6 +6758,13 @@ __metadata:
   version: 1.0.12
   resolution: "fastest-levenshtein@npm:1.0.12"
   checksum: e1a013698dd1d302c7a78150130c7d50bb678c2c2f8839842a796d66cc7cdf50ea6b3d7ca930b0c8e7e8c2cd84fea8ab831023b382f7aab6922c318c1451beab
+  languageName: node
+  linkType: hard
+
+"fastest-validator@npm:1.12.0":
+  version: 1.12.0
+  resolution: "fastest-validator@npm:1.12.0"
+  checksum: 7efc5534cd8a4f32b8784c5d0054c35b392722a43bba205a30e8021bd9bdd922ccb17ad139dfb5a6f9c4ca5b65137914a94eb2dbf9f1d5634960ef21bd52a94b
   languageName: node
   linkType: hard
 
@@ -10805,6 +10824,13 @@ __metadata:
   version: 2.0.4
   resolution: "node-releases@npm:2.0.4"
   checksum: b32d6c2032c7b169ae3938b416fc50f123f5bd577d54a79b2ae201febf27b22846b01c803dd35ac8689afe840f8ba4e5f7154723db629b80f359836b6707b92f
+  languageName: node
+  linkType: hard
+
+"nodemailer@npm:6.7.7":
+  version: 6.7.7
+  resolution: "nodemailer@npm:6.7.7"
+  checksum: 337cee85bd040ced14b09700032b8dcbb74266a4201a4ab55683412a008cc8d8f3a13e8eef37ebee93aa11bb07f6cd02de650025211a0c0884be3d1ca839f869
   languageName: node
   linkType: hard
 
