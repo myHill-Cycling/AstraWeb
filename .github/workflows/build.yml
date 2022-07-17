@@ -36,11 +36,13 @@ jobs:
 
       - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
+        id: module-cache
         with:
           path: "**/node_modules"
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
       - name: 🔗 Dependency installation
+        if: steps.module-cache.outputs.cache-hit != 'true'
         run: yarn install --immutable --check-cache
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
