@@ -5,7 +5,7 @@ import fc from "fast-check";
 test.describe("Page accessability", () => {
 	async function Test(page: Page, mode: "dark" | "light") {
 		await page.emulateMedia({ colorScheme: mode });
-		await page.goto("/");
+		await page.goto("/contact.html");
 
 		await injectAxe(page);
 		await checkA11y(page);
@@ -74,7 +74,7 @@ test("Form generates expected request", async ({page, context}) => {
 	});
 
 	// Go to https://127.0.0.1:4280/contact.html
-	await page.goto("https://127.0.0.1:4280/contact.html");
+	await page.goto("/contact.html");
 
 	await FillForm(page);
 
@@ -86,7 +86,7 @@ test.describe("Browser side validation conforms to expected schemas", () => {
 		fc.property(fc.tuple(fc.boolean(), fc.boolean(), fc.boolean(), fc.boolean()), (inputs) => {
 			const [fillName, fillEmail, fillSubject, fillMessage] = inputs;
 			test(`Name: ${fillName}, E-Mail: ${fillEmail}, Subject: ${fillSubject}, Message: ${fillMessage}`, async ({page}) => {
-				await page.goto("https://127.0.0.1:4280/contact.html");
+				await page.goto("/contact.html");
 			
 				await FillForm(page, fillMessage, fillSubject, fillName, fillEmail);
 
@@ -116,7 +116,7 @@ test("Success notification shown", async ({page}) => {
 		});
 	});
 
-	await page.goto("https://127.0.0.1:4280/contact.html");
+	await page.goto("/contact.html");
 			
 	await FillForm(page, true, true, true, true);
 	await page.locator("text=Send").click();
@@ -136,7 +136,7 @@ test("Failure notification shown", async ({page}) => {
 		});
 	});
 
-	await page.goto("https://127.0.0.1:4280/contact.html");
+	await page.goto("/contact.html");
 			
 	await FillForm(page, true, true, true, true);
 	await page.locator("text=Send").click();
@@ -147,7 +147,7 @@ test("Failure notification shown", async ({page}) => {
 
 test.describe("Notification accessability", () => {
 	async function baseTest(page: Page) {
-		await page.goto("https://127.0.0.1:4280/contact.html");
+		await page.goto("/contact.html");
 				
 		await FillForm(page, true, true, true, true);
 		await page.locator("text=Send").click();
