@@ -1,4 +1,4 @@
-import type { PlaywrightTestConfig, ReporterDescription } from "@playwright/test";
+import type { PlaywrightTestConfig, Project, ReporterDescription } from "@playwright/test";
 import { devices } from "@playwright/test";
 
 /**
@@ -18,6 +18,138 @@ function createReporterList(): ReporterDescription[] {
 }
 
 const localServerUrl = process.env.CI ? process.env.TEST_URL : "https://127.0.0.1:4280";
+
+const fullSuiteEnv = process.env.FULL_SUITE;
+let fullSuite = false;
+
+if(fullSuiteEnv == undefined) {
+	fullSuite = false; //process.env.CI !== undefined;
+}
+else {
+	fullSuite = fullSuiteEnv.toLowerCase() === "true";
+}
+
+const projects: Project[] = [
+	{
+		name: "chromium",
+		use: {
+			...devices["Desktop Chrome"],
+			serviceWorkers: "block"
+		},
+	},
+
+	{
+		name: "firefox",
+		use: {
+			...devices["Desktop Firefox"],
+			ignoreHTTPSErrors: true,
+			serviceWorkers: "block"
+		},
+	},
+
+	{
+		name: "webkit",
+		use: {
+			...devices["Desktop Safari"],
+			serviceWorkers: "block"
+		},
+	},
+
+	{
+		name: "Mobile Chrome",
+		use: {
+			...devices["Pixel 5"],
+			serviceWorkers: "block"
+		},
+	},
+	{
+		name: "Mobile Safari",
+		use: {
+			...devices["iPhone 12"],
+			serviceWorkers: "block"
+		},
+	}
+];
+
+if(fullSuite) {
+	projects.push(...[
+		/* Test against tablet viewports. */
+		{
+			name: "Tablet Chrome",
+			use: {
+				...devices["Galaxy Tab S4"],
+				serviceWorkers: "block"
+			},
+		},
+		{
+			name: "Tablet Safari",
+			use: {
+				...devices["iPad (gen 7)"],
+				serviceWorkers: "block"
+			},
+		},
+
+		{
+			name: "Tablet Chrome (Landscape)",
+			use: {
+				...devices["Galaxy Tab S4 landscape"],
+				serviceWorkers: "block"
+			},
+		},
+		{
+			name: "Tablet Safari (Landscape)",
+			use: {
+				...devices["iPad (gen 7) landscape"],
+				serviceWorkers: "block"
+			},
+		},
+
+		/* Test against mobile viewports landscape. */
+		{
+			name: "Mobile Firefox",
+			use: {
+				...devices["JioPhone 2"],
+				serviceWorkers: "block"
+			},
+		},
+		{
+			name: "Mobile Firefox (Landscape)",
+			use: {
+				...devices["JioPhone 2 landscape"],
+				serviceWorkers: "block"
+			},
+		},
+
+		{
+			name: "Mobile Chrome (Landscape)",
+			use: {
+				...devices["Pixel 5 landscape"],
+				serviceWorkers: "block"
+			},
+		},
+		{
+			name: "Mobile Safari (Landscape)",
+			use: {
+				...devices["iPhone 12 landscape"],
+				serviceWorkers: "block"
+			},
+		},
+
+		/* Test against branded browsers. */
+		{
+			name: "Microsoft Edge",
+			use: {
+				channel: "msedge",
+			},
+		},
+		{
+			name: "Google Chrome",
+			use: {
+				channel: "chrome",
+			},
+		},
+	]);
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -56,62 +188,7 @@ const config: PlaywrightTestConfig = {
 	},
 
 	/* Configure projects for major browsers */
-	projects: [
-		{
-			name: "chromium",
-			use: {
-				...devices["Desktop Chrome"],
-				serviceWorkers: "block"
-			},
-		},
-
-		{
-			name: "firefox",
-			use: {
-				...devices["Desktop Firefox"],
-				ignoreHTTPSErrors: true,
-				serviceWorkers: "block"
-			},
-		},
-
-		{
-			name: "webkit",
-			use: {
-				...devices["Desktop Safari"],
-				serviceWorkers: "block"
-			},
-		},
-
-		/* Test against mobile viewports. */
-		{
-			name: "Mobile Chrome",
-			use: {
-				...devices["Pixel 5"],
-				serviceWorkers: "block"
-			},
-		},
-		{
-			name: "Mobile Safari",
-			use: {
-				...devices["iPhone 12"],
-				serviceWorkers: "block"
-			},
-		},
-
-		/* Test against branded browsers. */
-		// {
-		//   name: 'Microsoft Edge',
-		//   use: {
-		//     channel: 'msedge',
-		//   },
-		// },
-		// {
-		//   name: 'Google Chrome',
-		//   use: {
-		//     channel: 'chrome',
-		//   },
-		// },
-	],
+	projects: projects,
 
 	/* Folder for test artifacts such as screenshots, videos, traces, etc. */
 	outputDir: "test-results/"

@@ -1,5 +1,5 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
-import {createTransport} from "nodemailer";
+import {createTransport, SentMessageInfo} from "nodemailer";
 import MailComposer from "nodemailer/lib/mail-composer";
 import { Address } from "nodemailer/lib/mailer";
 import { SMTPLogger } from "./SMTPLogger";
@@ -20,9 +20,9 @@ type MessageData = {
 }
 
 const MessageSchema: ValidationSchema<MessageData> = {
-	name: { type: "string", max: 100 },
-	email: { type: "email", normalize: true, precise: true },
-	subject: { type: "string" },
+	name: { type: "string", max: 100, empty: false, trim: true },
+	email: { type: "email", normalize: true, precise: true, empty: false, trim: true },
+	subject: { type: "string", empty: false, trim: true },
 	message: { type: "string", optional: true }
 };
 
@@ -54,12 +54,16 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 	const msgData = dto as MessageData;
 
 	const contactUsAddress: Address = {
+		/* c8 ignore next */
 		name: process.env.CONTACT_ADDRESS_NAME ?? "Contact",
+		/* c8 ignore next */
 		address: process.env.CONTACT_ADDRESS_EMAIL ?? ""
 	};
 
 	const systemAddress: Address = {
+		/* c8 ignore next */
 		name: process.env.SYSTEM_ADDRESS_NAME ?? "System NO-REPLY",
+		/* c8 ignore next */
 		address: process.env.SYSTEM_ADDRESS_EMAIL ?? ""
 	};
 
@@ -75,10 +79,13 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 		text: msgData.message ?? ""
 	});
 
+	/* c8 ignore next */
 	const parsedSmtpPort = parseInt(process.env.SMTP_PORT ?? "");
 
 	const mailTransport = createTransport({
+		/* c8 ignore next */
 		host: process.env.SMTP_HOST ?? "localhost",
+		/* c8 ignore next */
 		port: isNaN(parsedSmtpPort) ? 1025 : parsedSmtpPort,
 		secure: false, // upgrade later with STARTTLS
 		requireTLS: process.env.NODE_ENV === "production",
@@ -91,8 +98,9 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 		debug: process.env.NODE_ENV === "development"
 	});
 
+	let response: SentMessageInfo;
 	try {
-		await mailTransport.sendMail(mailBuilder.mail);
+		response = await mailTransport.sendMail(mailBuilder.mail);
 	}
 	catch (e) {
 		context.log.error("An error ocurred while sending the email.", e);
@@ -104,12 +112,26 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 		};
 	}
 
-	return {
+	const returnObj: {
+		status: 200,
+		body: {
+			status: "success",
+			response?: SentMessageInfo
+		}
+	} = {
 		status: 200,
 		body: {
 			status: "success"
 		}
 	};
+
+	if(process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
+		returnObj.body.response = response;
+	}
+
+	mailTransport.close();
+
+	return returnObj;
 };
 
 export default httpTrigger;

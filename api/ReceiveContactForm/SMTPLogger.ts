@@ -29,32 +29,32 @@ export class SMTPLogger {
 		this._level = this.levelFromName[level];
 	}
 	trace(...params: unknown[]) {
-		if (this._level >= this.TRACE) {
+		if (this._level <= this.TRACE) {
 			this.logger.verbose(params);
 		}
 	}
 	debug(...params: unknown[]) {
-		if (this._level >= this.DEBUG) {
+		if (this._level <= this.DEBUG) {
 			this.logger.verbose(params);
 		}
 	}
 	info(...params: unknown[]) {
-		if (this._level >= this.INFO) {
+		if (this._level <= this.INFO) {
 			this.logger.info(params);
 		}
 	}
 	warn(...params: unknown[]) {
-		if (this._level >= this.WARN) {
+		if (this._level <= this.WARN) {
 			this.logger.warn(params);
 		}
 	}
 	error(...params: unknown[]) {
-		if (this._level >= this.ERROR) {
+		if (this._level <= this.ERROR) {
 			this.logger.error(params);
 		}
 	}
 	fatal(...params: unknown[]) {
-		if (this._level >= this.ERROR) {
+		if (this._level <= this.FATAL) {
 			this.logger.error(params);
 		}
 	}

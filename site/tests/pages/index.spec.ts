@@ -17,7 +17,7 @@ test.describe("Page accessability", () => {
 	});
 
 	test("Light mode", async ({page}) => {
-		await Test(page, "dark");
+		await Test(page, "light");
 	});
 });
 
