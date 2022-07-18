@@ -1,21 +1,24 @@
 on:
   workflow_call:
-    inputs:
-      Url:
-        type: string
-        required: true
-      
     secrets:
-      LHCI_GITHUB_APP_TOKEN:
+      application_id:
+        required: true
+      application_private_key:
         required: true
 
 jobs:
-  lighthouse:
-    name: 💡 Lighthouse audit
+  test:
+    name: 🧪 Test (${{ matrix.shard }}/${{ strategy.job-total }})
+    needs: install
+    timeout-minutes: 60
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1]
     steps:
       - name: 📥 Checkout
-        uses: actions/checkout@v3      
+        uses: actions/checkout@v3
 
       - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
@@ -40,13 +43,8 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      - name: 🔗💡 Install Lighthouse
-        run: yarn add @lhci/cli@0.9.0
+      - name: 🧪 Run API tests
+        run: yarn workspace @myhill-cycling/astra-web.api test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
         env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
-
-      - name: 💡 Run Lighthouse
-        run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --upload.githubAppToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-          LIGHTHOUSE_BASE_URL: ${{ inputs.Url }}
+          JEST_APP_ID: ${{ secrets.APPLICATION_ID }}
+          JEST_PRIVATE_KEY: ${{ secrets.APPLICATION_PRIVATE_KEY }}      

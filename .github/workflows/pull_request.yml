@@ -68,11 +68,19 @@ jobs:
     with:
       Url: ${{ needs.deploy_preview.outputs.static_web_app_url }}
 
-  test:
+  test_site:
+    name: Site Tests
     uses: ./.github/workflows/tests.yml
     needs: [deploy_preview]
     with:
       DeploymentUrl: ${{ needs.deploy_preview.outputs.static_web_app_url }}
+
+  test_api:
+    name: API Tests
+    uses: ./.github/workflows/function_tests.yml
+    with:
+      application_id: ${{ secrets.APPLICATION_ID }}
+      application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
 
   audit_http:
     uses: ./.github/workflows/http_audit.yml

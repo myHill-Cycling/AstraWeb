@@ -1,10 +1,21 @@
+const path = require("path");
+const baseUrl = process.env.LIGHTHOUSE_BASE_URL ?? "https://127.0.0.1:4280/";
+
 module.exports = {
     ci: {
       collect: {
         // collect options here
         settings: {
             chromeFlags: "--no-sandbox"
-        }
+        },
+		url: [
+			path.join(baseUrl, "/"),
+			path.join(baseUrl, "/contact"),
+			path.join(baseUrl, "/400"),
+			path.join(baseUrl, "/401"),
+			path.join(baseUrl, "/403"),
+			path.join(baseUrl, "/404"),
+		]
       },
       assert: {
         preset: 'lighthouse:no-pwa',

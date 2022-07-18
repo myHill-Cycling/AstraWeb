@@ -28,11 +28,13 @@ jobs:
 
       - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
+        id: module-cache
         with:
           path: "**/node_modules"
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
-      - name: 🔗 Install dependencies
+      - name: 🔗 Dependency installation
+        if: steps.module-cache.outputs.cache-hit != 'true'
         run: yarn install
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
@@ -116,11 +118,13 @@ jobs:
 
       - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
+        id: module-cache
         with:
           path: "**/node_modules"
-          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"      
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
-      - name: 🔗 Install dependencies
+      - name: 🔗 Dependency installation
+        if: steps.module-cache.outputs.cache-hit != 'true'
         run: yarn install
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
