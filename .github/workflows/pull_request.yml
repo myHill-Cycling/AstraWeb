@@ -78,7 +78,7 @@ jobs:
   test_api:
     name: API Tests
     uses: ./.github/workflows/function_tests.yml
-    with:
+    secrets:
       application_id: ${{ secrets.APPLICATION_ID }}
       application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
 
