@@ -72,7 +72,7 @@
 		"csp-header": "5.1.0",
 		"csp-preset-google-analytics": "1.0.2",
 		"dotenv": "16.0.1",
-		"eslint": "8.19.0",
+		"eslint": "8.20.0",
 		"eslint-plugin-astro": "0.15.0",
 		"eslint-plugin-compat": "4.0.2",
 		"eslint-plugin-import": "2.26.0",
