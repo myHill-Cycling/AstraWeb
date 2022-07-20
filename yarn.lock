@@ -2255,7 +2255,7 @@ __metadata:
     astro-critters: 0.0.9
     astro-eslint-parser: 0.4.0
     astro-icon: 0.7.1
-    astro-robots-txt: 0.3.6
+    astro-robots-txt: 0.3.7
     astro-seo: 0.5.0
     astro-webmanifest: 0.3.4
     axe-playwright: 1.1.11
@@ -3924,14 +3924,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-robots-txt@npm:0.3.6":
-  version: 0.3.6
-  resolution: "astro-robots-txt@npm:0.3.6"
+"astro-robots-txt@npm:0.3.7":
+  version: 0.3.7
+  resolution: "astro-robots-txt@npm:0.3.7"
   dependencies:
     deepmerge: ^4.2.2
     valid-filename: ^4.0.0
-    zod: ^3.17.3
-  checksum: f2a6859d2f50bd06ee2dd9cec218bd2d934e6e22291bb01a19c2581e34f51a2167e2b140ea7beded232bd84e141a8e279959a255297d32937e9814b3a19cc475
+    zod: ^3.17.9
+  checksum: f932f2a00f87e26087ed7b9dbbde5375ad91f9b87f95287ff6dc4974774858edd49d2dc1771b31bd2e44e6ab7e2f8dd9662b07824286ee4326a7f6fd2cdf0551
   languageName: node
   linkType: hard
 
@@ -15457,6 +15457,13 @@ __metadata:
   version: 3.17.3
   resolution: "zod@npm:3.17.3"
   checksum: f74b5d8a307cbed734e7a4a7f57a0c6b0a2d5062adee25e86eceaa1bec606621d6861804130f53342dec2d6e77fe9365f3a5118d55c81688f69f3de5fd3e59af
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.17.9":
+  version: 3.17.9
+  resolution: "zod@npm:3.17.9"
+  checksum: 0622a5ae4c668e571869723fec5229c1c8148e6c683db7480cc7a3fdbee77db01ddcf47e286d278678e9e2c0dda14c8018656a4c43455541b0d0182cfc606ee9
   languageName: node
   linkType: hard
 
