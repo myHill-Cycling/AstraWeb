@@ -77,10 +77,8 @@ jobs:
 
   test_api:
     name: API Tests
+    needs: build # Doesn't need the artifacts but makes cache handling slightly more efficent
     uses: ./.github/workflows/function_tests.yml
-    secrets:
-      application_id: ${{ secrets.APPLICATION_ID }}
-      application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
 
   audit_http:
     uses: ./.github/workflows/http_audit.yml

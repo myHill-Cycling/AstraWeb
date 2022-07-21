@@ -7,5 +7,5 @@ module.exports = {
 	transformIgnorePatterns: [],
 	setupFilesAfterEnv: ["./setup.jest.cjs"],
 	restoreMocks: true,
-	reporters: ["default", "jest-github-reporter"]
+	reporters: ["default", "github-actions"]
 };

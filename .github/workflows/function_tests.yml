@@ -1,10 +1,5 @@
 on:
   workflow_call:
-    secrets:
-      application_id:
-        required: true
-      application_private_key:
-        required: true
 
 jobs:
   test:
@@ -43,7 +38,4 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: 🧪 Run API tests
-        run: yarn workspace @myhill-cycling/astra-web.api test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
-        env:
-          JEST_APP_ID: ${{ secrets.APPLICATION_ID }}
-          JEST_PRIVATE_KEY: ${{ secrets.APPLICATION_PRIVATE_KEY }}      
+        run: yarn workspace @myhill-cycling/astra-web.api test --shard=${{ matrix.shard }}/${{ strategy.job-total }} 
