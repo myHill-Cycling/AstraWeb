@@ -5,8 +5,10 @@ import srcsetPng from "@assets/images/contact/part1.webp?w=250;360;480;532&png&s
 import { src as placeholder } from "@assets/images/contact/part1.webp?w=200&metadata";
 
 export interface Props {
-    class?: string
-	id?: string
+	class?: string,
+	id?: string,
+	width?: number,
+	height?: number
 }
 
 const props = Astro.props as Props;
@@ -17,6 +19,8 @@ const props = Astro.props as Props;
 	<source srcset={srcsetWebp} type="image/webp" />
 	<source srcset={srcsetPng} type="image/png" />
 	<img class={props.class} id={props.id ?? ""}
+		width={props.width ?? 532}
+		height={props.height ?? 701}
 		src={placeholder}
 		alt=""
 		role="presentation" />

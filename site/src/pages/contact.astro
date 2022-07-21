@@ -11,10 +11,10 @@ import Part2 from "@pictures/contact/part2.astro";
 		title="Contact myHill cycling"
 		description="Send a message to myHill Cycling"
 	/>
-	<main class="lg:flex lg:static relative">    
-		<Part1 class="lg:static absolute top-0 h-full -z-20" />
-		<form id="contactForm" class="w-full pb-2 dark:bg-gray-800/90 bg-gray-500/90 backdrop-blur-sm lg:static lg:bg-transparent dark:lg:bg-transparent lg:backdrop-blur-none">
-			<h1 class="text-center text-brand text-3xl">Contact<br/> my<i>Hill</i> Cycling</h1>
+	<main class="lg:flex lg:static relative w-full">
+		<Part1 class="lg:block hidden" />
+		<form id="contactForm" class="pb-2 flex-grow">
+			<h1 class="text-center dark:text-brand text-3xl pb-2 dark:bg-transparent">Contact<br/> my<i>Hill</i> Cycling</h1>
 			<div class="grid grid-cols-2 mt-2 gap-2 mx-12 dark:text-white">
 				<div class="flex flex-col">
 					<label for="name">Name *</label>
@@ -27,13 +27,13 @@ import Part2 from "@pictures/contact/part2.astro";
 				<label for="subject">Subject *</label>
 				<input required id="subject" name="subject" type="text" class="col-span-2 bg-transparent border border-black dark:border-white"/>
 				<label for="message">Message</label>
-				<textarea id="message" name="message" type="text" rows="7" class="col-span-2 bg-transparent border border-black dark:border-white"/>
+				<textarea id="message" name="message" rows="7" class="col-span-2 bg-transparent border border-black dark:border-white"/>
 				<button type="submit" class="col-span-2 dark:bg-white bg-black text-white dark:text-black hover:opacity-75 transition-opacity h-16">Send</button>
 				<aside id="successfulSubmissionNotification" class="hidden col-span-2 bg-green-500 rounded text-center text-xl text-black transition-all motion-reduce:transition-none">
 					<h2>Your query has been submitted successfully!</h2>
 				</aside>
 				<aside id="failedSubmissionNotification" class="hidden col-span-2 bg-red-600 rounded text-center text-xl text-white transition-all motion-reduce:transition-none">
-					<h2>There was a problem submitting your query. Please try again in a few minutes
+					<h2>There was a problem submitting your query. Please try again in a few minutes</h2>
 				</aside>
 			</div>
 		</form>

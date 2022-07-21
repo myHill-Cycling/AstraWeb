@@ -22,6 +22,8 @@ pnpm-debug.log*
 *.local
 *.env
 .cache/
+dev-dist/
+
 artifacts/
 .lighthouseci/
 
