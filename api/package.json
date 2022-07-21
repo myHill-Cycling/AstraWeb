@@ -17,7 +17,7 @@
 		"yarn": "^3"
 	},
 	"dependencies": {
-		"azure-functions-core-tools": "4.0.4629"
+		"azure-functions-core-tools": "4.0.4653"
 	},
 	"devDependencies": {
 		"@azure/functions": "3.2.0",
@@ -29,8 +29,8 @@
 		"@types/mailparser": "3.4.0",
 		"@types/node": "18.0.0",
 		"@types/nodemailer": "6.4.4",
-		"@typescript-eslint/eslint-plugin": "5.30.5",
-		"@typescript-eslint/parser": "5.30.5",
+		"@typescript-eslint/eslint-plugin": "5.30.7",
+		"@typescript-eslint/parser": "5.30.7",
 		"eslint": "8.20.0",
 		"eslint-plugin-jest": "26.6.0",
 		"fast-check": "3.0.1",
