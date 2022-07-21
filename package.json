@@ -45,7 +45,7 @@
 	},
 	"dependencies": {
 		"@azure/static-web-apps-cli": "1.0.2",
-		"azure-functions-core-tools": "4.0.4629"
+		"azure-functions-core-tools": "4.0.4653"
 	},
 	"devDependencies": {
 		"@astrojs/pwa": "portal:./src/components/pwa-plugin",

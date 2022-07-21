@@ -2259,7 +2259,7 @@ __metadata:
     astro-seo: 0.5.0
     astro-webmanifest: 0.3.4
     axe-playwright: 1.1.11
-    azure-functions-core-tools: 4.0.4629
+    azure-functions-core-tools: 4.0.4653
     cheerio: 1.0.0-rc.12
     csp-header: 5.1.0
     csp-preset-google-analytics: 1.0.2
@@ -4102,9 +4102,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"azure-functions-core-tools@npm:4.0.4629":
-  version: 4.0.4629
-  resolution: "azure-functions-core-tools@npm:4.0.4629"
+"azure-functions-core-tools@npm:4.0.4653":
+  version: 4.0.4653
+  resolution: "azure-functions-core-tools@npm:4.0.4653"
   dependencies:
     chalk: 3.0.0
     command-exists: 1.2.8
@@ -4118,7 +4118,7 @@ __metadata:
     azfun: lib/main.js
     azurefunctions: lib/main.js
     func: lib/main.js
-  checksum: 27c9734ced740f9f8b84e613791e1f2276ef4ecc62d6a579894a77700c40082d7f68df5ee011a240e576f06372032a3f36430ed2a8439ae5417c8a6100a21064
+  checksum: 4ed352117ce9677e4c39e1a08b276fbc9fb2a263b2e68ed87b050f3fe75e154a3c1940bcb88ced89c01a41375268ffdf814dbae6c80b340f26e7773122b7f0c7
   conditions: (os=win32 | os=darwin | os=linux)
   languageName: node
   linkType: hard
