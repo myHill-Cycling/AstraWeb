@@ -102,10 +102,6 @@ jobs:
           path: '~/.cache/ms-playwright'
           key: '${{needs.install.outputs.PlaywrightCache}}'
 
-      #We have the browser binaries but annoyingly this doesn't include any host dependencies
-      - name: 🌐 Install Playwright's dependencies
-        run: sudo apt-get update && npx playwright install --with-deps
-
       - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
         uses: actions/setup-node@v3
@@ -128,6 +124,10 @@ jobs:
         run: yarn install
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+
+      #We have the browser binaries but annoyingly this doesn't include any host dependencies
+      - name: 🌐 Install Playwright's dependencies
+        run: sudo apt-get update && npx playwright install --with-deps
 
       - name: 🧪 Run Playwright tests
         run: yarn workspace @myhill-cycling/astra-web.site test --shard=${{ matrix.shard }}/${{ strategy.job-total }}

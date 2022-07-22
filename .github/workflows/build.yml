@@ -119,8 +119,8 @@ jobs:
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      # - name: 🕵️ Linting
-      #   run: yarn workspace @myhill-cycling/astra-web.api lint
+      - name: 🕵️ Linting
+        run: yarn workspace @myhill-cycling/astra-web.api lint
 
       - name: 🕵️ Type check
         run: yarn workspace @myhill-cycling/astra-web.api type-check

@@ -23,7 +23,7 @@ Landing / Business site for myHill cycling.
 
 **Client:** [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com/)
 
-**Server:** [Node](https://nodejs.dev/), [Azure Static Web Apps](https://azure.microsoft.com/en-gb/services/app-service/static/)
+**Server:** [Node](https://nodejs.dev/), [Azure Static Web Apps](https://azure.microsoft.com/en-gb/services/app-service/static/), [Azure Functions](https://azure.microsoft.com/en-gb/services/functions/)
 
 
 ## Run Locally
@@ -93,15 +93,5 @@ To run tests, run the following command
 
 ```bash
   yarn test
-```
-
-
-## Deployment
-
-Before you can deploy to Azure, you must build a distribution bundle.
-Refer to the Build Locally section for instructions.
-
-```bash
-  yarn swa deploy ./dist/
 ```
 
