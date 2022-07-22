@@ -1,0 +1,47 @@
+---
+import Layout from "@layouts/RootLayout.astro";
+import {SEO} from "astro-seo";
+import Part1 from "@pictures/contact/part1.astro";
+import Part2 from "@pictures/contact/part2.astro";
+
+---
+
+<Layout>
+	<SEO slot="head"
+		title="Contact myHill cycling"
+		description="Send a message to myHill Cycling"
+	/>
+	<main class="lg:flex lg:static relative w-full">
+		<Part1 class="lg:block hidden" />
+		<form id="contactForm" class="pb-2 flex-grow">
+			<h1 class="text-center dark:text-brand text-3xl pb-2 dark:bg-transparent">Contact<br/> my<i>Hill</i> Cycling</h1>
+			<div class="grid grid-cols-2 mt-2 gap-2 mx-12 dark:text-white">
+				<div class="flex flex-col">
+					<label for="name">Name *</label>
+					<input name="name" id="name" required maxlength="100" type="text" class="bg-transparent border border-black dark:border-white" />
+				</div>
+				<div class="flex flex-col">
+					<label for="email">Email *</label>
+					<input id="email" name="email" required type="email" class="bg-transparent border border-black dark:border-white" />
+				</div>
+				<label for="subject">Subject *</label>
+				<input required id="subject" name="subject" type="text" class="col-span-2 bg-transparent border border-black dark:border-white"/>
+				<label for="message">Message</label>
+				<textarea id="message" name="message" rows="7" class="col-span-2 bg-transparent border border-black dark:border-white"/>
+				<button type="submit" class="col-span-2 dark:bg-white bg-black text-white dark:text-black hover:opacity-75 transition-opacity h-16">Send</button>
+				<aside id="successfulSubmissionNotification" class="hidden col-span-2 bg-green-500 rounded text-center text-xl text-black transition-all motion-reduce:transition-none">
+					<h2>Your query has been submitted successfully!</h2>
+				</aside>
+				<aside id="failedSubmissionNotification" class="hidden col-span-2 bg-red-600 rounded text-center text-xl text-white transition-all motion-reduce:transition-none">
+					<h2>There was a problem submitting your query. Please try again in a few minutes</h2>
+				</aside>
+			</div>
+		</form>
+		<script>
+			import FormSubmissionHandler from "../helpers/ContactFormSubmissionHandler.ts";
+
+			FormSubmissionHandler("contactForm", "successfulSubmissionNotification", "failedSubmissionNotification");
+		</script>
+		<Part2 class="lg:block hidden" />
+	</main>
+</Layout>

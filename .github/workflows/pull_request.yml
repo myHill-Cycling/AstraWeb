@@ -1,0 +1,93 @@
+name: Merge checks
+on: 
+  push:
+    branches:
+      - renovate/**
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - main
+    paths-ignore:
+      - "**/CHANGELOG.md"
+
+jobs: 
+  build:
+    uses: ./.github/workflows/build.yml
+  
+  deploy_preview:
+    environment:
+      name: sha-${{github.sha}}
+      url: ${{ steps.deploy.outputs.static_web_app_url }}
+    needs: [build]
+    permissions:
+      checks: write
+      contents: read
+      deployments: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    name: 🚀 Deploy preview app
+    outputs:
+      static_web_app_url: ${{ steps.deploy.outputs.static_web_app_url }}
+    steps:
+      - name: 📦 Download site artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ needs.build.outputs.website_artifact }}
+          # download all files into "dist" folder
+          path: dist
+
+      - name: 📦 Download API artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ needs.build.outputs.api_artifact }}
+          path: api
+
+      - name: 🚀 Deploy Release
+        id: deploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "./dist" # App source code path
+          api_location: "./api" # Api source code path - optional
+          output_location: "" # Built app content directory - optional
+          skip_app_build: true
+          skip_api_build: true
+          skip_deploy_on_missing_secrets: true
+          ###### End of Repository/Build Configurations ######
+  
+  lighthouse:
+    uses: ./.github/workflows/lighthouse_audit.yml
+    needs: [deploy_preview]
+    secrets:
+      LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+    with:
+      Url: ${{ needs.deploy_preview.outputs.static_web_app_url }}
+
+  test_site:
+    name: Site Tests
+    uses: ./.github/workflows/tests.yml
+    needs: [deploy_preview]
+    with:
+      DeploymentUrl: ${{ needs.deploy_preview.outputs.static_web_app_url }}
+
+  test_api:
+    name: API Tests
+    needs: build # Doesn't need the artifacts but makes cache handling slightly more efficent
+    uses: ./.github/workflows/function_tests.yml
+
+  audit_http:
+    uses: ./.github/workflows/http_audit.yml
+    needs: [deploy_preview]
+    with:
+      WebsiteUrl: ${{ needs.deploy_preview.outputs.static_web_app_url }}
+
+  scan_links:
+    uses: ./.github/workflows/link_scanner.yml
+    needs: [deploy_preview]
+    with:
+      WebsiteUrl: ${{ needs.deploy_preview.outputs.static_web_app_url }}

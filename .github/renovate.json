@@ -1,5 +1,8 @@
 {
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
     "extends": [
       "github>myHill-Cycling/Racepoint-Renovation:js"
-    ]
+    ],
+	"branchConcurrentLimit": null,
+	"prConcurrentLimit": 2	
   }

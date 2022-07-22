@@ -22,6 +22,8 @@ pnpm-debug.log*
 *.local
 *.env
 .cache/
+dev-dist/
+
 artifacts/
 .lighthouseci/
 
@@ -29,9 +31,9 @@ artifacts/
 .DS_Store
 
 *.tsbuildinfo
-/test-results/
-/playwright-report/
-/playwright/.cache/
+**/test-results/
+**/playwright-report/
+**/playwright/.cache/
 
 *.crt
 *.key

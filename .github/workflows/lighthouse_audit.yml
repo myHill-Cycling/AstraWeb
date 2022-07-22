@@ -29,11 +29,13 @@ jobs:
 
       - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
+        id: module-cache
         with:
           path: "**/node_modules"
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
       - name: 🔗 Dependency installation
+        if: steps.module-cache.outputs.cache-hit != 'true'
         run: yarn install
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
@@ -44,6 +46,7 @@ jobs:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
       - name: 💡 Run Lighthouse
-        run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --collect.url=${{ inputs.Url }} --upload.githubAppToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        run: yarn lhci autorun --config=./.github/lighthouse/.lighthouserc.js --upload.githubAppToken=${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          LIGHTHOUSE_BASE_URL: ${{ inputs.Url }}

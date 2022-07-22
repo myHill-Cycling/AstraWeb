@@ -1,0 +1,41 @@
+on:
+  workflow_call:
+
+jobs:
+  test:
+    name: 🧪 Test (${{ matrix.shard }}/${{ strategy.job-total }})
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1]
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+
+      - name: 🧱 Node Setup
+        if: ${{ !env.ACT }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "yarn"
+
+      - run: yarn --version || npm install --location=global yarn
+        name: 🔗 Install yarn
+
+      - name: 🗄️ Dependency Module Cache
+        uses: actions/cache@v3
+        id: module-cache
+        with:
+          path: "**/node_modules"
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
+
+      - name: 🔗 Dependency installation
+        if: steps.module-cache.outputs.cache-hit != 'true'
+        run: yarn install
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
+
+      - name: 🧪 Run API tests
+        run: yarn workspace @myhill-cycling/astra-web.api test --shard=${{ matrix.shard }}/${{ strategy.job-total }} 

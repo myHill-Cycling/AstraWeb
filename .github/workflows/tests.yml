@@ -16,6 +16,9 @@ jobs:
       - name: 📥 Checkout
         uses: actions/checkout@v3     
 
+      - run: yarn --version || npm install -g yarn
+        name: 🔗 Install yarn
+
       - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
         uses: actions/setup-node@v3
@@ -25,14 +28,13 @@ jobs:
 
       - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
+        id: module-cache
         with:
           path: "**/node_modules"
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
-      - run: yarn --version || npm install -g yarn
-        name: 🔗 Install yarn
-
-      - name: 🔗 Install dependencies
+      - name: 🔗 Dependency installation
+        if: steps.module-cache.outputs.cache-hit != 'true'
         run: yarn install
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
@@ -78,7 +80,7 @@ jobs:
       # paywright to install everything for us.
       - name: 🌐 Install Playwright's dependencies
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
+        run: npx playwright install
 
   test:
     name: 🧪 Test (${{ matrix.shard }}/${{ strategy.job-total }})
@@ -100,10 +102,6 @@ jobs:
           path: '~/.cache/ms-playwright'
           key: '${{needs.install.outputs.PlaywrightCache}}'
 
-      #We have the browser binaries but annoyingly this doesn't include any host dependencies
-      - name: 🌐 Install Playwright's dependencies
-        run: npx playwright install --with-deps
-
       - name: 🧱 Node Setup
         if: ${{ !env.ACT }}
         uses: actions/setup-node@v3
@@ -116,17 +114,23 @@ jobs:
 
       - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
+        id: module-cache
         with:
           path: "**/node_modules"
-          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"      
+          key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
-      - name: 🔗 Install dependencies
+      - name: 🔗 Dependency installation
+        if: steps.module-cache.outputs.cache-hit != 'true'
         run: yarn install
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
+      #We have the browser binaries but annoyingly this doesn't include any host dependencies
+      - name: 🌐 Install Playwright's dependencies
+        run: sudo apt-get update && npx playwright install --with-deps
+
       - name: 🧪 Run Playwright tests
-        run: yarn test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+        run: yarn workspace @myhill-cycling/astra-web.site test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
         env:
           TEST_URL: ${{ inputs.DeploymentUrl }}
 
@@ -134,12 +138,12 @@ jobs:
         name: 🛑 Upload failures
         if: failure()
         with:
-          name: playwright-results-${{ matrix.shard }}_${{ strategy.job-total }}
+          name: ./site/playwright-results-${{ matrix.shard }}_${{ strategy.job-total }}
           path: test-results
       
       - uses: actions/upload-artifact@v3
         name: 📋 Upload report
         if: always()
         with:
-          name: playwright-report-${{ matrix.shard }}_${{ strategy.job-total }}
+          name: ./site/playwright-report-${{ matrix.shard }}_${{ strategy.job-total }}
           path: playwright-report

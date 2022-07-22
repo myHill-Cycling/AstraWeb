@@ -1,10 +1,20 @@
+const baseUrl = process.env.LIGHTHOUSE_BASE_URL ?? "https://127.0.0.1:4280/";
+
 module.exports = {
     ci: {
       collect: {
         // collect options here
         settings: {
-            chromeFlags: "--no-sandbox"
-        }
+			
+        },
+		url: [
+			new URL("/", baseUrl),
+			new URL("/contact.html", baseUrl),
+			new URL("/400.html", baseUrl),
+			new URL("/401.html", baseUrl),
+			new URL("/403.html", baseUrl),
+			new URL("/404.html", baseUrl)
+		]
       },
       assert: {
         preset: 'lighthouse:no-pwa',
@@ -14,10 +24,10 @@ module.exports = {
           "uses-long-cache-ttl": "off",
           "csp-xss": "off", //CSP handled in server outside of lighthouse
           "legacy-javascript": "off", //JavaScript is generated from Astro and can't be developer controlled
+		  "unused-css-rules": "off",
+          "unused-javascript": "off",
           "image-size-responsive": "warn", //We don't have any high resolution images avaliable
           "uses-responsive-images": "warn", //Ditto
-          "unused-css-rules": "off", //False positives due to GTM scripts
-          "unused-javascript": "off"
         }
       },
       upload: {

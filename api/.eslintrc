@@ -1,0 +1,21 @@
+{
+	"extends": [
+		
+	],
+	"plugins": ["jest"],
+	"env": {
+		"jest/globals": true
+	  },
+	"overrides": [
+		{
+			"files": ["*.ts"],
+			"parser": "@typescript-eslint/parser",
+			"parserOptions": {
+				"project": ["./tsconfig.eslint.json"]
+			},
+			"rules": {
+				"@typescript-eslint/no-floating-promises": ["error", { "ignoreVoid": true }]
+			}
+		}
+	]
+}

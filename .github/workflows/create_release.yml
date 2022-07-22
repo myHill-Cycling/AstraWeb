@@ -16,13 +16,15 @@ on:
 
 jobs:
 
-  build_website:
-    uses: ./.github/workflows/build_artifact.yml
-
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      site: "https://myhill.vespion.dev/"
+  
   release:
     name: 📦 Package Website
     runs-on: ubuntu-latest
-    needs: [build_website]
+    needs: [build]
     steps:
       - name: 🛡️ Get Token
         id: get_workflow_token
@@ -55,21 +57,29 @@ jobs:
 
       - name: 🗄️ Dependency Module Cache
         uses: actions/cache@v3
+        id: module-cache
         with:
           path: "**/node_modules"
           key: "${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}"
 
       - name: 🔗 Dependency installation
+        if: steps.module-cache.outputs.cache-hit != 'true'
         run: yarn install
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: true
 
-      - name: 📦 Download build artifact
+      - name: 📦 Download site artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ needs.build_website.outputs.WebsiteArtifactName }}
+          name: ${{ needs.build.outputs.website_artifact }}
           # download all files into "dist" folder
           path: dist
+
+      - name: 📦 Download API artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ needs.build.outputs.api_artifact }}
+          path: dist-api
 
       - name: 📫 Archive distribution
         run: "cd ./dist && zip -v -r ../static_site.zip . ; cd .."
@@ -79,3 +89,20 @@ jobs:
         run: yarn semantic-release
         env:
           GH_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+
+      - name: 🚀 Deploy to Azure
+        id: deploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "./dist" # App source code path
+          api_location: "./dist-api" # Api source code path - optional
+          output_location: "" # Built app content directory - optional
+          skip_app_build: true
+          skip_api_build: true
+          skip_deploy_on_missing_secrets: true
+          ###### End of Repository/Build Configurations ######

@@ -1,0 +1,63 @@
+---
+import Header from "@components/shell/header.astro";
+import Footer from "@components/shell/footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<!-- <GtmHead /> -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;1,200;1,300&display=swap" rel="style">
+		<meta name="viewport" content="width=device-width" />
+		<slot name="head" />
+		<script>            
+			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+			console.debug("Loading color theme");
+			const colourTheme = localStorage.getItem("color-theme");            
+			if (colourTheme === "dark")
+			{
+				console.debug("Explicit dark mode");
+				document.documentElement.classList.add("dark");
+			} else {
+				const darkModeMedia = window.matchMedia("(prefers-color-scheme: dark)").matches;
+				if (darkModeMedia) {
+					console.debug("Implicit dark mode");
+					document.documentElement.classList.add("dark");
+				}
+				else {
+					if(colourTheme === "light") {
+						console.debug("Explicit light mode");
+					}
+					else{
+						console.debug("Implicit light mode");
+					}
+					document.documentElement.classList.remove("dark");
+				}
+			}
+		</script>
+		<script>
+			import { registerSW } from "virtual:pwa-register";
+
+			registerSW({
+				onNeedRefresh() {
+					console.warn("Service Worker needs refresh");
+				},
+				onOfflineReady() {
+					console.info("Service Worker ready for offline use");
+				}
+			});
+		</script>
+	</head>
+	<body class="dark:bg-black flex flex-col h-screen transition-colors">
+		<!-- <GtmFoot /> -->
+		<Header />
+		<div class="flex-grow">
+			<slot />
+		</div>
+		<Footer />
+		<script> import "flowbite"; </script>
+	</body>
+</html>
