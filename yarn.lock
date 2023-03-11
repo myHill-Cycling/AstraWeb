@@ -2252,7 +2252,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.30.7
     "@typescript-eslint/parser": 5.30.7
     astro: 1.0.0-beta.72
-    astro-critters: 0.0.9
+    astro-critters: 0.0.11
     astro-eslint-parser: 0.4.0
     astro-icon: 0.7.1
     astro-robots-txt: 0.3.7
@@ -3887,13 +3887,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-critters@npm:0.0.9":
-  version: 0.0.9
-  resolution: "astro-critters@npm:0.0.9"
+"astro-critters@npm:0.0.11":
+  version: 0.0.11
+  resolution: "astro-critters@npm:0.0.11"
   dependencies:
     critters: 0.0.16
+    deepmerge-ts: 4.2.1
     fast-glob: 3.2.11
-  checksum: b57fdd478966293b83853a917a451ca4f590518373701d433e40774d167bb514f4803d37490e45eae858fe95091a1a745c0eb08f3b4047153fb343dfc4f7387f
+  checksum: f465f292ca19a3d87aebf30bd8d08035a70d1209e5def2b35afd2ec7fe9a2f6d1db9ff38f55b9e020e2ca73c9f6c646c1b07f29a0d8de5f79545a3eac1925d59
   languageName: node
   linkType: hard
 
@@ -5455,6 +5456,13 @@ __metadata:
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
   checksum: edb65dd0d7d1b9c40b2f50219aef30e116cedd6fc79290e740972c132c09106d2e80aa0bc8826673dd5a00222d4179c84b36a790eef63a4c4bca75a37ef90804
+  languageName: node
+  linkType: hard
+
+"deepmerge-ts@npm:4.2.1":
+  version: 4.2.1
+  resolution: "deepmerge-ts@npm:4.2.1"
+  checksum: 5fb2f4a6b0f2a637992ba226cb89c28b081575489f1adfcd6789d95bdfb5b8236c8c5aafc02e645fd04f16101bf7c3f3e7c58e523579c635649eb36cb113a3bb
   languageName: node
   linkType: hard
 
