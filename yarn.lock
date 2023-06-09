@@ -2254,7 +2254,7 @@ __metadata:
     astro: 1.0.0-beta.72
     astro-critters: 0.0.9
     astro-eslint-parser: 0.4.0
-    astro-icon: 0.7.1
+    astro-icon: 0.8.1
     astro-robots-txt: 0.3.7
     astro-seo: 0.5.0
     astro-webmanifest: 0.3.4
@@ -3913,14 +3913,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro-icon@npm:0.7.1":
-  version: 0.7.1
-  resolution: "astro-icon@npm:0.7.1"
+"astro-icon@npm:0.8.1":
+  version: 0.8.1
+  resolution: "astro-icon@npm:0.8.1"
   dependencies:
     node-fetch: ^3.1.0
     resolve-pkg: ^2.0.0
     svgo: ^2.8.0
-  checksum: 995b3fe94932e639454e79bb573221a9e3c732ba7ff91ec5618f527fe07b26feaba664872b43d04f7d2515fd7ea4c3eb9399f6ad808cfd6d3ed1cf312bbc2ee8
+  checksum: 52a68de4e85d544ca01023908b2733e6b42a585a06c467568c5fea5e03000eff57163e32012105ea275b09e67bf54acd5d6dbab21fa77ee45fedbe379d73c333
   languageName: node
   linkType: hard
 
