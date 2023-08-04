@@ -2271,7 +2271,7 @@ __metadata:
     eslint-plugin-jsx-a11y: 6.6.0
     eslint-plugin-react: 7.30.1
     eslint-plugin-react-hooks: 4.6.0
-    flowbite: 1.4.7
+    flowbite: 1.8.1
     glob: 8.0.3
     husky: 8.0.1
     lint-staged: 13.0.3
@@ -7082,13 +7082,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flowbite@npm:1.4.7":
-  version: 1.4.7
-  resolution: "flowbite@npm:1.4.7"
+"flowbite@npm:1.8.1":
+  version: 1.8.1
+  resolution: "flowbite@npm:1.8.1"
   dependencies:
     "@popperjs/core": ^2.9.3
     mini-svg-data-uri: ^1.4.3
-  checksum: 14bd832553e430a4c53bfdb24e135058ef1e2051bc9aa7ee9dc75d2c2cbdecfce4055607194a5742c6f067314a383d4d955e007d667d6c51900c93b54661921f
+  checksum: 51fa33656082ae15e66fefdf595d76cad4e7d80795d5c4174e4cfcb56bd03d867a11d42fe83a6adc1272a895edd657a76b6bdad8ccf86781d9bf34a85c516525
   languageName: node
   linkType: hard
 
